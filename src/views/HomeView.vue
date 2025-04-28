@@ -22,16 +22,14 @@ import '@/assets/styles.css'
 
       <!--Recently Read Menu-->
       <div class="container my-3">
-        <div class="row">
-          <div class="col my-3">
-            <h2><b>Recently Read</b></h2>
-          </div>
+        <div class="row align-items-center">
           <div class="col">
-            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-              <button class="btn btn-primary" type="button">
-                <i class="bi bi-arrow-right-circle"></i>
-              </button>
-            </div>
+            <h2 class="mb-0"><b>Recently Read</b></h2>
+          </div>
+          <div class="col-auto">
+            <button class="btn btn-primary btn-sm" type="button">
+              <i class="bi bi-arrow-right"></i>
+            </button>
           </div>
         </div>
         <div class="scrolling-wrapper">
@@ -88,16 +86,14 @@ import '@/assets/styles.css'
 
       <!--New Added Menu-->
       <div class="container my-3">
-        <div class="row">
-          <div class="col my-3">
-            <h2><b>New Added</b></h2>
-          </div>
+        <div class="row align-items-center">
           <div class="col">
-            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-              <button class="btn btn-primary" type="button">
-                <i class="bi bi-arrow-right-circle"></i>
-              </button>
-            </div>
+            <h2 class="mb-0"><b>New Added</b></h2>
+          </div>
+          <div class="col-auto">
+            <button class="btn btn-primary btn-sm" type="button">
+              <i class="bi bi-arrow-right"></i>
+            </button>
           </div>
         </div>
         <div class="scrolling-wrapper">
@@ -154,27 +150,17 @@ import '@/assets/styles.css'
 
       <!--Categories Menu-->
       <div class="container my-3">
-        <div class="row">
-          <div class="col my-3">
-            <h2><b>Categories</b></h2>
-          </div>
+        <div class="row align-items-center">
           <div class="col">
-            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-              <button class="btn btn-primary" type="button">
-                <i class="bi bi-arrow-right-circle"></i>
-              </button>
-            </div>
+            <h2 class="mb-0"><b>Categories</b></h2>
+          </div>
+          <div class="col-auto">
+            <button class="btn btn-primary btn-sm" type="button">
+              <i class="bi bi-arrow-right"></i>
+            </button>
           </div>
         </div>
         <div class="scrolling-wrapper">
-          <div class="card-container">
-            <div class="card">
-              <img src="#" class="card-img-top" />
-              <div class="card-body">
-                <h5 class="card-title text-center">Book Title</h5>
-              </div>
-            </div>
-          </div>
           <div class="card-container">
             <div class="card">
               <img src="#" class="card-img-top" />
@@ -224,31 +210,33 @@ import '@/assets/styles.css'
 
     <!--Navigation Bar: Bottom Menu-->
     <nav class="navbar fixed-bottom bottom-navbar">
-      <div class="container-fluid d-flex justify-content-around">
-        <a href="#" class="nav-item text-center text-decoration-none">
-          <i class="bi bi-house-door fs-4"></i>
-          <div>Home</div>
-        </a>
-        <a href="#" class="nav-item text-center text-decoration-none">
-          <i class="bi bi-book fs-4"></i>
-          <div>Offline</div>
-        </a>
-        <a href="#" class="nav-item text-center text-decoration-none">
-          <i class="bi bi-heart fs-4"></i>
-          <div>Favorites</div>
-        </a>
-        <a href="#" class="nav-item text-center text-decoration-none">
-          <i class="bi bi-bookmark fs-4"></i>
-          <div>Bookmarks</div>
-        </a>
-        <a href="#" class="nav-item text-center text-decoration-none">
-          <i class="bi bi-bell fs-4"></i>
-          <div>Notification</div>
-        </a>
-        <a href="#" class="nav-item text-center text-decoration-none">
-          <i class="bi bi-gear fs-4"></i>
-          <div>Settings</div>
-        </a>
+      <div class="container-fluid px-2">
+        <div class="row w-100 justify-content-between mx-0">
+          <a href="#" class="nav-item col text-center text-decoration-none">
+            <i class="bi bi-house-door"></i>
+            <span class="nav-label">Home</span>
+          </a>
+          <a href="#" class="nav-item col text-center text-decoration-none">
+            <i class="bi bi-book"></i>
+            <span class="nav-label">Offline</span>
+          </a>
+          <a href="#" class="nav-item col text-center text-decoration-none">
+            <i class="bi bi-heart"></i>
+            <span class="nav-label">Favorites</span>
+          </a>
+          <a href="#" class="nav-item col text-center text-decoration-none">
+            <i class="bi bi-bookmark"></i>
+            <span class="nav-label">Bookmarks</span>
+          </a>
+          <a href="#" class="nav-item col text-center text-decoration-none">
+            <i class="bi bi-bell"></i>
+            <span class="nav-label">Notification</span>
+          </a>
+          <a href="#" class="nav-item col text-center text-decoration-none">
+            <i class="bi bi-gear"></i>
+            <span class="nav-label">Settings</span>
+          </a>
+        </div>
       </div>
     </nav>
   </div>
