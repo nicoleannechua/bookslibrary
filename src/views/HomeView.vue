@@ -1,5 +1,6 @@
 <script setup>
 import '@/assets/styles.css'
+import booksLibraryLogoElement from '@/assets/image/booksLibraryLogoElement.png'
 </script>
 
 <template>
@@ -8,7 +9,7 @@ import '@/assets/styles.css'
       <!--Navigation Bar: Brand-->
       <nav class="navbar bg-body-tertiary">
         <div class="container-fluid">
-          <h1 class="navbar-brand pt-2"><b>BooksLibrary</b></h1>
+          <img :src="booksLibraryLogoElement" alt="Bootstrap" width="30" height="40">
         </div>
       </nav>
 
