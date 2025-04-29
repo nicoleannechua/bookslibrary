@@ -77,18 +77,45 @@
 
 .card-container {
   display: inline-block;
-  width: 250px; /* Adjust card width as needed */
+  width: 180px; /* Adjusted width */
   margin-right: 15px;
 }
 
 .card {
-  white-space: normal;
   height: 100%;
+  border: none;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .card-img-top {
-  height: 200px; /* Adjust image height as needed */
-  object-fit: cover;
+  width: 100%;
+  height: 260px; /* Fixed height for consistent image size */
+  object-fit: cover; /* This ensures the image covers the area without distortion */
+}
+
+.card-body {
+  padding: 0.8rem;
+}
+
+.card-title {
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+}
+
+.card-text {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .card-container {
+    width: 150px; /* Slightly smaller on mobile */
+  }
+
+  .card-img-top {
+    height: 220px;
+  }
 }
 
 /* Bottom spacer for fixed navbar */
@@ -103,7 +130,7 @@
 }
 
 .nav-item:hover {
-  color: #2b5d7d; /* Darker shade for hover state */
+  color: #18425d; /* Darker shade for hover state */
 }
 
 .navbar.bg-body-tertiary {
@@ -116,7 +143,7 @@
   flex-direction: column;
   align-items: center;
   gap: 4px;
-  color: #4a4a4a;
+  color: #30739c;
 }
 
 .nav-item i {
@@ -259,7 +286,8 @@
   min-height: 100vh;
 }
 
-.login-card, .signup-card {
+.login-card,
+.signup-card {
   background-color: white;
   border: none;
   border-radius: 12px;

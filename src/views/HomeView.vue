@@ -1,6 +1,8 @@
 <script setup>
 import '@/assets/styles.css'
-import booksLibraryLogoElement from '@/assets/image/booksLibraryLogoElement.png'
+import booksLibraryLogoOutlineBlue from '@/assets/image/booksLibraryLogoOutlineBlue.png'
+import beforeTheRain from '@/assets/image/beforeTheRain.png'
+import cherishedMoment from '@/assets/image/cherishedMoment.png'
 </script>
 
 <template>
@@ -8,8 +10,8 @@ import booksLibraryLogoElement from '@/assets/image/booksLibraryLogoElement.png'
     <div class="scrollable-content">
       <!--Navigation Bar: Brand-->
       <nav class="navbar bg-body-tertiary">
-        <div class="container-fluid">
-          <img :src="booksLibraryLogoElement" alt="Bootstrap" width="30" height="40" />
+        <div class="container-fluid px-3 py-2">
+          <img :src="booksLibraryLogoOutlineBlue" alt="Bootstrap" width="30" height="40" />
         </div>
       </nav>
 
@@ -36,19 +38,39 @@ import booksLibraryLogoElement from '@/assets/image/booksLibraryLogoElement.png'
         <div class="scrolling-wrapper">
           <div class="card-container">
             <div class="card">
-              <img src="#" class="card-img-top" />
+              <img :src="beforeTheRain" class="card-img-top" />
+              <div
+                class="progress"
+                role="progressbar"
+                aria-label="Basic example"
+                aria-valuenow="25"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
+                <div class="progress-bar" style="width: 25%"></div>
+              </div>
               <div class="card-body">
-                <h5 class="card-title text-center">Book Title</h5>
-                <p class="card-text text-center">Author Name</p>
+                <h5 class="card-title text-center">Before the Rain</h5>
+                <p class="card-text text-center">Samira Hadid</p>
               </div>
             </div>
           </div>
           <div class="card-container">
             <div class="card">
-              <img src="#" class="card-img-top" />
+              <img :src="cherishedMoment" class="card-img-top" />
+              <div
+                class="progress"
+                role="progressbar"
+                aria-label="Basic example"
+                aria-valuenow="45"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
+                <div class="progress-bar" style="width: 45%"></div>
+              </div>
               <div class="card-body">
-                <h5 class="card-title text-center">Book Title</h5>
-                <p class="card-text text-center">Author Name</p>
+                <h5 class="card-title text-center">Cherished Moment</h5>
+                <p class="card-text text-center">Alfredo Torres</p>
               </div>
             </div>
           </div>
