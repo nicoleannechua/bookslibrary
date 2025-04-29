@@ -9,7 +9,7 @@ import booksLibraryLogoElement from '@/assets/image/booksLibraryLogoElement.png'
       <!--Navigation Bar: Brand-->
       <nav class="navbar bg-body-tertiary">
         <div class="container-fluid">
-          <img :src="booksLibraryLogoElement" alt="Bootstrap" width="30" height="40">
+          <img :src="booksLibraryLogoElement" alt="Bootstrap" width="30" height="40" />
         </div>
       </nav>
 
@@ -39,6 +39,7 @@ import booksLibraryLogoElement from '@/assets/image/booksLibraryLogoElement.png'
               <img src="#" class="card-img-top" />
               <div class="card-body">
                 <h5 class="card-title text-center">Book Title</h5>
+                <p class="card-text text-center">Author Name</p>
               </div>
             </div>
           </div>
@@ -47,6 +48,7 @@ import booksLibraryLogoElement from '@/assets/image/booksLibraryLogoElement.png'
               <img src="#" class="card-img-top" />
               <div class="card-body">
                 <h5 class="card-title text-center">Book Title</h5>
+                <p class="card-text text-center">Author Name</p>
               </div>
             </div>
           </div>
@@ -55,6 +57,7 @@ import booksLibraryLogoElement from '@/assets/image/booksLibraryLogoElement.png'
               <img src="#" class="card-img-top" />
               <div class="card-body">
                 <h5 class="card-title text-center">Book Title</h5>
+                <p class="card-text text-center">Author Name</p>
               </div>
             </div>
           </div>
@@ -63,6 +66,7 @@ import booksLibraryLogoElement from '@/assets/image/booksLibraryLogoElement.png'
               <img src="#" class="card-img-top" />
               <div class="card-body">
                 <h5 class="card-title text-center">Book Title</h5>
+                <p class="card-text text-center">Author Name</p>
               </div>
             </div>
           </div>
@@ -71,6 +75,7 @@ import booksLibraryLogoElement from '@/assets/image/booksLibraryLogoElement.png'
               <img src="#" class="card-img-top" />
               <div class="card-body">
                 <h5 class="card-title text-center">Book Title</h5>
+                <p class="card-text text-center">Author Name</p>
               </div>
             </div>
           </div>
@@ -79,6 +84,7 @@ import booksLibraryLogoElement from '@/assets/image/booksLibraryLogoElement.png'
               <img src="#" class="card-img-top" />
               <div class="card-body">
                 <h5 class="card-title text-center">Book Title</h5>
+                <p class="card-text text-center">Author Name</p>
               </div>
             </div>
           </div>
@@ -103,6 +109,7 @@ import booksLibraryLogoElement from '@/assets/image/booksLibraryLogoElement.png'
               <img src="#" class="card-img-top" />
               <div class="card-body">
                 <h5 class="card-title text-center">Book Title</h5>
+                <p class="card-text text-center">Author Name</p>
               </div>
             </div>
           </div>
@@ -111,6 +118,7 @@ import booksLibraryLogoElement from '@/assets/image/booksLibraryLogoElement.png'
               <img src="#" class="card-img-top" />
               <div class="card-body">
                 <h5 class="card-title text-center">Book Title</h5>
+                <p class="card-text text-center">Author Name</p>
               </div>
             </div>
           </div>
@@ -119,6 +127,7 @@ import booksLibraryLogoElement from '@/assets/image/booksLibraryLogoElement.png'
               <img src="#" class="card-img-top" />
               <div class="card-body">
                 <h5 class="card-title text-center">Book Title</h5>
+                <p class="card-text text-center">Author Name</p>
               </div>
             </div>
           </div>
@@ -127,6 +136,7 @@ import booksLibraryLogoElement from '@/assets/image/booksLibraryLogoElement.png'
               <img src="#" class="card-img-top" />
               <div class="card-body">
                 <h5 class="card-title text-center">Book Title</h5>
+                <p class="card-text text-center">Author Name</p>
               </div>
             </div>
           </div>
@@ -135,6 +145,7 @@ import booksLibraryLogoElement from '@/assets/image/booksLibraryLogoElement.png'
               <img src="#" class="card-img-top" />
               <div class="card-body">
                 <h5 class="card-title text-center">Book Title</h5>
+                <p class="card-text text-center">Author Name</p>
               </div>
             </div>
           </div>
@@ -143,6 +154,7 @@ import booksLibraryLogoElement from '@/assets/image/booksLibraryLogoElement.png'
               <img src="#" class="card-img-top" />
               <div class="card-body">
                 <h5 class="card-title text-center">Book Title</h5>
+                <p class="card-text text-center">Author Name</p>
               </div>
             </div>
           </div>
@@ -167,6 +179,7 @@ import booksLibraryLogoElement from '@/assets/image/booksLibraryLogoElement.png'
               <img src="#" class="card-img-top" />
               <div class="card-body">
                 <h5 class="card-title text-center">Book Title</h5>
+                <p class="card-text text-center">Author Name</p>
               </div>
             </div>
           </div>
@@ -175,6 +188,7 @@ import booksLibraryLogoElement from '@/assets/image/booksLibraryLogoElement.png'
               <img src="#" class="card-img-top" />
               <div class="card-body">
                 <h5 class="card-title text-center">Book Title</h5>
+                <p class="card-text text-center">Author Name</p>
               </div>
             </div>
           </div>
@@ -183,6 +197,7 @@ import booksLibraryLogoElement from '@/assets/image/booksLibraryLogoElement.png'
               <img src="#" class="card-img-top" />
               <div class="card-body">
                 <h5 class="card-title text-center">Book Title</h5>
+                <p class="card-text text-center">Author Name</p>
               </div>
             </div>
           </div>
@@ -191,6 +206,7 @@ import booksLibraryLogoElement from '@/assets/image/booksLibraryLogoElement.png'
               <img src="#" class="card-img-top" />
               <div class="card-body">
                 <h5 class="card-title text-center">Book Title</h5>
+                <p class="card-text text-center">Author Name</p>
               </div>
             </div>
           </div>
@@ -199,6 +215,16 @@ import booksLibraryLogoElement from '@/assets/image/booksLibraryLogoElement.png'
               <img src="#" class="card-img-top" />
               <div class="card-body">
                 <h5 class="card-title text-center">Book Title</h5>
+                <p class="card-text text-center">Author Name</p>
+              </div>
+            </div>
+          </div>
+          <div class="card-container">
+            <div class="card">
+              <img src="#" class="card-img-top" />
+              <div class="card-body">
+                <h5 class="card-title text-center">Book Title</h5>
+                <p class="card-text text-center">Author Name</p>
               </div>
             </div>
           </div>
