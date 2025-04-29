@@ -3,6 +3,10 @@ import '@/assets/styles.css'
 import booksLibraryLogoOutlineBlue from '@/assets/image/booksLibraryLogoOutlineBlue.png'
 import beforeTheRain from '@/assets/image/beforeTheRain.png'
 import cherishedMoment from '@/assets/image/cherishedMoment.png'
+import dreams from '@/assets/image/dreams.png'
+import findingMyselfAgain from '@/assets/image/findingMyselfAgain.png'
+import firstLove from '@/assets/image/firstLove.png'
+import loveWithoutLimits from '@/assets/image/loveWithoutLimits.png'
 </script>
 
 <template>
@@ -50,8 +54,7 @@ import cherishedMoment from '@/assets/image/cherishedMoment.png'
                 <div class="progress-bar" style="width: 25%"></div>
               </div>
               <div class="card-body">
-                <h5 class="card-title text-center">Before the Rain</h5>
-                <p class="card-text text-center">Samira Hadid</p>
+                <h5 class="card-title">Before the Rain</h5>
               </div>
             </div>
           </div>
@@ -69,44 +72,79 @@ import cherishedMoment from '@/assets/image/cherishedMoment.png'
                 <div class="progress-bar" style="width: 45%"></div>
               </div>
               <div class="card-body">
-                <h5 class="card-title text-center">Cherished Moment</h5>
-                <p class="card-text text-center">Alfredo Torres</p>
+                <h5 class="card-title">Cherished Moment</h5>
               </div>
             </div>
           </div>
           <div class="card-container">
             <div class="card">
-              <img src="#" class="card-img-top" />
+              <img :src="dreams" class="card-img-top" />
+              <div
+                class="progress"
+                role="progressbar"
+                aria-label="Basic example"
+                aria-valuenow="15"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
+                <div class="progress-bar" style="width: 15%"></div>
+              </div>
               <div class="card-body">
-                <h5 class="card-title text-center">Book Title</h5>
-                <p class="card-text text-center">Author Name</p>
+                <h5 class="card-title">Dreams</h5>
               </div>
             </div>
           </div>
           <div class="card-container">
             <div class="card">
-              <img src="#" class="card-img-top" />
+              <img :src="findingMyselfAgain" class="card-img-top" />
+              <div
+                class="progress"
+                role="progressbar"
+                aria-label="Basic example"
+                aria-valuenow="78"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
+                <div class="progress-bar" style="width: 78%"></div>
+              </div>
               <div class="card-body">
-                <h5 class="card-title text-center">Book Title</h5>
-                <p class="card-text text-center">Author Name</p>
+                <h5 class="card-title">Finding Myself Again</h5>
               </div>
             </div>
           </div>
           <div class="card-container">
             <div class="card">
-              <img src="#" class="card-img-top" />
+              <img :src="firstLove" class="card-img-top" />
+              <div
+                class="progress"
+                role="progressbar"
+                aria-label="Basic example"
+                aria-valuenow="10"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
+                <div class="progress-bar" style="width: 10%"></div>
+              </div>
               <div class="card-body">
-                <h5 class="card-title text-center">Book Title</h5>
-                <p class="card-text text-center">Author Name</p>
+                <h5 class="card-title">First Love</h5>
               </div>
             </div>
           </div>
           <div class="card-container">
             <div class="card">
-              <img src="#" class="card-img-top" />
+              <img :src="loveWithoutLimits" class="card-img-top" />
+              <div
+                class="progress"
+                role="progressbar"
+                aria-label="Basic example"
+                aria-valuenow="100"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
+                <div class="progress-bar" style="width: 100%"></div>
+              </div>
               <div class="card-body">
-                <h5 class="card-title text-center">Book Title</h5>
-                <p class="card-text text-center">Author Name</p>
+                <h5 class="card-title">Love Without Limits</h5>
               </div>
             </div>
           </div>
@@ -115,7 +153,7 @@ import cherishedMoment from '@/assets/image/cherishedMoment.png'
 
       <!--New Added Menu-->
       <div class="container my-3">
-        <div class="row align-items-center">
+        <div class="row align-items">
           <div class="col">
             <h2 class="mb-0"><b>New Added</b></h2>
           </div>
@@ -130,8 +168,7 @@ import cherishedMoment from '@/assets/image/cherishedMoment.png'
             <div class="card">
               <img src="#" class="card-img-top" />
               <div class="card-body">
-                <h5 class="card-title text-center">Book Title</h5>
-                <p class="card-text text-center">Author Name</p>
+                <h5 class="card-title">Book Title</h5>
               </div>
             </div>
           </div>
@@ -139,8 +176,7 @@ import cherishedMoment from '@/assets/image/cherishedMoment.png'
             <div class="card">
               <img src="#" class="card-img-top" />
               <div class="card-body">
-                <h5 class="card-title text-center">Book Title</h5>
-                <p class="card-text text-center">Author Name</p>
+                <h5 class="card-title">Book Title</h5>
               </div>
             </div>
           </div>
@@ -148,8 +184,7 @@ import cherishedMoment from '@/assets/image/cherishedMoment.png'
             <div class="card">
               <img src="#" class="card-img-top" />
               <div class="card-body">
-                <h5 class="card-title text-center">Book Title</h5>
-                <p class="card-text text-center">Author Name</p>
+                <h5 class="card-title">Book Title</h5>
               </div>
             </div>
           </div>
@@ -157,8 +192,7 @@ import cherishedMoment from '@/assets/image/cherishedMoment.png'
             <div class="card">
               <img src="#" class="card-img-top" />
               <div class="card-body">
-                <h5 class="card-title text-center">Book Title</h5>
-                <p class="card-text text-center">Author Name</p>
+                <h5 class="card-title">Book Title</h5>
               </div>
             </div>
           </div>
@@ -166,8 +200,7 @@ import cherishedMoment from '@/assets/image/cherishedMoment.png'
             <div class="card">
               <img src="#" class="card-img-top" />
               <div class="card-body">
-                <h5 class="card-title text-center">Book Title</h5>
-                <p class="card-text text-center">Author Name</p>
+                <h5 class="card-title">Book Title</h5>
               </div>
             </div>
           </div>
@@ -175,8 +208,7 @@ import cherishedMoment from '@/assets/image/cherishedMoment.png'
             <div class="card">
               <img src="#" class="card-img-top" />
               <div class="card-body">
-                <h5 class="card-title text-center">Book Title</h5>
-                <p class="card-text text-center">Author Name</p>
+                <h5 class="card-title">Book Title</h5>
               </div>
             </div>
           </div>
@@ -200,8 +232,7 @@ import cherishedMoment from '@/assets/image/cherishedMoment.png'
             <div class="card">
               <img src="#" class="card-img-top" />
               <div class="card-body">
-                <h5 class="card-title text-center">Book Title</h5>
-                <p class="card-text text-center">Author Name</p>
+                <h5 class="card-title">Book Title</h5>
               </div>
             </div>
           </div>
@@ -209,8 +240,7 @@ import cherishedMoment from '@/assets/image/cherishedMoment.png'
             <div class="card">
               <img src="#" class="card-img-top" />
               <div class="card-body">
-                <h5 class="card-title text-center">Book Title</h5>
-                <p class="card-text text-center">Author Name</p>
+                <h5 class="card-title">Book Title</h5>
               </div>
             </div>
           </div>
@@ -218,8 +248,7 @@ import cherishedMoment from '@/assets/image/cherishedMoment.png'
             <div class="card">
               <img src="#" class="card-img-top" />
               <div class="card-body">
-                <h5 class="card-title text-center">Book Title</h5>
-                <p class="card-text text-center">Author Name</p>
+                <h5 class="card-title">Book Title</h5>
               </div>
             </div>
           </div>
@@ -227,8 +256,7 @@ import cherishedMoment from '@/assets/image/cherishedMoment.png'
             <div class="card">
               <img src="#" class="card-img-top" />
               <div class="card-body">
-                <h5 class="card-title text-center">Book Title</h5>
-                <p class="card-text text-center">Author Name</p>
+                <h5 class="card-title">Book Title</h5>
               </div>
             </div>
           </div>
@@ -236,8 +264,7 @@ import cherishedMoment from '@/assets/image/cherishedMoment.png'
             <div class="card">
               <img src="#" class="card-img-top" />
               <div class="card-body">
-                <h5 class="card-title text-center">Book Title</h5>
-                <p class="card-text text-center">Author Name</p>
+                <h5 class="card-title">Book Title</h5>
               </div>
             </div>
           </div>
@@ -245,8 +272,7 @@ import cherishedMoment from '@/assets/image/cherishedMoment.png'
             <div class="card">
               <img src="#" class="card-img-top" />
               <div class="card-body">
-                <h5 class="card-title text-center">Book Title</h5>
-                <p class="card-text text-center">Author Name</p>
+                <h5 class="card-title">Book Title</h5>
               </div>
             </div>
           </div>
@@ -261,27 +287,27 @@ import cherishedMoment from '@/assets/image/cherishedMoment.png'
     <nav class="navbar fixed-bottom bottom-navbar">
       <div class="container-fluid px-2">
         <div class="row w-100 justify-content-between mx-0">
-          <a href="#" class="nav-item col text-center text-decoration-none">
+          <a href="#" class="nav-item col text-Author Name text-decoration-none">
             <i class="bi bi-house-door"></i>
             <span class="nav-label">Home</span>
           </a>
-          <a href="#" class="nav-item col text-center text-decoration-none">
+          <a href="#" class="nav-item col text-Author Name text-decoration-none">
             <i class="bi bi-book"></i>
             <span class="nav-label">Offline</span>
           </a>
-          <a href="#" class="nav-item col text-center text-decoration-none">
+          <a href="#" class="nav-item col text-Author Name text-decoration-none">
             <i class="bi bi-heart"></i>
             <span class="nav-label">Favorites</span>
           </a>
-          <a href="#" class="nav-item col text-center text-decoration-none">
+          <a href="#" class="nav-item col text-Author Name text-decoration-none">
             <i class="bi bi-bookmark"></i>
             <span class="nav-label">Bookmarks</span>
           </a>
-          <a href="#" class="nav-item col text-center text-decoration-none">
+          <a href="#" class="nav-item col text-Author Name text-decoration-none">
             <i class="bi bi-bell"></i>
             <span class="nav-label">Notification</span>
           </a>
-          <a href="#" class="nav-item col text-center text-decoration-none">
+          <a href="#" class="nav-item col text-Author Name text-decoration-none">
             <i class="bi bi-gear"></i>
             <span class="nav-label">Settings</span>
           </a>

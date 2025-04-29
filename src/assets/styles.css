@@ -7,17 +7,17 @@
   position: relative;
   height: 100vh;
   overflow: hidden;
-  background-color: #f5f9fc; /* Light background to complement #AFDDFF */
+  background-color: #f5f9fc;
 }
 
 .scrollable-content {
   height: 100%;
   overflow-y: auto;
-  padding-bottom: 76px; /* Adjust based on your navbar height */
+  padding-bottom: 76px;
 }
 
 .bottom-spacer {
-  height: 20px; /* Extra space at the bottom of scrollable content */
+  height: 20px;
 }
 
 /* Bottom navbar styles */
@@ -41,7 +41,7 @@
 /* Card styles */
 .card {
   margin-bottom: 1rem;
-  width: 100% !important; /* Override inline styles */
+  width: 100% !important;
   border-color: #afddff;
   background-color: #ffffff;
 }
@@ -77,8 +77,9 @@
 
 .card-container {
   display: inline-block;
-  width: 180px; /* Adjusted width */
+  width: 180px;
   margin-right: 15px;
+  height: auto;
 }
 
 .card {
@@ -90,27 +91,48 @@
 
 .card-img-top {
   width: 100%;
-  height: 260px; /* Fixed height for consistent image size */
-  object-fit: cover; /* This ensures the image covers the area without distortion */
+  height: 260px;
+  object-fit: cover;
 }
 
 .card-body {
   padding: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 70px;
 }
 
 .card-title {
   font-size: 0.9rem;
   margin-bottom: 0.3rem;
+  text-align: center;
+  width: 100%;
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: auto;
+  line-height: 1.2;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  min-height: 2.4em;
 }
 
 .card-text {
   font-size: 0.8rem;
   color: #666;
+  text-align: center;
+  width: 100%;
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 @media (max-width: 768px) {
   .card-container {
-    width: 150px; /* Slightly smaller on mobile */
+    width: 150px;
   }
 
   .card-img-top {
@@ -359,7 +381,6 @@
 }
 
 /*RouterLink Styles*/
-
 .router-link-active,
 .router-link-exact-active {
   color: inherit;
@@ -368,4 +389,15 @@
 a {
   color: inherit;
   text-decoration: none;
+}
+
+/*Progress Bar Adjustments*/
+.progress {
+  height: 4px !important; /* Make progress bar thinner, default is 16px */
+  margin: 0;
+  border-radius: 0;
+}
+
+.progress-bar {
+  background-color: #2b5d7d; /* Match your theme color */
 }
