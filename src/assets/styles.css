@@ -259,7 +259,7 @@
   min-height: 100vh;
 }
 
-.login-card {
+.login-card, .signup-card {
   background-color: white;
   border: none;
   border-radius: 12px;
