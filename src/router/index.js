@@ -4,6 +4,7 @@ import HomeView from '../views/HomeView.vue'
 import LogInView from '@/views/LogInView.vue'
 import CreateNewAccountView from '@/views/CreateNewAccountView.vue'
 import OfflineView from '@/views/OfflineView.vue'
+import RecentlyReadView from '@/views/RecentlyReadView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -27,6 +28,11 @@ const router = createRouter({
       path: '/offline',
       name: 'offline',
       component: OfflineView,
+    },
+    {
+      path: '/recentlyread',
+      name: 'recentlyread',
+      component: RecentlyReadView,
     },
   ],
 })

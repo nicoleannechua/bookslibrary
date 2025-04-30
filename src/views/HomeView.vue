@@ -157,7 +157,7 @@ const newBooks = computed(() => books.filter((book) => book.isNew))
         <div class="menu-header">
           <h2 class="mb-0"><b>Recently Read</b></h2>
           <button class="arrow-btn">
-            <i class="bi bi-arrow-right-circle"></i>
+            <RouterLink to="/recentlyread"><i class="bi bi-arrow-right-circle"></i></RouterLink>
           </button>
         </div>
         <div class="scrolling-wrapper">
@@ -252,10 +252,6 @@ const newBooks = computed(() => books.filter((book) => book.isNew))
           <a href="#" class="nav-item col text-Author Name text-decoration-none">
             <i class="bi bi-bell"></i>
             <span class="nav-label">Notification</span>
-          </a>
-          <a href="#" class="nav-item col text-Author Name text-decoration-none">
-            <i class="bi bi-gear"></i>
-            <span class="nav-label">Settings</span>
           </a>
         </div>
       </div>

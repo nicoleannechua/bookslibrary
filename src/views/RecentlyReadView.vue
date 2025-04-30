@@ -7,12 +7,6 @@ import dreams from '@/assets/image/dreams.png'
 import findingMyselfAgain from '@/assets/image/findingMyselfAgain.png'
 import firstLove from '@/assets/image/firstLove.png'
 import loveWithoutLimits from '@/assets/image/loveWithoutLimits.png'
-import meMyselfAndI from '@/assets/image/meMyselfAndI.png'
-import midnightWorld from '@/assets/image/midnightWorld.png'
-import oneStepToTheHeart from '@/assets/image/oneStepToTheHeart.png'
-import onThatDayWhenIMetYou from '@/assets/image/onThatDayWhenIMetYou.png'
-import ourStory from '@/assets/image/ourStory.png'
-import paperHeart from '@/assets/image/paperHeart.png'
 </script>
 
 <template>
@@ -25,10 +19,28 @@ import paperHeart from '@/assets/image/paperHeart.png'
         </div>
       </nav>
 
+      <!--Navigation Bar: Search Bar-->
+      <div class="container my-3">
+        <div class="search-container d-flex align-items-center">
+          <button class="arrow-btn me-2">
+            <RouterLink to="/"><i class="bi bi-arrow-left-circle"></i></RouterLink>
+          </button>
+          <form class="d-flex flex-grow-1" role="search">
+            <input
+              class="form-control me-2 rounded-pill"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button class="btn search-button rounded-pill" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+
       <!--Books Gallery: Offline-->
       <div class="container my-3">
         <div class="menu-header">
-          <h2 class="my-3 py-3"><b>Offline Books</b></h2>
+          <h2 class="my-3 py-3"><b>Recently Read</b></h2>
         </div>
 
         <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3">
@@ -164,118 +176,42 @@ import paperHeart from '@/assets/image/paperHeart.png'
             </div>
           </div>
 
-          <!-- Book 7 -->
-          <div class="col">
-            <div class="card">
-              <div class="book-cover-container">
-                <img :src="meMyselfAndI" class="card-img-top" alt="Me, Myself, and I" />
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Me, Myself, and I</h5>
-              </div>
-            </div>
-          </div>
-
-          <!-- Book 8 -->
-          <div class="col">
-            <div class="card">
-              <div class="book-cover-container">
-                <img :src="midnightWorld" class="card-img-top" alt="Midnight World" />
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Midnight World</h5>
-              </div>
-            </div>
-          </div>
-
-          <!-- Book 9 -->
-          <div class="col">
-            <div class="card">
-              <div class="book-cover-container">
-                <img :src="oneStepToTheHeart" class="card-img-top" alt="One Step to the Heart" />
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">One Step to the Heart</h5>
-              </div>
-            </div>
-          </div>
-
-          <!-- Book 10 -->
-          <div class="col">
-            <div class="card">
-              <div class="book-cover-container">
-                <img
-                  :src="onThatDayWhenIMetYou"
-                  class="card-img-top"
-                  alt="On That Day When I Met You"
-                />
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">On That Day When I Met You</h5>
-              </div>
-            </div>
-          </div>
-
-          <!-- Book 11 -->
-          <div class="col">
-            <div class="card">
-              <div class="book-cover-container">
-                <img :src="ourStory" class="card-img-top" alt="Our Story" />
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Our Story</h5>
-              </div>
-            </div>
-          </div>
-
-          <!-- Book 12 -->
-          <div class="col">
-            <div class="card">
-              <div class="book-cover-container">
-                <img :src="paperHeart" class="card-img-top" alt="Paper Heart" />
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Paper Heart</h5>
-              </div>
-            </div>
-          </div>
+          <!-- Add bottom padding to prevent content from being hidden behind navbar -->
+          <div class="bottom-spacer"></div>
         </div>
-      </div>
 
-      <!-- Add bottom padding to prevent content from being hidden behind navbar -->
-      <div class="bottom-spacer"></div>
+        <!--Navigation Bar: Bottom Menu-->
+        <nav class="navbar fixed-bottom bottom-navbar">
+          <div class="container-fluid px-2">
+            <div class="row w-100 justify-content-between mx-0">
+              <RouterLink to="/" class="nav-item col text-Author Name text-decoration-none">
+                <i class="bi bi-house-door"></i>
+                <span class="nav-label">Home</span>
+              </RouterLink>
+              <RouterLink
+                to="/offline"
+                class="nav-item col text-Author Name text-decoration-none active"
+              >
+                <i class="bi bi-book"></i>
+                <span class="nav-label">Offline</span>
+              </RouterLink>
+              <a href="#" class="nav-item col text-Author Name text-decoration-none">
+                <i class="bi bi-heart"></i>
+                <span class="nav-label">Favorites</span>
+              </a>
+              <a href="#" class="nav-item col text-Author Name text-decoration-none">
+                <i class="bi bi-bookmark"></i>
+                <span class="nav-label">Bookmarks</span>
+              </a>
+              <a href="#" class="nav-item col text-Author Name text-decoration-none">
+                <i class="bi bi-bell"></i>
+                <span class="nav-label">Notification</span>
+              </a>
+            </div>
+          </div>
+        </nav>
+      </div>
     </div>
-
-    <!--Navigation Bar: Bottom Menu-->
-    <nav class="navbar fixed-bottom bottom-navbar">
-      <div class="container-fluid px-2">
-        <div class="row w-100 justify-content-between mx-0">
-          <RouterLink to="/" class="nav-item col text-Author Name text-decoration-none">
-            <i class="bi bi-house-door"></i>
-            <span class="nav-label">Home</span>
-          </RouterLink>
-          <RouterLink
-            to="/offline"
-            class="nav-item col text-Author Name text-decoration-none active"
-          >
-            <i class="bi bi-book"></i>
-            <span class="nav-label">Offline</span>
-          </RouterLink>
-          <a href="#" class="nav-item col text-Author Name text-decoration-none">
-            <i class="bi bi-heart"></i>
-            <span class="nav-label">Favorites</span>
-          </a>
-          <a href="#" class="nav-item col text-Author Name text-decoration-none">
-            <i class="bi bi-bookmark"></i>
-            <span class="nav-label">Bookmarks</span>
-          </a>
-          <a href="#" class="nav-item col text-Author Name text-decoration-none">
-            <i class="bi bi-bell"></i>
-            <span class="nav-label">Notification</span>
-          </a>
-        </div>
-      </div>
-    </nav>
   </div>
 </template>
 
@@ -403,6 +339,43 @@ import paperHeart from '@/assets/image/paperHeart.png'
 
   .card-title {
     font-size: 0.8rem; /* Slightly smaller font on mobile */
+  }
+}
+
+/*Search Bar Adjustment */
+.search-container {
+  width: 100%;
+  gap: 0.5rem;
+}
+
+/*Arrow Style Adjustments */
+.arrow-btn {
+  background-color: transparent;
+  border: none;
+  color: #2b5d7d;
+  padding: 0.5rem;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+
+.arrow-btn:hover {
+  color: #afddff;
+  transform: scale(1.1);
+}
+
+.arrow-btn i {
+  font-size: 2rem; /* Increased from 1.5rem */
+  line-height: 1;
+}
+
+@media (max-width: 768px) {
+  .arrow-btn i {
+    font-size: 1.5rem; /* Increased from 1.2rem */
+  }
+
+  .arrow-btn {
+    padding: 0.5rem;
   }
 }
 </style>
