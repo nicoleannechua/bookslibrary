@@ -2,18 +2,27 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/*scrollable page adjustments*/
-.app-container {
-  position: relative;
-  height: 100vh;
-  overflow: hidden;
-  background-color: #f5f9fc;
+/*Search Button Adjustments*/
+.search-button {
+  background-color: transparent;
+  border: 2px solid #2b5d7d;
+  color: #2b5d7d;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  font-weight: 500;
+  transition: all 0.3s ease;
 }
 
-.scrollable-content {
-  height: 100%;
-  overflow-y: auto;
-  padding-bottom: 76px;
+.search-button:hover {
+  background-color: #afddff;
+  border-color: #afddff;
+  color: #2b5d7d;
+}
+
+.search-button.active {
+  background-color: #2b5d7d;
+  border-color: #2b5d7d;
+  color: white;
 }
 
 .bottom-spacer {
@@ -36,108 +45,6 @@
 .scrollable-content {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
-}
-
-/* Card styles */
-.card {
-  margin-bottom: 1rem;
-  width: 100% !important;
-  border-color: #afddff;
-  background-color: #ffffff;
-}
-
-.card:hover {
-  box-shadow: 0 4px 8px rgba(175, 221, 255, 0.3);
-}
-
-@media (max-width: 768px) {
-  .card {
-    max-width: 100%;
-  }
-
-  .row-cols-1 {
-    margin-right: 0;
-    margin-left: 0;
-  }
-}
-
-.scrolling-wrapper {
-  overflow-x: auto;
-  overflow-y: hidden;
-  white-space: nowrap;
-  -webkit-overflow-scrolling: touch;
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-  padding: 20px 0;
-}
-
-.scrolling-wrapper::-webkit-scrollbar {
-  display: none; /* Chrome, Safari and Opera */
-}
-
-.card-container {
-  display: inline-block;
-  width: 180px;
-  margin-right: 15px;
-  height: auto;
-}
-
-.card {
-  height: 100%;
-  border: none;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.card-img-top {
-  width: 100%;
-  height: 260px;
-  object-fit: cover;
-}
-
-.card-body {
-  padding: 0.8rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 70px;
-}
-
-.card-title {
-  font-size: 0.9rem;
-  margin-bottom: 0.3rem;
-  text-align: center;
-  width: 100%;
-  white-space: normal;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  height: auto;
-  line-height: 1.2;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  min-height: 2.4em;
-}
-
-.card-text {
-  font-size: 0.8rem;
-  color: #666;
-  text-align: center;
-  width: 100%;
-  white-space: normal;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-@media (max-width: 768px) {
-  .card-container {
-    width: 150px;
-  }
-
-  .card-img-top {
-    height: 220px;
-  }
 }
 
 /* Bottom spacer for fixed navbar */
@@ -272,114 +179,6 @@
   }
 }
 
-/*Login Page Adjustments*/
-#login-view {
-  background-color: #afddff;
-}
-
-.card {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-}
-
-.btn {
-  padding: 0.8rem;
-}
-
-@media (max-width: 768px) {
-  .card {
-    width: 100% !important;
-    margin: 1rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .login-card {
-    margin: 0 auto;
-  }
-
-  .card-body {
-    padding: 1.5rem !important;
-  }
-}
-
-.login-background {
-  background-color: #f5f9fc;
-  min-height: 100vh;
-}
-
-.login-card,
-.signup-card {
-  background-color: white;
-  border: none;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(43, 93, 125, 0.1);
-  width: 100%;
-}
-
-.login-btn {
-  background-color: #afddff;
-  border: none;
-  padding: 12px;
-}
-
-.login-btn:hover {
-  background-color: #93c9f7;
-}
-
-.create-account-btn {
-  background-color: #afddff;
-  border: none;
-  color: #2b5d7d;
-  padding: 12px;
-}
-
-.create-account-btn:hover {
-  background-color: #93c9f7;
-  color: #234b64;
-}
-
-.guest-btn {
-  border-color: #2b5d7d;
-  color: #2b5d7d;
-  padding: 12px;
-}
-
-.guest-btn:hover {
-  background-color: #f5f9fc;
-  border-color: #2b5d7d;
-  color: #234b64;
-}
-
-.forgot-password {
-  color: #2b5d7d;
-  text-decoration: none;
-}
-
-.forgot-password:hover {
-  color: #234b64;
-}
-
-.divider {
-  border-color: #bbbbbb;
-  margin: 1.5rem 0;
-}
-
-.form-control:focus {
-  border-color: #afddff;
-  box-shadow: 0 0 0 0.2rem rgba(175, 221, 255, 0.25);
-}
-
-@media (max-width: 576px) {
-  .container-fluid {
-    padding: 1rem;
-  }
-
-  .logo-image {
-    max-width: 280px;
-  }
-}
-
 /*RouterLink Styles*/
 .router-link-active,
 .router-link-exact-active {
@@ -400,4 +199,46 @@ a {
 
 .progress-bar {
   background-color: #2b5d7d; /* Match your theme color */
+}
+
+/*Styling for Categories*/
+.btn-outline-primary.active {
+  background-color: #2b5d7d;
+  color: white;
+}
+
+.categories-wrapper {
+  display: flexbox;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+}
+
+.category-btn {
+  background-color: transparent;
+  border: 2px solid #2b5d7d;
+  color: #2b5d7d;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.category-btn:hover {
+  background-color: #afddff;
+  border-color: #afddff;
+  color: #2b5d7d;
+}
+
+.category-btn.active {
+  background-color: #2b5d7d;
+  border-color: #2b5d7d;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .category-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
 }
