@@ -192,13 +192,13 @@ a {
 
 /*Progress Bar Adjustments*/
 .progress {
-  height: 4px !important; /* Make progress bar thinner, default is 16px */
+  height: 6px !important; /* Make progress bar thinner, default is 16px */
   margin: 0;
   border-radius: 0;
 }
 
 .progress-bar {
-  background-color: #2b5d7d; /* Match your theme color */
+  background-color: #2b5d7d;
 }
 
 /*Styling for Categories*/

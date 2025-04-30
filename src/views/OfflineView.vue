@@ -38,6 +38,16 @@ import paperHeart from '@/assets/image/paperHeart.png'
               <div class="book-cover-container">
                 <img :src="beforeTheRain" class="card-img-top" alt="Before the Rain" />
               </div>
+              <div
+                class="progress"
+                role="progressbar"
+                aria-label="Basic example"
+                aria-valuenow="25"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
+                <div class="progress-bar" style="width: 25%"></div>
+              </div>
               <div class="card-body">
                 <h5 class="card-title">Before the Rain</h5>
               </div>
@@ -49,6 +59,16 @@ import paperHeart from '@/assets/image/paperHeart.png'
             <div class="card">
               <div class="book-cover-container">
                 <img :src="cherishedMoment" class="card-img-top" alt="Cherished Moment" />
+              </div>
+              <div
+                class="progress"
+                role="progressbar"
+                aria-label="Basic example"
+                aria-valuenow="45"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
+                <div class="progress-bar" style="width: 45%"></div>
               </div>
               <div class="card-body">
                 <h5 class="card-title">Cherished Moment</h5>
@@ -62,6 +82,16 @@ import paperHeart from '@/assets/image/paperHeart.png'
               <div class="book-cover-container">
                 <img :src="dreams" class="card-img-top" alt="Dreams" />
               </div>
+              <div
+                class="progress"
+                role="progressbar"
+                aria-label="Basic example"
+                aria-valuenow="15"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
+                <div class="progress-bar" style="width: 15%"></div>
+              </div>
               <div class="card-body">
                 <h5 class="card-title">Dreams</h5>
               </div>
@@ -73,6 +103,16 @@ import paperHeart from '@/assets/image/paperHeart.png'
             <div class="card">
               <div class="book-cover-container">
                 <img :src="findingMyselfAgain" class="card-img-top" alt="Finding Myself Again" />
+              </div>
+              <div
+                class="progress"
+                role="progressbar"
+                aria-label="Basic example"
+                aria-valuenow="78"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
+                <div class="progress-bar" style="width: 78%"></div>
               </div>
               <div class="card-body">
                 <h5 class="card-title">Finding Myself Again</h5>
@@ -86,6 +126,16 @@ import paperHeart from '@/assets/image/paperHeart.png'
               <div class="book-cover-container">
                 <img :src="firstLove" class="card-img-top" alt="First Love" />
               </div>
+              <div
+                class="progress"
+                role="progressbar"
+                aria-label="Basic example"
+                aria-valuenow="10"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
+                <div class="progress-bar" style="width: 10%"></div>
+              </div>
               <div class="card-body">
                 <h5 class="card-title">First Love</h5>
               </div>
@@ -97,6 +147,16 @@ import paperHeart from '@/assets/image/paperHeart.png'
             <div class="card">
               <div class="book-cover-container">
                 <img :src="loveWithoutLimits" class="card-img-top" alt="Love Without Limits" />
+              </div>
+              <div
+                class="progress"
+                role="progressbar"
+                aria-label="Basic example"
+                aria-valuenow="100"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
+                <div class="progress-bar" style="width: 100%"></div>
               </div>
               <div class="card-body">
                 <h5 class="card-title">Love Without Limits</h5>
@@ -144,7 +204,11 @@ import paperHeart from '@/assets/image/paperHeart.png'
           <div class="col">
             <div class="card">
               <div class="book-cover-container">
-                <img :src="onThatDayWhenIMetYou" class="card-img-top" alt="On That Day When I Met You" />
+                <img
+                  :src="onThatDayWhenIMetYou"
+                  class="card-img-top"
+                  alt="On That Day When I Met You"
+                />
               </div>
               <div class="card-body">
                 <h5 class="card-title">On That Day When I Met You</h5>
@@ -190,7 +254,10 @@ import paperHeart from '@/assets/image/paperHeart.png'
             <i class="bi bi-house-door"></i>
             <span class="nav-label">Home</span>
           </RouterLink>
-          <RouterLink to="/offline" class="nav-item col text-Author Name text-decoration-none active">
+          <RouterLink
+            to="/offline"
+            class="nav-item col text-Author Name text-decoration-none active"
+          >
             <i class="bi bi-book"></i>
             <span class="nav-label">Offline</span>
           </RouterLink>
@@ -241,7 +308,6 @@ import paperHeart from '@/assets/image/paperHeart.png'
 
 .card:hover {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  
 }
 
 @media (max-width: 768px) {
