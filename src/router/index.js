@@ -3,6 +3,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css'
 import HomeView from '../views/HomeView.vue'
 import LogInView from '@/views/LogInView.vue'
 import CreateNewAccountView from '@/views/CreateNewAccountView.vue'
+import OfflineView from '@/views/OfflineView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -21,6 +22,11 @@ const router = createRouter({
       path: '/createnewaccount',
       name: 'createnewaccount',
       component: CreateNewAccountView,
+    },
+    {
+      path: '/offline',
+      name: 'offline',
+      component: OfflineView,
     },
   ],
 })

@@ -147,8 +147,8 @@ const newBooks = computed(() => books.filter((book) => book.isNew))
       <!--Navigation Bar: Search Bar-->
       <div class="container my-3">
         <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-          <button class="btn search-button" type="submit">Search</button>
+          <input class="form-control me-2 rounded-pill" type="search" placeholder="Search" aria-label="Search" />
+          <button class="btn search-button rounded-pill" type="submit">Search</button>
         </form>
       </div>
 
@@ -233,14 +233,14 @@ const newBooks = computed(() => books.filter((book) => book.isNew))
     <nav class="navbar fixed-bottom bottom-navbar">
       <div class="container-fluid px-2">
         <div class="row w-100 justify-content-between mx-0">
-          <a href="#" class="nav-item col text-Author Name text-decoration-none">
+          <RouterLink href="/" class="nav-item col text-Author Name text-decoration-none">
             <i class="bi bi-house-door"></i>
             <span class="nav-label">Home</span>
-          </a>
-          <a href="#" class="nav-item col text-Author Name text-decoration-none">
+          </RouterLink>
+          <RouterLink to="/offline" class="nav-item col text-Author Name text-decoration-none">
             <i class="bi bi-book"></i>
             <span class="nav-label">Offline</span>
-          </a>
+          </RouterLink>
           <a href="#" class="nav-item col text-Author Name text-decoration-none">
             <i class="bi bi-heart"></i>
             <span class="nav-label">Favorites</span>
