@@ -5,6 +5,7 @@ import LogInView from '@/views/LogInView.vue'
 import CreateNewAccountView from '@/views/CreateNewAccountView.vue'
 import OfflineView from '@/views/OfflineView.vue'
 import RecentlyReadView from '@/views/RecentlyReadView.vue'
+import NewAddedView from '@/views/NewAddedView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -33,6 +34,11 @@ const router = createRouter({
       path: '/recentlyread',
       name: 'recentlyread',
       component: RecentlyReadView,
+    },
+    {
+      path: '/newadded',
+      name: 'newadded',
+      component: NewAddedView,
     },
   ],
 })

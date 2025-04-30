@@ -180,7 +180,7 @@ const newBooks = computed(() => books.filter((book) => book.isNew))
         <div class="menu-header">
           <h2 class="mb-0"><b>New Added</b></h2>
           <button class="arrow-btn">
-            <i class="bi bi-arrow-right-circle"></i>
+            <RouterLink to="/newadded"><i class="bi bi-arrow-right-circle"></i></RouterLink>
           </button>
         </div>
         <div class="scrolling-wrapper">
@@ -313,7 +313,7 @@ const newBooks = computed(() => books.filter((book) => book.isNew))
 
 .card-container {
   display: inline-block;
-  width: 180px;
+  width: 150px;
   margin-right: 15px;
   height: auto;
 }
@@ -321,8 +321,15 @@ const newBooks = computed(() => books.filter((book) => book.isNew))
 .card {
   height: 100%;
   border: none;
-  border-radius: 8px;
+  border-radius: 12px;
   overflow: hidden;
+  margin: 0 auto;
+  max-width: 180px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+}
+
+.card:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .card-img-top {
