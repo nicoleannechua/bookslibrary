@@ -147,7 +147,12 @@ const newBooks = computed(() => books.filter((book) => book.isNew))
       <!--Navigation Bar: Search Bar-->
       <div class="container my-3">
         <form class="d-flex" role="search">
-          <input class="form-control me-2 rounded-pill" type="search" placeholder="Search" aria-label="Search" />
+          <input
+            class="form-control me-2 rounded-pill"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+          />
           <button class="btn search-button rounded-pill" type="submit">Search</button>
         </form>
       </div>
