@@ -191,6 +191,7 @@ import loveWithoutLimits from '@/assets/image/loveWithoutLimits.png'
 
 .card {
   margin: 0 auto;
+  
 }
 
 
@@ -203,7 +204,7 @@ import loveWithoutLimits from '@/assets/image/loveWithoutLimits.png'
 .card:hover {
   transform: scale(1.05);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  background-color: rgba(173, 216, 230, 0.5); 
+  background-color: rgba(173, 216, 230, 0.5);
 }
 
 </style>
