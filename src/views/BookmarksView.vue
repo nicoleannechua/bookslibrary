@@ -1,0 +1,150 @@
+<script setup>
+import '@/assets/styles.css'
+import booksLibraryLogoOutlineBlue from '@/assets/image/booksLibraryLogoOutlineBlue.png'
+import beforeTheRain from '@/assets/image/beforeTheRain.png'
+import cherishedMoment from '@/assets/image/cherishedMoment.png'
+import dreams from '@/assets/image/dreams.png'
+import findingMyselfAgain from '@/assets/image/findingMyselfAgain.png'
+</script>
+
+<template>
+  <div class="app-container">
+    <div class="scrollable-content">
+      <!--Navigation Bar: Brand-->
+      <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid px-3 py-2">
+          <img :src="booksLibraryLogoOutlineBlue" alt="Bootstrap" width="30" height="40" />
+        </div>
+      </nav>
+
+      <!--Bookmarks Section-->
+      <div class="container my-3 bookmarks-container">
+        <div class="bookmark-item">
+          <div class="bookmark-img-container">
+            <img :src="beforeTheRain" class="bookmark-img" />
+          </div>
+          <div class="bookmark-details">
+            <h5 class="bookmark-title">Before the Rain</h5>
+            <p class="bookmark-synopsis">
+              A heartwarming story about love, loss, and finding hope in the rain.
+            </p>
+          </div>
+        </div>
+        <div class="bookmark-item">
+          <div class="bookmark-img-container">
+            <img :src="cherishedMoment" class="bookmark-img" />
+          </div>
+          <div class="bookmark-details">
+            <h5 class="bookmark-title">Cherished Moment</h5>
+            <p class="bookmark-synopsis">
+              A tale of unforgettable memories and the moments that define us.
+            </p>
+          </div>
+        </div>
+        <div class="bookmark-item">
+          <div class="bookmark-img-container">
+            <img :src="dreams" class="bookmark-img" />
+          </div>
+          <div class="bookmark-details">
+            <h5 class="bookmark-title">Dreams</h5>
+            <p class="bookmark-synopsis">
+              A journey of self-discovery, where aspirations and reality collide, teaching the value of perseverance.
+            </p>
+          </div>
+        </div>
+        <div class="bookmark-item">
+          <div class="bookmark-img-container">
+            <img :src="findingMyselfAgain" class="bookmark-img" />
+          </div>
+          <div class="bookmark-details">
+            <h5 class="bookmark-title">Finding Myself Again</h5>
+            <p class="bookmark-synopsis">
+              A powerful story of resilience and rediscovering one's identity after life's unexpected challenges.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add bottom padding to prevent content from being hidden behind navbar -->
+      <div class="bottom-spacer"></div>
+    </div>
+
+    <!--Navigation Bar: Bottom Menu-->
+    <nav class="navbar fixed-bottom bottom-navbar">
+      <div class="container-fluid px-2">
+        <div class="row w-100 justify-content-between mx-0">
+          <router-link to="/" class="nav-item col text-Author Name text-decoration-none">
+            <i class="bi bi-house-door"></i>
+            <span class="nav-label">Home</span>
+          </router-link>
+          <a href="#" class="nav-item col text-Author Name text-decoration-none">
+            <i class="bi bi-book"></i>
+            <span class="nav-label">Offline</span>
+          </a>
+          <router-link to="/favorites" class="nav-item col text-Author Name text-decoration-none">
+            <i class="bi bi-heart"></i>
+            <span class="nav-label">Favorites</span>
+          </router-link>
+          <router-link to="/bookmarks" class="nav-item col text-Author Name text-decoration-none">
+            <i class="bi bi-bookmark"></i>
+            <span class="nav-label">Bookmarks</span>
+          </router-link>
+          <a href="#" class="nav-item col text-Author Name text-decoration-none">
+            <i class="bi bi-bell"></i>
+            <span class="nav-label">Notification</span>
+          </a>
+          <a href="#" class="nav-item col text-Author Name text-decoration-none">
+            <i class="bi bi-gear"></i>
+            <span class="nav-label">Settings</span>
+          </a>
+        </div>
+      </div>
+    </nav>
+  </div>
+</template>
+
+<style scoped>
+.bookmarks-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.bookmark-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.bookmark-img-container {
+  width: 150px;
+}
+
+.bookmark-img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.bookmark-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.bookmark-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.bookmark-synopsis {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+
+</style>

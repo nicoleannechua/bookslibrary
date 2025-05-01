@@ -19,26 +19,9 @@ import loveWithoutLimits from '@/assets/image/loveWithoutLimits.png'
         </div>
       </nav>
 
-      <!--Navigation Bar: Search Bar-->
-      <div class="container my-3">
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
-      </div>
-
       <!--Recently Read Menu-->
       <div class="container my-3">
-        <div class="row align-items-center">
-          <div class="col">
-            <h2 class="mb-0"><b>Recently Read</b></h2>
-          </div>
-          <div class="col-auto">
-            <button class="btn btn-primary btn-sm" type="button">
-              <i class="bi bi-arrow-right"></i>
-            </button>
-          </div>
-        </div>
+        <div class="row align-items-center"></div>
         <div class="scrolling-wrapper">
           <div class="card-container">
             <div class="card">
@@ -151,134 +134,6 @@ import loveWithoutLimits from '@/assets/image/loveWithoutLimits.png'
         </div>
       </div>
 
-      <!--New Added Menu-->
-      <div class="container my-3">
-        <div class="row align-items">
-          <div class="col">
-            <h2 class="mb-0"><b>New Added</b></h2>
-          </div>
-          <div class="col-auto">
-            <button class="btn btn-primary btn-sm" type="button">
-              <i class="bi bi-arrow-right"></i>
-            </button>
-          </div>
-        </div>
-        <div class="scrolling-wrapper">
-          <div class="card-container">
-            <div class="card">
-              <img src="#" class="card-img-top" />
-              <div class="card-body">
-                <h5 class="card-title">Book Title</h5>
-              </div>
-            </div>
-          </div>
-          <div class="card-container">
-            <div class="card">
-              <img src="#" class="card-img-top" />
-              <div class="card-body">
-                <h5 class="card-title">Book Title</h5>
-              </div>
-            </div>
-          </div>
-          <div class="card-container">
-            <div class="card">
-              <img src="#" class="card-img-top" />
-              <div class="card-body">
-                <h5 class="card-title">Book Title</h5>
-              </div>
-            </div>
-          </div>
-          <div class="card-container">
-            <div class="card">
-              <img src="#" class="card-img-top" />
-              <div class="card-body">
-                <h5 class="card-title">Book Title</h5>
-              </div>
-            </div>
-          </div>
-          <div class="card-container">
-            <div class="card">
-              <img src="#" class="card-img-top" />
-              <div class="card-body">
-                <h5 class="card-title">Book Title</h5>
-              </div>
-            </div>
-          </div>
-          <div class="card-container">
-            <div class="card">
-              <img src="#" class="card-img-top" />
-              <div class="card-body">
-                <h5 class="card-title">Book Title</h5>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!--Categories Menu-->
-      <div class="container my-3">
-        <div class="row align-items-center">
-          <div class="col">
-            <h2 class="mb-0"><b>Categories</b></h2>
-          </div>
-          <div class="col-auto">
-            <button class="btn btn-primary btn-sm" type="button">
-              <i class="bi bi-arrow-right"></i>
-            </button>
-          </div>
-        </div>
-        <div class="scrolling-wrapper">
-          <div class="card-container">
-            <div class="card">
-              <img src="#" class="card-img-top" />
-              <div class="card-body">
-                <h5 class="card-title">Book Title</h5>
-              </div>
-            </div>
-          </div>
-          <div class="card-container">
-            <div class="card">
-              <img src="#" class="card-img-top" />
-              <div class="card-body">
-                <h5 class="card-title">Book Title</h5>
-              </div>
-            </div>
-          </div>
-          <div class="card-container">
-            <div class="card">
-              <img src="#" class="card-img-top" />
-              <div class="card-body">
-                <h5 class="card-title">Book Title</h5>
-              </div>
-            </div>
-          </div>
-          <div class="card-container">
-            <div class="card">
-              <img src="#" class="card-img-top" />
-              <div class="card-body">
-                <h5 class="card-title">Book Title</h5>
-              </div>
-            </div>
-          </div>
-          <div class="card-container">
-            <div class="card">
-              <img src="#" class="card-img-top" />
-              <div class="card-body">
-                <h5 class="card-title">Book Title</h5>
-              </div>
-            </div>
-          </div>
-          <div class="card-container">
-            <div class="card">
-              <img src="#" class="card-img-top" />
-              <div class="card-body">
-                <h5 class="card-title">Book Title</h5>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
       <!-- Add bottom padding to prevent content from being hidden behind navbar -->
       <div class="bottom-spacer"></div>
     </div>
@@ -287,10 +142,10 @@ import loveWithoutLimits from '@/assets/image/loveWithoutLimits.png'
     <nav class="navbar fixed-bottom bottom-navbar">
       <div class="container-fluid px-2">
         <div class="row w-100 justify-content-between mx-0">
-          <a href="#" class="nav-item col text-Author Name text-decoration-none">
+          <router-link to="/" class="nav-item col text-Author Name text-decoration-none">
             <i class="bi bi-house-door"></i>
             <span class="nav-label">Home</span>
-          </a>
+          </router-link>
           <a href="#" class="nav-item col text-Author Name text-decoration-none">
             <i class="bi bi-book"></i>
             <span class="nav-label">Offline</span>
@@ -316,3 +171,39 @@ import loveWithoutLimits from '@/assets/image/loveWithoutLimits.png'
     </nav>
   </div>
 </template>
+
+<style scoped>
+.favorites-container {
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.scrolling-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+
+.card-container {
+  width: 100%;
+}
+
+.card {
+  margin: 0 auto;
+}
+
+
+.card-img-top {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: rgba(173, 216, 230, 0.5); 
+}
+
+</style>
