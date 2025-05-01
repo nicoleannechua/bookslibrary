@@ -261,14 +261,14 @@ import paperHeart from '@/assets/image/paperHeart.png'
             <i class="bi bi-book"></i>
             <span class="nav-label">Offline</span>
           </RouterLink>
-          <a href="#" class="nav-item col text-Author Name text-decoration-none">
+          <router-link to="/favorites" class="nav-item col text-Author Name text-decoration-none">
             <i class="bi bi-heart"></i>
             <span class="nav-label">Favorites</span>
-          </a>
-          <a href="#" class="nav-item col text-Author Name text-decoration-none">
+          </router-link>
+          <router-link to="/bookmarks" class="nav-item col text-Author Name text-decoration-none">
             <i class="bi bi-bookmark"></i>
             <span class="nav-label">Bookmarks</span>
-          </a>
+          </router-link>
           <a href="#" class="nav-item col text-Author Name text-decoration-none">
             <i class="bi bi-bell"></i>
             <span class="nav-label">Notification</span>

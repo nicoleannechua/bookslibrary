@@ -77,10 +77,10 @@ import findingMyselfAgain from '@/assets/image/findingMyselfAgain.png'
             <i class="bi bi-house-door"></i>
             <span class="nav-label">Home</span>
           </router-link>
-          <a href="#" class="nav-item col text-Author Name text-decoration-none">
+          <router-link to="/offline" class="nav-item col text-Author Name text-decoration-none">
             <i class="bi bi-book"></i>
             <span class="nav-label">Offline</span>
-          </a>
+          </router-link>
           <router-link to="/favorites" class="nav-item col text-Author Name text-decoration-none">
             <i class="bi bi-heart"></i>
             <span class="nav-label">Favorites</span>
