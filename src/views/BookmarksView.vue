@@ -5,6 +5,7 @@ import beforeTheRain from '@/assets/image/beforeTheRain.png'
 import cherishedMoment from '@/assets/image/cherishedMoment.png'
 import dreams from '@/assets/image/dreams.png'
 import findingMyselfAgain from '@/assets/image/findingMyselfAgain.png'
+import { RouterLink } from 'vue-router'
 </script>
 
 <template>
@@ -73,29 +74,25 @@ import findingMyselfAgain from '@/assets/image/findingMyselfAgain.png'
     <nav class="navbar fixed-bottom bottom-navbar">
       <div class="container-fluid px-2">
         <div class="row w-100 justify-content-between mx-0">
-          <router-link to="/" class="nav-item col text-Author Name text-decoration-none">
+          <RouterLink to="/" class="nav-item col text-Author Name text-decoration-none">
             <i class="bi bi-house-door"></i>
             <span class="nav-label">Home</span>
-          </router-link>
+          </RouterLink>
           <a href="#" class="nav-item col text-Author Name text-decoration-none">
             <i class="bi bi-book"></i>
             <span class="nav-label">Offline</span>
           </a>
-          <router-link to="/favorites" class="nav-item col text-Author Name text-decoration-none">
+          <RouterLink to="/favorites" class="nav-item col text-Author Name text-decoration-none">
             <i class="bi bi-heart"></i>
             <span class="nav-label">Favorites</span>
-          </router-link>
-          <router-link to="/bookmarks" class="nav-item col text-Author Name text-decoration-none">
+          </RouterLink>
+          <RouterLink to="/bookmarks" class="nav-item col text-Author Name text-decoration-none">
             <i class="bi bi-bookmark"></i>
             <span class="nav-label">Bookmarks</span>
-          </router-link>
+          </RouterLink>
           <a href="#" class="nav-item col text-Author Name text-decoration-none">
             <i class="bi bi-bell"></i>
             <span class="nav-label">Notification</span>
-          </a>
-          <a href="#" class="nav-item col text-Author Name text-decoration-none">
-            <i class="bi bi-gear"></i>
-            <span class="nav-label">Settings</span>
           </a>
         </div>
       </div>

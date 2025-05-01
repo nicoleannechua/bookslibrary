@@ -7,6 +7,7 @@ import dreams from '@/assets/image/dreams.png'
 import findingMyselfAgain from '@/assets/image/findingMyselfAgain.png'
 import firstLove from '@/assets/image/firstLove.png'
 import loveWithoutLimits from '@/assets/image/loveWithoutLimits.png'
+import { RouterLink } from 'vue-router'
 </script>
 
 <template>
@@ -142,29 +143,25 @@ import loveWithoutLimits from '@/assets/image/loveWithoutLimits.png'
     <nav class="navbar fixed-bottom bottom-navbar">
       <div class="container-fluid px-2">
         <div class="row w-100 justify-content-between mx-0">
-          <router-link to="/" class="nav-item col text-Author Name text-decoration-none">
+          <RouterLink to="/" class="nav-item col text-Author Name text-decoration-none">
             <i class="bi bi-house-door"></i>
             <span class="nav-label">Home</span>
-          </router-link>
-          <a href="#" class="nav-item col text-Author Name text-decoration-none">
+          </RouterLink>
+          <RouterLink to="/offline" class="nav-item col text-Author Name text-decoration-none">
             <i class="bi bi-book"></i>
             <span class="nav-label">Offline</span>
-          </a>
-          <router-link to="/favorites" class="nav-item col text-Author Name text-decoration-none">
+          </RouterLink>
+          <RouterLink to="/favorites" class="nav-item col text-Author Name text-decoration-none">
             <i class="bi bi-heart"></i>
             <span class="nav-label">Favorites</span>
-          </router-link>
-          <router-link to="/bookmarks" class="nav-item col text-Author Name text-decoration-none">
+          </RouterLink>
+          <RouterLink to="/bookmarks" class="nav-item col text-Author Name text-decoration-none">
             <i class="bi bi-bookmark"></i>
             <span class="nav-label">Bookmarks</span>
-          </router-link>
+          </RouterLink>
           <a href="#" class="nav-item col text-Author Name text-decoration-none">
             <i class="bi bi-bell"></i>
             <span class="nav-label">Notification</span>
-          </a>
-          <a href="#" class="nav-item col text-Author Name text-decoration-none">
-            <i class="bi bi-gear"></i>
-            <span class="nav-label">Settings</span>
           </a>
         </div>
       </div>
@@ -184,16 +181,13 @@ import loveWithoutLimits from '@/assets/image/loveWithoutLimits.png'
   gap: 1rem;
 }
 
-
 .card-container {
   width: 100%;
 }
 
 .card {
   margin: 0 auto;
-  
 }
-
 
 .card-img-top {
   width: 100%;
@@ -206,5 +200,4 @@ import loveWithoutLimits from '@/assets/image/loveWithoutLimits.png'
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   background-color: rgba(173, 216, 230, 0.5);
 }
-
 </style>
