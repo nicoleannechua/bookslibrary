@@ -6,6 +6,8 @@ import CreateNewAccountView from '@/views/CreateNewAccountView.vue'
 import OfflineView from '@/views/OfflineView.vue'
 import RecentlyReadView from '@/views/RecentlyReadView.vue'
 import NewAddedView from '@/views/NewAddedView.vue'
+import FavoritesView from '@/views/FavoritesView.vue'
+import BookmarksView from '@/views/BookmarksView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -39,6 +41,16 @@ const router = createRouter({
       path: '/newadded',
       name: 'newadded',
       component: NewAddedView,
+    },
+    {
+      path: '/favorites',
+      name: 'favorites',
+      component: FavoritesView,
+    },
+    {
+      path: '/bookmarks',
+      name: 'bookmarks',
+      component: BookmarksView,
     },
   ],
 })
