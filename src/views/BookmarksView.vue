@@ -20,6 +20,9 @@ import { RouterLink } from 'vue-router'
 
       <!--Bookmarks Section-->
       <div class="container my-3 bookmarks-container">
+        <div class="menu-header">
+          <h2 class="my-2 py-2"><b>Bookmarks</b></h2>
+        </div>
         <div class="bookmark-item">
           <div class="bookmark-img-container">
             <img :src="beforeTheRain" class="bookmark-img" />
@@ -74,26 +77,26 @@ import { RouterLink } from 'vue-router'
     <nav class="navbar fixed-bottom bottom-navbar">
       <div class="container-fluid px-2">
         <div class="row w-100 justify-content-between mx-0">
-          <RouterLink to="/" class="nav-item col text-Author Name text-decoration-none">
+          <RouterLink to="/" class="nav-item col text-decoration-none">
             <i class="bi bi-house-door"></i>
             <span class="nav-label">Home</span>
           </RouterLink>
-          <a href="#" class="nav-item col text-Author Name text-decoration-none">
+          <RouterLink to="/offline" class="nav-item col text-decoration-none">
             <i class="bi bi-book"></i>
             <span class="nav-label">Offline</span>
-          </a>
-          <RouterLink to="/favorites" class="nav-item col text-Author Name text-decoration-none">
+          </RouterLink>
+          <RouterLink to="/favorites" class="nav-item col text-decoration-none">
             <i class="bi bi-heart"></i>
             <span class="nav-label">Favorites</span>
           </RouterLink>
-          <RouterLink to="/bookmarks" class="nav-item col text-Author Name text-decoration-none">
+          <RouterLink to="/bookmarks" class="nav-item col text-decoration-none">
             <i class="bi bi-bookmark"></i>
             <span class="nav-label">Bookmarks</span>
           </RouterLink>
-          <a href="#" class="nav-item col text-Author Name text-decoration-none">
+          <RouterLink to="/notification" class="nav-item col text-decoration-none">
             <i class="bi bi-bell"></i>
             <span class="nav-label">Notification</span>
-          </a>
+          </RouterLink>
         </div>
       </div>
     </nav>

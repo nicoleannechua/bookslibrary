@@ -238,26 +238,26 @@ const newBooks = computed(() => books.filter((book) => book.isNew))
     <nav class="navbar fixed-bottom bottom-navbar">
       <div class="container-fluid px-2">
         <div class="row w-100 justify-content-between mx-0">
-          <RouterLink href="/" class="nav-item col text-Author Name text-decoration-none">
+          <RouterLink to="/" class="nav-item col text-decoration-none">
             <i class="bi bi-house-door"></i>
             <span class="nav-label">Home</span>
           </RouterLink>
-          <RouterLink to="/offline" class="nav-item col text-Author Name text-decoration-none">
+          <RouterLink to="/offline" class="nav-item col text-decoration-none">
             <i class="bi bi-book"></i>
             <span class="nav-label">Offline</span>
           </RouterLink>
-          <RouterLink to="/favorites" class="nav-item col text-Author Name text-decoration-none">
+          <RouterLink to="/favorites" class="nav-item col text-decoration-none">
             <i class="bi bi-heart"></i>
             <span class="nav-label">Favorites</span>
           </RouterLink>
-          <RouterLink to="/bookmarks" class="nav-item col text-Author Name text-decoration-none">
+          <RouterLink to="/bookmarks" class="nav-item col text-decoration-none">
             <i class="bi bi-bookmark"></i>
             <span class="nav-label">Bookmarks</span>
           </RouterLink>
-          <a href="#" class="nav-item col text-Author Name text-decoration-none">
+          <RouterLink to="/notification" class="nav-item col text-decoration-none">
             <i class="bi bi-bell"></i>
             <span class="nav-label">Notification</span>
-          </a>
+          </RouterLink>
         </div>
       </div>
     </nav>

@@ -8,6 +8,7 @@ import RecentlyReadView from '@/views/RecentlyReadView.vue'
 import NewAddedView from '@/views/NewAddedView.vue'
 import FavoritesView from '@/views/FavoritesView.vue'
 import BookmarksView from '@/views/BookmarksView.vue'
+import NotificationView from '@/views/NotificationView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -51,6 +52,11 @@ const router = createRouter({
       path: '/bookmarks',
       name: 'bookmarks',
       component: BookmarksView,
+    },
+    {
+      path: '/notification',
+      name: 'notification',
+      component: NotificationView,
     },
   ],
 })

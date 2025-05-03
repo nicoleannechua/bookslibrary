@@ -37,7 +37,7 @@ import loveWithoutLimits from '@/assets/image/loveWithoutLimits.png'
         </div>
       </div>
 
-      <!--Books Gallery: Offline-->
+      <!--Books Gallery: New Added-->
       <div class="container my-3">
         <div class="menu-header">
           <h2 class="my-3 py-3"><b>Recently Read</b></h2>
@@ -184,29 +184,29 @@ import loveWithoutLimits from '@/assets/image/loveWithoutLimits.png'
         <nav class="navbar fixed-bottom bottom-navbar">
           <div class="container-fluid px-2">
             <div class="row w-100 justify-content-between mx-0">
-              <RouterLink to="/" class="nav-item col text-Author Name text-decoration-none">
+              <RouterLink to="/" class="nav-item col text-decoration-none">
                 <i class="bi bi-house-door"></i>
                 <span class="nav-label">Home</span>
               </RouterLink>
               <RouterLink
                 to="/offline"
-                class="nav-item col text-Author Name text-decoration-none active"
+                class="nav-item col text-decoration-none active"
               >
                 <i class="bi bi-book"></i>
                 <span class="nav-label">Offline</span>
               </RouterLink>
-              <a href="#" class="nav-item col text-Author Name text-decoration-none">
+              <RouterLink to="/favorites" class="nav-item col text-decoration-none">
                 <i class="bi bi-heart"></i>
                 <span class="nav-label">Favorites</span>
-              </a>
-              <a href="#" class="nav-item col text-Author Name text-decoration-none">
+              </RouterLink>
+              <RouterLink to="/bookmarks" class="nav-item col text-decoration-none">
                 <i class="bi bi-bookmark"></i>
                 <span class="nav-label">Bookmarks</span>
-              </a>
-              <a href="#" class="nav-item col text-Author Name text-decoration-none">
+              </RouterLink>
+              <RouterLink to="/notification" class="nav-item col text-decoration-none">
                 <i class="bi bi-bell"></i>
                 <span class="nav-label">Notification</span>
-              </a>
+              </RouterLink>
             </div>
           </div>
         </nav>
