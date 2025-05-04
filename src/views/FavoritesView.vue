@@ -4,6 +4,74 @@ import booksLibraryLogoOutlineBlue from '@/assets/image/booksLibraryLogoOutlineB
 import cherishedMoment from '@/assets/image/cherishedMoment.png'
 import findingMyselfAgain from '@/assets/image/findingMyselfAgain.png'
 import loveWithoutLimits from '@/assets/image/loveWithoutLimits.png'
+
+import { ref } from 'vue'
+
+// Add book data with details
+const books = [
+  {
+    id: 1,
+    title: 'Cherished Moment',
+    image: cherishedMoment,
+    progress: 45,
+    category: ['Romance'],
+    author: 'Michael Chen',
+    pages: 286,
+    rating: 4.2,
+    synopsis:
+      'A collection of interconnected stories about love found in the most unexpected places and the moments that change our lives forever. From chance encounters on rainy afternoons to shared silences that speak volumes.',
+    published: '2024',
+  },
+  {
+    id: 2,
+    title: 'Finding Myself Again',
+    image: findingMyselfAgain,
+    progress: 78,
+    category: ['Drama'],
+    author: 'Thomas Wright',
+    pages: 368,
+    rating: 4.6,
+    synopsis:
+      'After losing everything in a corporate scandal, James embarks on a cross-country journey with nothing but a backpack and the need to rediscover who he is beyond the titles and achievements that once defined him.',
+    published: '2022',
+  },
+  {
+    id: 3,
+    title: 'Love Without Limits',
+    image: loveWithoutLimits,
+    progress: 100,
+    category: ['Romance'],
+    author: 'David Kim',
+    pages: 342,
+    rating: 4.4,
+    synopsis:
+      'When a renowned photographer with a terminal diagnosis meets a free-spirited artist who shows him how to truly see the world, both learn that the heart recognizes no boundaries of time or circumstance.',
+    published: '2022',
+  }
+]
+
+// Add modal functionality
+const showModal = ref(false)
+const selectedBook = ref(null)
+
+// Function to open modal with book details
+const openBookDetails = (book) => {
+  selectedBook.value = book
+  showModal.value = true
+}
+
+// Function to close modal
+const closeModal = () => {
+  showModal.value = false
+}
+
+// Function to remove book from favorites collection
+const removeFromFavorites = (book) => {
+  // Here you would add the actual removal logic
+  // For now, we'll just close the modal and could add a confirmation dialog later
+  alert(`"${book.title}" has been removed from your favorites`)
+  showModal.value = false
+}
 </script>
 
 <template>
@@ -25,7 +93,7 @@ import loveWithoutLimits from '@/assets/image/loveWithoutLimits.png'
         <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3">
           <!-- Book 1 -->
           <div class="col">
-            <div class="card">
+            <div class="card" @click="openBookDetails(books[0])">
               <div class="book-cover-container">
                 <img :src="cherishedMoment" class="card-img-top" alt="Cherished Moment" />
               </div>
@@ -47,7 +115,7 @@ import loveWithoutLimits from '@/assets/image/loveWithoutLimits.png'
 
           <!-- Book 2 -->
           <div class="col">
-            <div class="card">
+            <div class="card" @click="openBookDetails(books[1])">
               <div class="book-cover-container">
                 <img :src="findingMyselfAgain" class="card-img-top" alt="Finding Myself Again" />
               </div>
@@ -69,7 +137,7 @@ import loveWithoutLimits from '@/assets/image/loveWithoutLimits.png'
 
           <!-- Book 3 -->
           <div class="col">
-            <div class="card">
+            <div class="card" @click="openBookDetails(books[2])">
               <div class="book-cover-container">
                 <img :src="loveWithoutLimits" class="card-img-top" alt="Love Without Limits" />
               </div>
@@ -99,15 +167,15 @@ import loveWithoutLimits from '@/assets/image/loveWithoutLimits.png'
     <nav class="navbar fixed-bottom bottom-navbar">
       <div class="container-fluid px-2">
         <div class="row w-100 justify-content-between mx-0">
-          <RouterLink to="/" class="nav-item col text-Author Name text-decoration-none">
+          <RouterLink to="/" class="nav-item col text-decoration-none">
             <i class="bi bi-house-door"></i>
             <span class="nav-label">Home</span>
           </RouterLink>
-          <RouterLink to="/offline" class="nav-item col text-decoration-none active">
+          <RouterLink to="/offline" class="nav-item col text-decoration-none">
             <i class="bi bi-book"></i>
             <span class="nav-label">Offline</span>
           </RouterLink>
-          <RouterLink to="/favorites" class="nav-item col text-decoration-none">
+          <RouterLink to="/favorites" class="nav-item col text-decoration-none active">
             <i class="bi bi-heart"></i>
             <span class="nav-label">Favorites</span>
           </RouterLink>
@@ -122,6 +190,61 @@ import loveWithoutLimits from '@/assets/image/loveWithoutLimits.png'
         </div>
       </div>
     </nav>
+
+    <!-- Book Details Modal -->
+    <div v-if="showModal" class="modal-overlay" @click="closeModal">
+      <div class="modal-content" @click.stop>
+        <button class="close-button" @click="closeModal">
+          <i class="bi bi-x-lg"></i>
+        </button>
+        <div v-if="selectedBook" class="book-details">
+          <div class="modal-book-image">
+            <img :src="selectedBook.image" :alt="selectedBook.title" />
+            <div v-if="selectedBook.progress > 0" class="modal-progress">
+              <div class="progress">
+                <div class="progress-bar" :style="{ width: selectedBook.progress + '%' }"></div>
+              </div>
+              <div class="progress-text">{{ selectedBook.progress }}% completed</div>
+            </div>
+          </div>
+          <div class="modal-book-info">
+            <h2 class="modal-book-title">{{ selectedBook.title }}</h2>
+            <div class="modal-book-author">by {{ selectedBook.author }}</div>
+            <div class="modal-book-meta">
+              <span class="badge bg-secondary me-2">{{ selectedBook.published }}</span>
+              <span class="badge bg-secondary me-2">{{ selectedBook.pages }} pages</span>
+              <span v-for="cat in selectedBook.category" :key="cat" class="badge bg-primary me-2">{{
+                cat
+              }}</span>
+            </div>
+            <h4 class="modal-section-title">Synopsis</h4>
+            <p class="modal-book-synopsis">{{ selectedBook.synopsis }}</p>
+            <div class="modal-actions">
+              <div class="row g-2">
+                <div class="col-12">
+                  <button class="btn btn-primary w-100">Read Now</button>
+                </div>
+                <div class="col-6">
+                  <button class="btn btn-primary w-100">
+                    <i class="bi bi-bookmark"></i> Bookmark
+                  </button>
+                </div>
+                <div class="col-6">
+                  <button class="btn btn-primary w-100">
+                    <i class="bi bi-cloud-download"></i> Download
+                  </button>
+                </div>
+                <div class="col-12 mt-2">
+                  <button class="btn btn-outline-danger w-100" @click="removeFromFavorites(selectedBook)">
+                    <i class="bi bi-heart-break"></i> Remove from Favorites
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -146,10 +269,13 @@ import loveWithoutLimits from '@/assets/image/loveWithoutLimits.png'
   width: 100% !important;
   border-color: #afddff;
   background-color: #ffffff;
+  cursor: pointer;
+  transition: transform 0.2s ease;
 }
 
 .card:hover {
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(175, 221, 255, 0.3);
+  transform: translateY(-5px);
 }
 
 @media (max-width: 768px) {
@@ -251,4 +377,6 @@ import loveWithoutLimits from '@/assets/image/loveWithoutLimits.png'
     font-size: 0.8rem; /* Slightly smaller font on mobile */
   }
 }
+
+
 </style>

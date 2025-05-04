@@ -13,6 +13,191 @@ import oneStepToTheHeart from '@/assets/image/oneStepToTheHeart.png'
 import onThatDayWhenIMetYou from '@/assets/image/onThatDayWhenIMetYou.png'
 import ourStory from '@/assets/image/ourStory.png'
 import paperHeart from '@/assets/image/paperHeart.png'
+
+import { ref } from 'vue'
+
+// Add book data with details
+const books = [
+  {
+    id: 1,
+    title: 'Before the Rain',
+    image: beforeTheRain,
+    progress: 25,
+    category: ['Romance', 'Drama'],
+    author: 'Sarah Johnson',
+    pages: 324,
+    rating: 4.5,
+    synopsis:
+      'In a small coastal town where everyone knows everyone, Emma returns after ten years to confront the memories and the man she left behind. As storm clouds gather on the horizon, so do the emotions that were never truly resolved.',
+    published: '2023',
+  },
+  {
+    id: 2,
+    title: 'Cherished Moment',
+    image: cherishedMoment,
+    progress: 45,
+    category: ['Romance'],
+    author: 'Michael Chen',
+    pages: 286,
+    rating: 4.2,
+    synopsis:
+      'A collection of interconnected stories about love found in the most unexpected places and the moments that change our lives forever. From chance encounters on rainy afternoons to shared silences that speak volumes.',
+    published: '2024',
+  },
+  {
+    id: 3,
+    title: 'Dreams',
+    image: dreams,
+    progress: 15,
+    category: ['Fantasy'],
+    author: 'Elena Rodriguez',
+    pages: 412,
+    rating: 4.8,
+    synopsis:
+      "When Lia discovers she can enter other people's dreams, what starts as curiosity quickly turns dangerous as she uncovers secrets that were meant to stay buried and realizes that the dream world has its own rules and threats.",
+    published: '2023',
+  },
+  {
+    id: 4,
+    title: 'Finding Myself Again',
+    image: findingMyselfAgain,
+    progress: 78,
+    category: ['Drama'],
+    author: 'Thomas Wright',
+    pages: 368,
+    rating: 4.6,
+    synopsis:
+      'After losing everything in a corporate scandal, James embarks on a cross-country journey with nothing but a backpack and the need to rediscover who he is beyond the titles and achievements that once defined him.',
+    published: '2022',
+  },
+  {
+    id: 5,
+    title: 'First Love',
+    image: firstLove,
+    progress: 10,
+    category: ['Romance'],
+    author: 'Olivia Parker',
+    pages: 276,
+    rating: 4.3,
+    synopsis:
+      'A tender coming-of-age story about the joys and heartaches of first love, set against the backdrop of a small university town where two students from completely different worlds find unexpected connection.',
+    published: '2023',
+  },
+  {
+    id: 6,
+    title: 'Love Without Limits',
+    image: loveWithoutLimits,
+    progress: 100,
+    category: ['Romance'],
+    author: 'David Kim',
+    pages: 342,
+    rating: 4.4,
+    synopsis:
+      'When a renowned photographer with a terminal diagnosis meets a free-spirited artist who shows him how to truly see the world, both learn that the heart recognizes no boundaries of time or circumstance.',
+    published: '2022',
+  },
+  {
+    id: 7,
+    title: 'Me, Myself, and I',
+    image: meMyselfAndI,
+    progress: 0,
+    category: ['Mystery'],
+    author: 'Jessica Black',
+    pages: 396,
+    rating: 4.7,
+    synopsis:
+      'Psychological thriller about a woman who begins finding notes around her house written in her handwriting that she has no memory of writing. As the notes become more troubling, she must question if she can trust her own mind.',
+    published: '2025',
+  },
+  {
+    id: 8,
+    title: 'Midnight World',
+    image: midnightWorld,
+    progress: 0,
+    category: ['Fantasy'],
+    author: 'Robert Knight',
+    pages: 458,
+    rating: 4.9,
+    synopsis:
+      "In a world where the sun hasn't risen for a century, humanity has adapted to eternal darkness. When rumors of a coming dawn begin to spread, a young night hunter must choose between the safety of the world she knows and the promise of light.",
+    published: '2025',
+  },
+  {
+    id: 9,
+    title: 'One Step to the Heart',
+    image: oneStepToTheHeart,
+    progress: 0,
+    category: ['Romance'],
+    author: 'Amanda Lee',
+    pages: 298,
+    rating: 4.3,
+    synopsis:
+      'Professional dancer Sophia never expected to fall for the quiet, intense physical therapist helping her recover from a career-threatening injury. As he teaches her body to heal, she teaches his heart to open again.',
+    published: '2024',
+  },
+  {
+    id: 10,
+    title: 'On That Day When I Met You',
+    image: onThatDayWhenIMetYou,
+    progress: 0,
+    category: ['Drama'],
+    author: 'William Taylor',
+    pages: 356,
+    rating: 4.5,
+    synopsis:
+      'A deeply moving novel that follows two strangers whose brief encounter on a rainy afternoon in London ripples through the next thirty years of their lives in ways neither could have imagined.',
+    published: '2024',
+  },
+  {
+    id: 11,
+    title: 'Our Story',
+    image: ourStory,
+    progress: 0,
+    category: ['Romance'],
+    author: 'Natalie Wilson',
+    pages: 312,
+    rating: 4.4,
+    synopsis:
+      "Told through letters, texts, and journal entries, this innovative romance captures the evolution of a relationship from first meeting to final goodbye, exploring how love changes us even when it doesn't last forever.",
+    published: '2025',
+  },
+  {
+    id: 12,
+    title: 'Paper Heart',
+    image: paperHeart,
+    progress: 0,
+    category: ['Mystery'],
+    author: 'Marcus Reed',
+    pages: 374,
+    rating: 4.6,
+    synopsis:
+      'When an origami artist begins receiving intricately folded paper hearts containing clues to unsolved murders, she must work with a skeptical detective to decipher the messages before the killer strikes again.',
+    published: '2024',
+  },
+]
+
+// Add modal functionality
+const showModal = ref(false)
+const selectedBook = ref(null)
+
+// Function to open modal with book details
+const openBookDetails = (book) => {
+  selectedBook.value = book
+  showModal.value = true
+}
+
+// Function to close modal
+const closeModal = () => {
+  showModal.value = false
+}
+
+// Function to remove book from offline collection
+const removeFromOffline = (book) => {
+  // Here you would add the actual removal logic
+  // For now, we'll just close the modal and could add a confirmation dialog later
+  alert(`"${book.title}" has been removed from your offline library`)
+  showModal.value = false
+}
 </script>
 
 <template>
@@ -34,7 +219,7 @@ import paperHeart from '@/assets/image/paperHeart.png'
         <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3">
           <!-- Book 1 -->
           <div class="col">
-            <div class="card">
+            <div class="card" @click="openBookDetails(books[0])">
               <div class="book-cover-container">
                 <img :src="beforeTheRain" class="card-img-top" alt="Before the Rain" />
               </div>
@@ -56,7 +241,7 @@ import paperHeart from '@/assets/image/paperHeart.png'
 
           <!-- Book 2 -->
           <div class="col">
-            <div class="card">
+            <div class="card" @click="openBookDetails(books[1])">
               <div class="book-cover-container">
                 <img :src="cherishedMoment" class="card-img-top" alt="Cherished Moment" />
               </div>
@@ -78,7 +263,7 @@ import paperHeart from '@/assets/image/paperHeart.png'
 
           <!-- Book 3 -->
           <div class="col">
-            <div class="card">
+            <div class="card" @click="openBookDetails(books[2])">
               <div class="book-cover-container">
                 <img :src="dreams" class="card-img-top" alt="Dreams" />
               </div>
@@ -100,7 +285,7 @@ import paperHeart from '@/assets/image/paperHeart.png'
 
           <!-- Book 4 -->
           <div class="col">
-            <div class="card">
+            <div class="card" @click="openBookDetails(books[3])">
               <div class="book-cover-container">
                 <img :src="findingMyselfAgain" class="card-img-top" alt="Finding Myself Again" />
               </div>
@@ -122,7 +307,7 @@ import paperHeart from '@/assets/image/paperHeart.png'
 
           <!-- Book 5 -->
           <div class="col">
-            <div class="card">
+            <div class="card" @click="openBookDetails(books[4])">
               <div class="book-cover-container">
                 <img :src="firstLove" class="card-img-top" alt="First Love" />
               </div>
@@ -144,7 +329,7 @@ import paperHeart from '@/assets/image/paperHeart.png'
 
           <!-- Book 6 -->
           <div class="col">
-            <div class="card">
+            <div class="card" @click="openBookDetails(books[5])">
               <div class="book-cover-container">
                 <img :src="loveWithoutLimits" class="card-img-top" alt="Love Without Limits" />
               </div>
@@ -166,7 +351,7 @@ import paperHeart from '@/assets/image/paperHeart.png'
 
           <!-- Book 7 -->
           <div class="col">
-            <div class="card">
+            <div class="card" @click="openBookDetails(books[6])">
               <div class="book-cover-container">
                 <img :src="meMyselfAndI" class="card-img-top" alt="Me, Myself, and I" />
               </div>
@@ -178,7 +363,7 @@ import paperHeart from '@/assets/image/paperHeart.png'
 
           <!-- Book 8 -->
           <div class="col">
-            <div class="card">
+            <div class="card" @click="openBookDetails(books[7])">
               <div class="book-cover-container">
                 <img :src="midnightWorld" class="card-img-top" alt="Midnight World" />
               </div>
@@ -190,7 +375,7 @@ import paperHeart from '@/assets/image/paperHeart.png'
 
           <!-- Book 9 -->
           <div class="col">
-            <div class="card">
+            <div class="card" @click="openBookDetails(books[8])">
               <div class="book-cover-container">
                 <img :src="oneStepToTheHeart" class="card-img-top" alt="One Step to the Heart" />
               </div>
@@ -202,7 +387,7 @@ import paperHeart from '@/assets/image/paperHeart.png'
 
           <!-- Book 10 -->
           <div class="col">
-            <div class="card">
+            <div class="card" @click="openBookDetails(books[9])">
               <div class="book-cover-container">
                 <img
                   :src="onThatDayWhenIMetYou"
@@ -218,7 +403,7 @@ import paperHeart from '@/assets/image/paperHeart.png'
 
           <!-- Book 11 -->
           <div class="col">
-            <div class="card">
+            <div class="card" @click="openBookDetails(books[10])">
               <div class="book-cover-container">
                 <img :src="ourStory" class="card-img-top" alt="Our Story" />
               </div>
@@ -230,7 +415,7 @@ import paperHeart from '@/assets/image/paperHeart.png'
 
           <!-- Book 12 -->
           <div class="col">
-            <div class="card">
+            <div class="card" @click="openBookDetails(books[11])">
               <div class="book-cover-container">
                 <img :src="paperHeart" class="card-img-top" alt="Paper Heart" />
               </div>
@@ -254,10 +439,7 @@ import paperHeart from '@/assets/image/paperHeart.png'
             <i class="bi bi-house-door"></i>
             <span class="nav-label">Home</span>
           </RouterLink>
-          <RouterLink
-            to="/offline"
-            class="nav-item col text-decoration-none active"
-          >
+          <RouterLink to="/offline" class="nav-item col text-decoration-none active">
             <i class="bi bi-book"></i>
             <span class="nav-label">Offline</span>
           </RouterLink>
@@ -276,6 +458,64 @@ import paperHeart from '@/assets/image/paperHeart.png'
         </div>
       </div>
     </nav>
+
+    <!-- Book Details Modal -->
+    <div v-if="showModal" class="modal-overlay" @click="closeModal">
+      <div class="modal-content" @click.stop>
+        <button class="close-button" @click="closeModal">
+          <i class="bi bi-x-lg"></i>
+        </button>
+        <div v-if="selectedBook" class="book-details">
+          <div class="modal-book-image">
+            <img :src="selectedBook.image" :alt="selectedBook.title" />
+            <div v-if="selectedBook.progress > 0" class="modal-progress">
+              <div class="progress">
+                <div class="progress-bar" :style="{ width: selectedBook.progress + '%' }"></div>
+              </div>
+              <div class="progress-text">{{ selectedBook.progress }}% completed</div>
+            </div>
+          </div>
+          <div class="modal-book-info">
+            <h2 class="modal-book-title">{{ selectedBook.title }}</h2>
+            <div class="modal-book-author">by {{ selectedBook.author }}</div>
+            <div class="modal-book-meta">
+              <span class="badge bg-secondary me-2">{{ selectedBook.published }}</span>
+              <span class="badge bg-secondary me-2">{{ selectedBook.pages }} pages</span>
+              <span v-for="cat in selectedBook.category" :key="cat" class="badge bg-primary me-2">{{
+                cat
+              }}</span>
+            </div>
+            <h4 class="modal-section-title">Synopsis</h4>
+            <p class="modal-book-synopsis">{{ selectedBook.synopsis }}</p>
+            <div class="modal-actions">
+              <div class="row g-2">
+                <div class="col-12">
+                  <button class="btn btn-primary w-100">Read Now</button>
+                </div>
+                <div class="col-6">
+                  <button class="btn btn-primary w-100">
+                    <i class="bi bi-bookmark"></i> Bookmark
+                  </button>
+                </div>
+                <div class="col-6">
+                  <button class="btn btn-primary w-100">
+                    <i class="bi bi-heart"></i> Favorite
+                  </button>
+                </div>
+                <div class="col-12 mt-2">
+                  <button
+                    class="btn btn-outline-danger w-100"
+                    @click="removeFromOffline(selectedBook)"
+                  >
+                    <i class="bi bi-trash"></i> Remove from Offline
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -300,10 +540,13 @@ import paperHeart from '@/assets/image/paperHeart.png'
   width: 100% !important;
   border-color: #afddff;
   background-color: #ffffff;
+  cursor: pointer;
+  transition: transform 0.2s ease;
 }
 
 .card:hover {
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(175, 221, 255, 0.3);
+  transform: translateY(-5px);
 }
 
 @media (max-width: 768px) {

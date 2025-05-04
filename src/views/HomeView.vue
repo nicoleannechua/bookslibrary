@@ -16,7 +16,7 @@ import paperHeart from '@/assets/image/paperHeart.png'
 
 import { ref, computed } from 'vue'
 
-// Add book data with categories
+// Add book data with categories and additional details
 const books = [
   {
     id: 1,
@@ -25,6 +25,12 @@ const books = [
     progress: 25,
     category: ['Romance', 'Drama'],
     isNew: false,
+    author: 'Sarah Johnson',
+    pages: 324,
+    rating: 4.5,
+    synopsis:
+      'In a small coastal town where everyone knows everyone, Emma returns after ten years to confront the memories and the man she left behind. As storm clouds gather on the horizon, so do the emotions that were never truly resolved.',
+    published: '2023',
   },
   {
     id: 2,
@@ -33,6 +39,12 @@ const books = [
     progress: 45,
     category: ['Romance'],
     isNew: false,
+    author: 'Michael Chen',
+    pages: 286,
+    rating: 4.2,
+    synopsis:
+      'A collection of interconnected stories about love found in the most unexpected places and the moments that change our lives forever. From chance encounters on rainy afternoons to shared silences that speak volumes.',
+    published: '2024',
   },
   {
     id: 3,
@@ -41,6 +53,12 @@ const books = [
     progress: 15,
     category: ['Fantasy'],
     isNew: false,
+    author: 'Elena Rodriguez',
+    pages: 412,
+    rating: 4.8,
+    synopsis:
+      "When Lia discovers she can enter other people's dreams, what starts as curiosity quickly turns dangerous as she uncovers secrets that were meant to stay buried and realizes that the dream world has its own rules and threats.",
+    published: '2023',
   },
   {
     id: 4,
@@ -49,6 +67,12 @@ const books = [
     progress: 78,
     category: ['Drama'],
     isNew: false,
+    author: 'Thomas Wright',
+    pages: 368,
+    rating: 4.6,
+    synopsis:
+      'After losing everything in a corporate scandal, James embarks on a cross-country journey with nothing but a backpack and the need to rediscover who he is beyond the titles and achievements that once defined him.',
+    published: '2022',
   },
   {
     id: 5,
@@ -57,6 +81,12 @@ const books = [
     progress: 10,
     category: ['Romance'],
     isNew: false,
+    author: 'Olivia Parker',
+    pages: 276,
+    rating: 4.3,
+    synopsis:
+      'A tender coming-of-age story about the joys and heartaches of first love, set against the backdrop of a small university town where two students from completely different worlds find unexpected connection.',
+    published: '2023',
   },
   {
     id: 6,
@@ -65,6 +95,12 @@ const books = [
     progress: 100,
     category: ['Romance'],
     isNew: false,
+    author: 'David Kim',
+    pages: 342,
+    rating: 4.4,
+    synopsis:
+      'When a renowned photographer with a terminal diagnosis meets a free-spirited artist who shows him how to truly see the world, both learn that the heart recognizes no boundaries of time or circumstance.',
+    published: '2022',
   },
   {
     id: 7,
@@ -73,6 +109,12 @@ const books = [
     progress: 0,
     category: ['Mystery'],
     isNew: true,
+    author: 'Jessica Black',
+    pages: 396,
+    rating: 4.7,
+    synopsis:
+      'Psychological thriller about a woman who begins finding notes around her house written in her handwriting that she has no memory of writing. As the notes become more troubling, she must question if she can trust her own mind.',
+    published: '2025',
   },
   {
     id: 8,
@@ -81,6 +123,12 @@ const books = [
     progress: 0,
     category: ['Fantasy'],
     isNew: true,
+    author: 'Robert Knight',
+    pages: 458,
+    rating: 4.9,
+    synopsis:
+      "In a world where the sun hasn't risen for a century, humanity has adapted to eternal darkness. When rumors of a coming dawn begin to spread, a young night hunter must choose between the safety of the world she knows and the promise of light.",
+    published: '2025',
   },
   {
     id: 9,
@@ -89,6 +137,12 @@ const books = [
     progress: 0,
     category: ['Romance'],
     isNew: true,
+    author: 'Amanda Lee',
+    pages: 298,
+    rating: 4.3,
+    synopsis:
+      'Professional dancer Sophia never expected to fall for the quiet, intense physical therapist helping her recover from a career-threatening injury. As he teaches her body to heal, she teaches his heart to open again.',
+    published: '2024',
   },
   {
     id: 10,
@@ -97,6 +151,12 @@ const books = [
     progress: 0,
     category: ['Drama'],
     isNew: true,
+    author: 'William Taylor',
+    pages: 356,
+    rating: 4.5,
+    synopsis:
+      'A deeply moving novel that follows two strangers whose brief encounter on a rainy afternoon in London ripples through the next thirty years of their lives in ways neither could have imagined.',
+    published: '2024',
   },
   {
     id: 11,
@@ -105,6 +165,12 @@ const books = [
     progress: 0,
     category: ['Romance'],
     isNew: true,
+    author: 'Natalie Wilson',
+    pages: 312,
+    rating: 4.4,
+    synopsis:
+      "Told through letters, texts, and journal entries, this innovative romance captures the evolution of a relationship from first meeting to final goodbye, exploring how love changes us even when it doesn't last forever.",
+    published: '2025',
   },
   {
     id: 12,
@@ -113,6 +179,12 @@ const books = [
     progress: 0,
     category: ['Mystery'],
     isNew: true,
+    author: 'Marcus Reed',
+    pages: 374,
+    rating: 4.6,
+    synopsis:
+      'When an origami artist begins receiving intricately folded paper hearts containing clues to unsolved murders, she must work with a skeptical detective to decipher the messages before the killer strikes again.',
+    published: '2024',
   },
 ]
 
@@ -121,6 +193,19 @@ const categories = ['All', 'Romance', 'Drama', 'Fantasy', 'Mystery']
 
 // Add reactive refs
 const selectedCategory = ref('All')
+const showModal = ref(false)
+const selectedBook = ref(null)
+
+// Function to open modal with book details
+const openBookDetails = (book) => {
+  selectedBook.value = book
+  showModal.value = true
+}
+
+// Function to close modal
+const closeModal = () => {
+  showModal.value = false
+}
 
 // Add computed for filtered books
 const filteredBooks = computed(() => {
@@ -167,7 +252,7 @@ const newBooks = computed(() => books.filter((book) => book.isNew))
         </div>
         <div class="scrolling-wrapper">
           <div v-for="book in recentlyReadBooks" :key="book.id" class="card-container">
-            <div class="card">
+            <div class="card" @click="openBookDetails(book)">
               <img :src="book.image" class="card-img-top" />
               <div class="progress">
                 <div class="progress-bar" :style="{ width: book.progress + '%' }"></div>
@@ -190,7 +275,7 @@ const newBooks = computed(() => books.filter((book) => book.isNew))
         </div>
         <div class="scrolling-wrapper">
           <div v-for="book in newBooks" :key="book.id" class="card-container">
-            <div class="card">
+            <div class="card" @click="openBookDetails(book)">
               <img :src="book.image" class="card-img-top" />
               <div class="card-body">
                 <h5 class="card-title">{{ book.title }}</h5>
@@ -220,7 +305,7 @@ const newBooks = computed(() => books.filter((book) => book.isNew))
         </div>
         <div class="scrolling-wrapper">
           <div v-for="book in filteredBooks" :key="book.id" class="card-container">
-            <div class="card">
+            <div class="card" @click="openBookDetails(book)">
               <img :src="book.image" class="card-img-top" />
               <div class="card-body">
                 <h5 class="card-title">{{ book.title }}</h5>
@@ -261,6 +346,61 @@ const newBooks = computed(() => books.filter((book) => book.isNew))
         </div>
       </div>
     </nav>
+
+    <!-- Book Details Modal -->
+    <div v-if="showModal" class="modal-overlay" @click="closeModal">
+      <div class="modal-content" @click.stop>
+        <button class="close-button" @click="closeModal">
+          <i class="bi bi-x-lg"></i>
+        </button>
+        <div v-if="selectedBook" class="book-details">
+          <div class="modal-book-image">
+            <img :src="selectedBook.image" :alt="selectedBook.title" />
+            <div v-if="selectedBook.progress > 0" class="modal-progress">
+              <div class="progress">
+                <div class="progress-bar" :style="{ width: selectedBook.progress + '%' }"></div>
+              </div>
+              <div class="progress-text">{{ selectedBook.progress }}% completed</div>
+            </div>
+          </div>
+          <div class="modal-book-info">
+            <h2 class="modal-book-title">{{ selectedBook.title }}</h2>
+            <div class="modal-book-author">by {{ selectedBook.author }}</div>
+            <div class="modal-book-meta">
+              <span class="badge bg-secondary me-2">{{ selectedBook.published }}</span>
+              <span class="badge bg-secondary me-2">{{ selectedBook.pages }} pages</span>
+              <span v-for="cat in selectedBook.category" :key="cat" class="badge bg-primary me-2">{{
+                cat
+              }}</span>
+            </div>
+            <h4 class="modal-section-title">Synopsis</h4>
+            <p class="modal-book-synopsis">{{ selectedBook.synopsis }}</p>
+            <div class="modal-actions">
+              <div class="row g-2">
+                <div class="col-12 col-sm-6">
+                  <button class="btn btn-primary w-100">Read Now</button>
+                </div>
+                <div class="col-12 col-sm-6">
+                  <button class="btn btn-primary w-100">
+                    <i class="bi bi-download"></i> Add to Offline
+                  </button>
+                </div>
+                <div class="col-6">
+                  <button class="btn btn-primary w-100">
+                    <i class="bi bi-bookmark"></i> Bookmark
+                  </button>
+                </div>
+                <div class="col-6">
+                  <button class="btn btn-primary w-100">
+                    <i class="bi bi-heart"></i> Favorite
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -285,10 +425,13 @@ const newBooks = computed(() => books.filter((book) => book.isNew))
   width: 100% !important;
   border-color: #afddff;
   background-color: #ffffff;
+  cursor: pointer;
+  transition: transform 0.2s ease;
 }
 
 .card:hover {
   box-shadow: 0 4px 8px rgba(175, 221, 255, 0.3);
+  transform: translateY(-5px);
 }
 
 @media (max-width: 768px) {
@@ -422,4 +565,5 @@ const newBooks = computed(() => books.filter((book) => book.isNew))
     padding: 0.5rem;
   }
 }
+
 </style>

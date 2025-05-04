@@ -242,3 +242,154 @@ a {
     font-size: 0.9rem;
   }
 }
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1050;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.modal-content {
+  background-color: white;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 30px;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.close-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #666;
+  z-index: 1;
+}
+
+.close-button:hover {
+  color: #333;
+}
+
+.book-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-book-image {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.modal-book-image img {
+  max-height: 300px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.modal-book-info {
+  flex: 1;
+}
+
+.modal-book-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #2b5d7d;
+}
+
+.modal-book-author {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.modal-book-rating {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.stars {
+  color: #ffc107;
+  margin-right: 10px;
+}
+
+.rating-value {
+  font-weight: bold;
+}
+
+.modal-book-meta {
+  margin-bottom: 20px;
+}
+
+.modal-section-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: #2b5d7d;
+}
+
+.modal-book-synopsis {
+  line-height: 1.6;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+.modal-progress {
+  margin-top: 10px;
+}
+
+.progress {
+  height: 8px;
+  margin-bottom: 5px;
+}
+
+.progress-bar {
+  background-color: #2b5d7d;
+}
+
+.progress-text {
+  font-size: 0.8rem;
+  color: #666;
+  text-align: center;
+}
+
+.modal-actions {
+  margin-top: 20px;
+}
+
+/* Responsive adjustments for the modal */
+@media (min-width: 768px) {
+  .book-details {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .modal-book-image {
+    flex: 0 0 40%;
+    margin-right: 30px;
+    margin-bottom: 0;
+  }
+
+  .modal-book-info {
+    flex: 1;
+  }
+}
