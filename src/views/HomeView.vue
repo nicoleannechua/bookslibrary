@@ -539,31 +539,4 @@ const newBooks = computed(() => books.filter((book) => book.isNew))
   margin-bottom: 1rem;
 }
 
-.arrow-btn {
-  background-color: transparent;
-  border: none;
-  color: #2b5d7d;
-  padding: 0.75rem;
-  transition: all 0.3s ease;
-}
-
-.arrow-btn:hover {
-  color: #afddff;
-  transform: scale(1.1);
-}
-
-.arrow-btn i {
-  font-size: 2rem; /* Increased from 1.5rem */
-}
-
-@media (max-width: 768px) {
-  .arrow-btn i {
-    font-size: 1.5rem; /* Increased from 1.2rem */
-  }
-
-  .arrow-btn {
-    padding: 0.5rem;
-  }
-}
-
 </style>

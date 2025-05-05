@@ -53,7 +53,7 @@ import booksLibraryLogoOutline from '@/assets/image/booksLibraryLogoOutline.png'
 <style scoped>
 /*Login Page Adjustments*/
 #login-view {
-  background-color: #afddff;
+  background-color: #a2c3a4;
 }
 
 .card {
@@ -96,46 +96,48 @@ import booksLibraryLogoOutline from '@/assets/image/booksLibraryLogoOutline.png'
 }
 
 .login-btn {
-  background-color: #afddff;
+  background-color: #a2c3a4;
   border: none;
+  color: #4e6766;
   padding: 12px;
 }
 
 .login-btn:hover {
-  background-color: #93c9f7;
+  background-color: #8aab8c;
+  color: #ffffff;
 }
 
 .create-account-btn {
-  background-color: #afddff;
+  background-color: #a2c3a4;
   border: none;
-  color: #2b5d7d;
+  color: #4e6766;
   padding: 12px;
 }
 
 .create-account-btn:hover {
-  background-color: #93c9f7;
-  color: #234b64;
+  background-color: #8aab8c;
+  color: #ffffff;
 }
 
 .guest-btn {
-  border-color: #2b5d7d;
-  color: #2b5d7d;
+  border-color: #4e6766;
+  color: #4e6766;
   padding: 12px;
 }
 
 .guest-btn:hover {
   background-color: #f5f9fc;
-  border-color: #2b5d7d;
-  color: #234b64;
+  border-color: #4e6766;
+  color: #4e6766;
 }
 
 .forgot-password {
-  color: #2b5d7d;
+  color: #4e6766;
   text-decoration: none;
 }
 
 .forgot-password:hover {
-  color: #234b64;
+  color: #344746;
 }
 
 .divider {
@@ -144,8 +146,8 @@ import booksLibraryLogoOutline from '@/assets/image/booksLibraryLogoOutline.png'
 }
 
 .form-control:focus {
-  border-color: #afddff;
-  box-shadow: 0 0 0 0.2rem rgba(175, 221, 255, 0.25);
+  border-color: #a2c3a4;
+  box-shadow: 0 0 0 0.2rem rgba(162, 195, 164, 0.25);
 }
 
 .logo-image {

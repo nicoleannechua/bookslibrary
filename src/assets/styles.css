@@ -5,8 +5,8 @@
 /*Search Button Adjustments*/
 .search-button {
   background-color: transparent;
-  border: 2px solid #2b5d7d;
-  color: #2b5d7d;
+  border: 2px solid #4e6766;
+  color: #4e6766;
   padding: 0.5rem 1rem;
   border-radius: 10px;
   font-weight: 500;
@@ -14,14 +14,14 @@
 }
 
 .search-button:hover {
-  background-color: #afddff;
-  border-color: #afddff;
-  color: #2b5d7d;
+  background-color: #a2c3a4;
+  border-color: #a2c3a4;
+  color: #4e6766;
 }
 
 .search-button.active {
-  background-color: #2b5d7d;
-  border-color: #2b5d7d;
+  background-color: #4e6766;
+  border-color: #4e6766;
   color: white;
 }
 
@@ -31,8 +31,8 @@
 
 /* Bottom navbar styles */
 .bottom-navbar {
-  background-color: #afddff;
-  box-shadow: 0 -2px 10px rgba(175, 221, 255, 0.2);
+  background-color: #4e6766;
+  box-shadow: 0 -2px 10px rgba(78, 103, 102, 0.2);
   z-index: 1000;
 }
 
@@ -54,16 +54,16 @@
 
 /* Navbar styles */
 .bottom-navbar {
-  background-color: #afddff;
-  box-shadow: 0 -2px 10px rgba(175, 221, 255, 0.2);
+  background-color: #4e6766;
+  box-shadow: 0 -2px 10px rgba(78, 103, 102, 0.2);
 }
 
 .nav-item:hover {
-  color: #18425d; /* Darker shade for hover state */
+  color: #ffffff; /* Lighter color for hover state */
 }
 
 .navbar.bg-body-tertiary {
-  background-color: #afddff !important;
+  background-color: #4e6766 !important;
 }
 
 .nav-item {
@@ -72,7 +72,7 @@
   flex-direction: column;
   align-items: center;
   gap: 4px;
-  color: #30739c;
+  color: #ffffff;
 }
 
 .nav-item i {
@@ -114,28 +114,56 @@
   }
 }
 
+/*Arrow Button Styles*/
+.arrow-btn {
+  background-color: transparent;
+  border: none;
+  color: #4e6766;
+  padding: 0.75rem;
+  transition: all 0.3s ease;
+}
+
+.arrow-btn:hover {
+  color: #8aab8c;
+  transform: scale(1.1);
+}
+
+.arrow-btn i {
+  font-size: 2rem; /* Increased from 1.5rem */
+}
+
+@media (max-width: 768px) {
+  .arrow-btn i {
+    font-size: 1.5rem; /* Increased from 1.2rem */
+  }
+
+  .arrow-btn {
+    padding: 0.5rem;
+  }
+}
+
 /* Button styles */
 .btn-primary {
-  background-color: #afddff;
-  border-color: #9ac8e9;
-  color: #2b5d7d;
+  background-color: #a2c3a4;
+  border-color: #a9b18f;
+  color: #4e6766;
 }
 
 .btn-primary:hover {
-  background-color: #93c9f7;
-  border-color: #7ab3e1;
-  color: #234b64;
+  background-color: #8aab8c;
+  border-color: #97a07e;
+  color: #ffffff;
 }
 
 .btn-outline-success {
-  color: #2b5d7d;
-  border-color: #afddff;
+  color: #4e6766;
+  border-color: #a9b18f;
 }
 
 .btn-outline-success:hover {
-  background-color: #afddff;
-  border-color: #93c9f7;
-  color: #2b5d7d;
+  background-color: #a2c3a4;
+  border-color: #a9b18f;
+  color: #4e6766;
 }
 
 .btn-sm {
@@ -198,12 +226,12 @@ a {
 }
 
 .progress-bar {
-  background-color: #2b5d7d;
+  background-color: #4e6766;
 }
 
 /*Styling for Categories*/
 .btn-outline-primary.active {
-  background-color: #2b5d7d;
+  background-color: #4e6766;
   color: white;
 }
 
@@ -216,8 +244,8 @@ a {
 
 .category-btn {
   background-color: transparent;
-  border: 2px solid #2b5d7d;
-  color: #2b5d7d;
+  border: 2px solid #4e6766;
+  color: #4e6766;
   padding: 0.5rem 1rem;
   border-radius: 20px;
   font-weight: 500;
@@ -225,14 +253,14 @@ a {
 }
 
 .category-btn:hover {
-  background-color: #afddff;
-  border-color: #afddff;
-  color: #2b5d7d;
+  background-color: #a2c3a4;
+  border-color: #a2c3a4;
+  color: #4e6766;
 }
 
 .category-btn.active {
-  background-color: #2b5d7d;
-  border-color: #2b5d7d;
+  background-color: #4e6766;
+  border-color: #4e6766;
   color: white;
 }
 
@@ -269,6 +297,7 @@ a {
   padding: 30px;
   position: relative;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  border: 1px solid #a9b18f;
 }
 
 .close-button {
@@ -301,6 +330,7 @@ a {
   max-height: 300px;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: 1px solid #a9b18f;
 }
 
 .modal-book-info {
@@ -311,7 +341,7 @@ a {
   font-size: 1.8rem;
   font-weight: bold;
   margin-bottom: 5px;
-  color: #2b5d7d;
+  color: #4e6766;
 }
 
 .modal-book-author {
@@ -344,7 +374,7 @@ a {
   font-weight: bold;
   margin-top: 20px;
   margin-bottom: 10px;
-  color: #2b5d7d;
+  color: #4e6766;
 }
 
 .modal-book-synopsis {
@@ -360,10 +390,11 @@ a {
 .progress {
   height: 8px;
   margin-bottom: 5px;
+  border: 1px solid #a9b18f;
 }
 
 .progress-bar {
-  background-color: #2b5d7d;
+  background-color: #4e6766;
 }
 
 .progress-text {

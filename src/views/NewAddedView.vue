@@ -7,6 +7,106 @@ import oneStepToTheHeart from '@/assets/image/oneStepToTheHeart.png'
 import onThatDayWhenIMetYou from '@/assets/image/onThatDayWhenIMetYou.png'
 import ourStory from '@/assets/image/ourStory.png'
 import paperHeart from '@/assets/image/paperHeart.png'
+
+import { ref } from 'vue'
+
+// Add book data with details
+const books = [
+  {
+    id: 1,
+    title: 'Me, Myself, and I',
+    image: meMyselfAndI,
+    category: ['Self-help', 'Psychology'],
+    author: 'David Moore',
+    pages: 256,
+    rating: 4.7,
+    synopsis:
+      'A deeply introspective journey into understanding the different facets of self-identity. David Moore explores how our internal dialogue shapes our perception of the world and offers practical exercises for self-discovery.',
+    published: '2024',
+  },
+  {
+    id: 2,
+    title: 'Midnight World',
+    image: midnightWorld,
+    category: ['Fantasy', 'Adventure'],
+    author: 'Rachel Winters',
+    pages: 412,
+    rating: 4.8,
+    synopsis:
+      'When the clock strikes midnight, an ordinary city transforms into a realm where magic flows freely and mythical creatures roam the streets. Only a select few humans can witness this transformation - and Lily has just become one of them.',
+    published: '2024',
+  },
+  {
+    id: 3,
+    title: 'One Step to the Heart',
+    image: oneStepToTheHeart,
+    category: ['Romance', 'Contemporary'],
+    author: 'Jessica Liu',
+    pages: 326,
+    rating: 4.5,
+    synopsis:
+      'After a devastating breakup, Emma decides to train for a marathon to prove something to herself. Her running coach turns out to be more than just a fitness instructor as they both discover that the journey to healing begins with a single step.',
+    published: '2024',
+  },
+  {
+    id: 4,
+    title: 'On That Day When I Met You',
+    image: onThatDayWhenIMetYou,
+    category: ['Romance', 'Drama'],
+    author: 'James Wilson',
+    pages: 298,
+    rating: 4.6,
+    synopsis:
+      'A chance encounter at a coffee shop changes the lives of two strangers forever. Told through alternating perspectives, this story explores how a single moment can create ripples that affect the entire course of our lives.',
+    published: '2024',
+  },
+  {
+    id: 5,
+    title: 'Our Story',
+    image: ourStory,
+    category: ['Romance', 'Historical'],
+    author: 'Emma Thompson',
+    pages: 372,
+    rating: 4.4,
+    synopsis:
+      'Spanning three generations of women in a family, this novel weaves together their love stories against the backdrop of significant historical events. From war-torn Europe to modern-day America, their experiences echo through time.',
+    published: '2024',
+  },
+  {
+    id: 6,
+    title: 'Paper Heart',
+    image: paperHeart,
+    category: ['Young Adult', 'Romance'],
+    author: 'Sophia Chen',
+    pages: 284,
+    rating: 4.3,
+    synopsis:
+      'Sixteen-year-old Mia communicates her feelings through origami, leaving paper creations for her secret crush to find. As her art becomes more elaborate, so does her courage to finally reveal herself to the person who has captured her heart.',
+    published: '2024',
+  },
+]
+
+// Add modal functionality
+const showModal = ref(false)
+const selectedBook = ref(null)
+
+// Function to open modal with book details
+const openBookDetails = (book) => {
+  selectedBook.value = book
+  showModal.value = true
+}
+
+// Function to close modal
+const closeModal = () => {
+  showModal.value = false
+}
+
+// Function to add book to library
+const addToLibrary = (book) => {
+  // Here you would add the actual download/save logic
+  alert(`"${book.title}" has been added to your library`)
+  showModal.value = false
+}
 </script>
 
 <template>
@@ -46,7 +146,7 @@ import paperHeart from '@/assets/image/paperHeart.png'
         <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3">
           <!-- Book 1 -->
           <div class="col">
-            <div class="card">
+            <div class="card" @click="openBookDetails(books[0])">
               <div class="book-cover-container">
                 <img :src="meMyselfAndI" class="card-img-top" alt="Me, Myself, and I" />
               </div>
@@ -58,7 +158,7 @@ import paperHeart from '@/assets/image/paperHeart.png'
 
           <!-- Book 2 -->
           <div class="col">
-            <div class="card">
+            <div class="card" @click="openBookDetails(books[1])">
               <div class="book-cover-container">
                 <img :src="midnightWorld" class="card-img-top" alt="Midnight World" />
               </div>
@@ -70,7 +170,7 @@ import paperHeart from '@/assets/image/paperHeart.png'
 
           <!-- Book 3 -->
           <div class="col">
-            <div class="card">
+            <div class="card" @click="openBookDetails(books[2])">
               <div class="book-cover-container">
                 <img :src="oneStepToTheHeart" class="card-img-top" alt="One Step to the Heart" />
               </div>
@@ -82,7 +182,7 @@ import paperHeart from '@/assets/image/paperHeart.png'
 
           <!-- Book 4 -->
           <div class="col">
-            <div class="card">
+            <div class="card" @click="openBookDetails(books[3])">
               <div class="book-cover-container">
                 <img
                   :src="onThatDayWhenIMetYou"
@@ -98,7 +198,7 @@ import paperHeart from '@/assets/image/paperHeart.png'
 
           <!-- Book 5 -->
           <div class="col">
-            <div class="card">
+            <div class="card" @click="openBookDetails(books[4])">
               <div class="book-cover-container">
                 <img :src="ourStory" class="card-img-top" alt="Our Story" />
               </div>
@@ -110,7 +210,7 @@ import paperHeart from '@/assets/image/paperHeart.png'
 
           <!-- Book 6 -->
           <div class="col">
-            <div class="card">
+            <div class="card" @click="openBookDetails(books[5])">
               <div class="book-cover-container">
                 <img :src="paperHeart" class="card-img-top" alt="Paper Heart" />
               </div>
@@ -133,10 +233,7 @@ import paperHeart from '@/assets/image/paperHeart.png'
               <i class="bi bi-house-door"></i>
               <span class="nav-label">Home</span>
             </RouterLink>
-            <RouterLink
-              to="/offline"
-              class="nav-item col text-decoration-none active"
-            >
+            <RouterLink to="/offline" class="nav-item col text-decoration-none active">
               <i class="bi bi-book"></i>
               <span class="nav-label">Offline</span>
             </RouterLink>
@@ -148,16 +245,64 @@ import paperHeart from '@/assets/image/paperHeart.png'
               <i class="bi bi-bookmark"></i>
               <span class="nav-label">Bookmarks</span>
             </RouterLink>
-            <RouterLink
-              to="/notification"
-              class="nav-item col text-decoration-none"
-            >
+            <RouterLink to="/notification" class="nav-item col text-decoration-none">
               <i class="bi bi-bell"></i>
               <span class="nav-label">Notification</span>
             </RouterLink>
           </div>
         </div>
       </nav>
+    </div>
+
+    <!-- Book Details Modal -->
+    <div v-if="showModal" class="modal-overlay" @click="closeModal">
+      <div class="modal-content" @click.stop>
+        <button class="close-button" @click="closeModal">
+          <i class="bi bi-x-lg"></i>
+        </button>
+        <div v-if="selectedBook" class="book-details">
+          <div class="modal-book-image">
+            <img :src="selectedBook.image" :alt="selectedBook.title" />
+          </div>
+          <div class="modal-book-info">
+            <h2 class="modal-book-title">{{ selectedBook.title }}</h2>
+            <div class="modal-book-author">by {{ selectedBook.author }}</div>
+            <div class="modal-book-meta">
+              <span class="badge bg-secondary me-2">{{ selectedBook.published }}</span>
+              <span class="badge bg-secondary me-2">{{ selectedBook.pages }} pages</span>
+              <span v-for="cat in selectedBook.category" :key="cat" class="badge bg-primary me-2">{{
+                cat
+              }}</span>
+            </div>
+            <h4 class="modal-section-title">Synopsis</h4>
+            <p class="modal-book-synopsis">{{ selectedBook.synopsis }}</p>
+            <div class="modal-actions">
+              <div class="row g-2">
+                <div class="col-12">
+                  <button class="btn btn-primary w-100" @click="addToLibrary(selectedBook)">
+                    <i class="bi bi-download"></i> Add to My Library
+                  </button>
+                </div>
+                <div class="col-6">
+                  <button class="btn btn-primary w-100">
+                    <i class="bi bi-bookmark"></i> Bookmark
+                  </button>
+                </div>
+                <div class="col-6">
+                  <button class="btn btn-primary w-100">
+                    <i class="bi bi-heart"></i> Favorite
+                  </button>
+                </div>
+                <div class="col-12 mt-2">
+                  <button class="btn btn-outline-secondary w-100">
+                    <i class="bi bi-share"></i> Share
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -183,10 +328,13 @@ import paperHeart from '@/assets/image/paperHeart.png'
   width: 100% !important;
   border-color: #afddff;
   background-color: #ffffff;
+  cursor: pointer;
+  transition: transform 0.2s ease;
 }
 
 .card:hover {
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(175, 221, 255, 0.3);
+  transform: translateY(-5px);
 }
 
 @media (max-width: 768px) {
@@ -293,36 +441,5 @@ import paperHeart from '@/assets/image/paperHeart.png'
 .search-container {
   width: 100%;
   gap: 0.5rem;
-}
-
-/*Arrow Style Adjustments */
-.arrow-btn {
-  background-color: transparent;
-  border: none;
-  color: #2b5d7d;
-  padding: 0.5rem;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-}
-
-.arrow-btn:hover {
-  color: #afddff;
-  transform: scale(1.1);
-}
-
-.arrow-btn i {
-  font-size: 2rem; /* Increased from 1.5rem */
-  line-height: 1;
-}
-
-@media (max-width: 768px) {
-  .arrow-btn i {
-    font-size: 1.5rem; /* Increased from 1.2rem */
-  }
-
-  .arrow-btn {
-    padding: 0.5rem;
-  }
 }
 </style>
