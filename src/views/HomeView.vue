@@ -369,9 +369,12 @@ const newBooks = computed(() => books.filter((book) => book.isNew))
             <div class="modal-book-meta">
               <span class="badge bg-secondary me-2">{{ selectedBook.published }}</span>
               <span class="badge bg-secondary me-2">{{ selectedBook.pages }} pages</span>
-              <span v-for="cat in selectedBook.category" :key="cat" class="badge bg-primary me-2">{{
-                cat
-              }}</span>
+              <span
+                v-for="cat in selectedBook.category"
+                :key="cat"
+                class="badge bg-name-title me-2"
+                >{{ cat }}</span
+              >
             </div>
             <h4 class="modal-section-title">Synopsis</h4>
             <p class="modal-book-synopsis">{{ selectedBook.synopsis }}</p>
@@ -507,6 +510,7 @@ const newBooks = computed(() => books.filter((book) => book.isNew))
   line-height: 1.2;
   display: -webkit-box;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
   min-height: 2.4em;
 }
@@ -520,7 +524,10 @@ const newBooks = computed(() => books.filter((book) => book.isNew))
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
+.bg-name-title {
+  background-color: #a2c3a4;
+  color: black;
+}
 @media (max-width: 768px) {
   .card-container {
     width: 150px;
@@ -538,5 +545,4 @@ const newBooks = computed(() => books.filter((book) => book.isNew))
   align-items: center;
   margin-bottom: 1rem;
 }
-
 </style>
