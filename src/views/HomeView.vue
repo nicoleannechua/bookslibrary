@@ -1,6 +1,7 @@
 <script setup>
 import '@/assets/styles.css'
 import navBarLogoOutline from '@/assets/image/navBarLogoOutline.png'
+import profileIcon from '@/assets/image/profileIcon.png'
 import beforeTheRain from '@/assets/image/beforeTheRain.png'
 import cherishedMoment from '@/assets/image/cherishedMoment.png'
 import dreams from '@/assets/image/dreams.png'
@@ -217,15 +218,50 @@ const filteredBooks = computed(() => {
 const recentlyReadBooks = computed(() => books.filter((book) => book.progress > 0))
 
 const newBooks = computed(() => books.filter((book) => book.isNew))
+const isDropdownOpen = ref(false)
 </script>
 
 <template>
   <div class="app-container">
     <div class="scrollable-content">
       <!--Navigation Bar: Brand-->
-      <nav class="navbar bg-body-tertiary">
-        <div class="container-fluid px-2 py-2">
-          <img :src="navBarLogoOutline" alt="Bootstrap" width="80" height="30" />
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <RouterLink class="navbar-brand" to="/">
+            <img :src="navBarLogoOutline" alt="Bootstrap" width="80" height="30" />
+          </RouterLink>
+
+          <div class="d-flex">
+            <div class="dropdown">
+              <button
+                class="btn"
+                type="button"
+                id="profileDropdown"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                @click="isDropdownOpen = !isDropdownOpen"
+              >
+                <img :src="profileIcon" class="profile-icon" style="width: 50px; height: 50px" />
+              </button>
+              <ul
+                class="dropdown-menu dropdown-menu-end"
+                aria-labelledby="profileDropdown"
+                :class="{ show: isDropdownOpen }"
+              >
+                <li>
+                  <a class="dropdown-item drop-title" href="#"
+                    ><i class="bi bi-gear pe-2"></i>Settings</a
+                  >
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <RouterLink class="dropdown-item drop-title" to="/login"
+                    ><i class="bi bi-box-arrow-right pe-2"></i>Logout</RouterLink
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </nav>
 
@@ -369,16 +405,21 @@ const newBooks = computed(() => books.filter((book) => book.isNew))
             <div class="modal-book-meta">
               <span class="badge bg-secondary me-2">{{ selectedBook.published }}</span>
               <span class="badge bg-secondary me-2">{{ selectedBook.pages }} pages</span>
-              <span v-for="cat in selectedBook.category" :key="cat" class="badge bg-primary me-2">{{
-                cat
-              }}</span>
+              <span
+                v-for="cat in selectedBook.category"
+                :key="cat"
+                class="badge bg-name-title me-2"
+                >{{ cat }}</span
+              >
             </div>
             <h4 class="modal-section-title">Synopsis</h4>
             <p class="modal-book-synopsis">{{ selectedBook.synopsis }}</p>
             <div class="modal-actions">
               <div class="row g-2">
                 <div class="col-12 col-sm-6">
-                  <button class="btn btn-primary w-100">Read Now</button>
+                  <button class="btn btn-primary w-100">
+                    <RouterLink to="/chapter-view">Read Now</RouterLink>
+                  </button>
                 </div>
                 <div class="col-12 col-sm-6">
                   <button class="btn btn-primary w-100">
@@ -417,6 +458,76 @@ const newBooks = computed(() => books.filter((book) => book.isNew))
   height: 100%;
   overflow-y: auto;
   padding-bottom: 76px;
+}
+
+/* NAVBAR STYLES */
+/* Base styles for the button (Remove padding/border) */
+.dropdown .btn {
+  border: none !important;
+  padding: 0 !important;
+  background-color: transparent !important;
+  line-height: 0; /* Helps contain image */
+  /* Remove focus ring */
+  outline: none !important;
+  box-shadow: none !important;
+}
+.dropdown .btn:focus,
+.dropdown .btn:active {
+  outline: none !important;
+  box-shadow: none !important;
+  border: 2px solid #a2c3a4;
+}
+
+.dropdown .btn {
+  border: none !important;
+  padding: 0 !important;
+  background-color: transparent !important;
+  line-height: 0;
+  outline: none !important;
+  box-shadow: none !important;
+}
+.drop-title {
+  color: #4e6766;
+  font-weight: bold;
+}
+.dropdown-item.drop-title:hover,
+.dropdown-item.drop-title:focus {
+  /* Also style the focus state for accessibility */
+  color: black !important; /* Change text color to black */
+  background-color: #f8f9fa; /* Optional: Add a light background on hover, common for dropdowns */
+  /* Remove this background-color line if you don't want it */
+}
+.dropdown .btn:focus,
+.dropdown .btn:active {
+  outline: none !important;
+  box-shadow: none !important;
+  height: 50px;
+  border-color: #a2c3a4;
+}
+
+/* Style the profile icon */
+.profile-icon {
+  display: block;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid transparent;
+  box-sizing: border-box;
+  /* Update transition to include transform */
+  transition:
+    transform 0.2s ease-in-out,
+    border-color 0.2s ease-in-out;
+}
+
+/* Add the border and pop-out effect ON HOVER */
+.dropdown .btn:hover .profile-icon {
+  border-color: #a2c3a4;
+  transform: scale(1.1);
+}
+
+/* Adjust dropdown menu position if needed */
+.dropdown-menu-end {
+  right: 0;
+  left: auto;
 }
 
 /* Card styles */
@@ -507,6 +618,7 @@ const newBooks = computed(() => books.filter((book) => book.isNew))
   line-height: 1.2;
   display: -webkit-box;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
   min-height: 2.4em;
 }
@@ -520,7 +632,10 @@ const newBooks = computed(() => books.filter((book) => book.isNew))
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
+.bg-name-title {
+  background-color: #a2c3a4;
+  color: black;
+}
 @media (max-width: 768px) {
   .card-container {
     width: 150px;
@@ -538,5 +653,4 @@ const newBooks = computed(() => books.filter((book) => book.isNew))
   align-items: center;
   margin-bottom: 1rem;
 }
-
 </style>
