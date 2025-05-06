@@ -59,7 +59,7 @@
 }
 
 .nav-item:hover {
-  color: #ffffff; /* Lighter color for hover state */
+  color: #a2c3a4; /* Lighter color for hover state */
 }
 
 .navbar.bg-body-tertiary {
@@ -210,7 +210,7 @@
 /*RouterLink Styles*/
 .router-link-active,
 .router-link-exact-active {
-  color: inherit;
+  color: #a2c3a4;
 }
 
 a {
