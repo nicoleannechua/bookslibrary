@@ -67,9 +67,9 @@ const isDropdownOpen = ref(false)
                   <img :src="beforeTheRain" alt="Book cover" class="book-image" />
                 </div>
                 <div class="ms-2 me-auto">
-                  <div class="fw-bold">Subheading</div>
-                  Content for list item
-                  <div class="text-muted small mt-1">2 hours ago</div>
+                  <div class="fw-bold">Sara Johnson</div>
+                  Posted Chapter 9: Storm Warning
+                  <div class="text-muted small mt-1">15 hours ago</div>
                 </div>
               </div>
             </RouterLink>
@@ -81,9 +81,9 @@ const isDropdownOpen = ref(false)
                   <img :src="beforeTheRain" alt="Book cover" class="book-image" />
                 </div>
                 <div class="ms-2 me-auto">
-                  <div class="fw-bold">Subheading</div>
-                  Content for list item
-                  <div class="text-muted small mt-1">2 hours ago</div>
+                  <div class="fw-bold">Sara Johnson</div>
+                  Posted Chapter 8: When the Rain Falls
+                  <div class="text-muted small mt-1">16 hours ago</div>
                 </div>
               </div>
             </RouterLink>
@@ -95,79 +95,79 @@ const isDropdownOpen = ref(false)
                   <img :src="beforeTheRain" alt="Book cover" class="book-image" />
                 </div>
                 <div class="ms-2 me-auto">
-                  <div class="fw-bold">Subheading</div>
-                  Content for list item
+                  <div class="fw-bold">Sara Johnson</div>
+                  Posted Chapter 7: The Calm Before
+                  <div class="text-muted small mt-1">17 hours ago</div>
+                </div>
+              </div>
+            </RouterLink>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-start pointer">
+            <RouterLink to="/readingmode" class="text-decoration-none text-dark w-100">
+              <div class="d-flex">
+                <div class="book-image-container me-3">
+                  <img :src="beforeTheRain" alt="Book cover" class="book-image" />
+                </div>
+                <div class="ms-2 me-auto">
+                  <div class="fw-bold">Sara Johnson</div>
+                  Posted Chapter 6: Sparks and Silence
                   <div class="text-muted small mt-1">2 hours ago</div>
                 </div>
               </div>
             </RouterLink>
           </li>
           <li class="list-group-item d-flex justify-content-between align-items-start pointer">
-            <RouterLink to="#" class="text-decoration-none text-dark w-100">
+            <RouterLink to="/readingmode" class="text-decoration-none text-dark w-100">
               <div class="d-flex">
                 <div class="book-image-container me-3">
                   <img :src="beforeTheRain" alt="Book cover" class="book-image" />
                 </div>
                 <div class="ms-2 me-auto">
-                  <div class="fw-bold">Subheading</div>
-                  Content for list item
-                  <div class="text-muted small mt-1">2 hours ago</div>
+                  <div class="fw-bold">Sara Johnson</div>
+                  Posted Chapter 5: Storm Warning
+                  <div class="text-muted small mt-1">18 hours ago</div>
                 </div>
               </div>
             </RouterLink>
           </li>
           <li class="list-group-item d-flex justify-content-between align-items-start pointer">
-            <RouterLink to="#" class="text-decoration-none text-dark w-100">
+            <RouterLink to="/readingmode" class="text-decoration-none text-dark w-100">
               <div class="d-flex">
                 <div class="book-image-container me-3">
                   <img :src="beforeTheRain" alt="Book cover" class="book-image" />
                 </div>
                 <div class="ms-2 me-auto">
-                  <div class="fw-bold">Subheading</div>
-                  Content for list item
-                  <div class="text-muted small mt-1">2 hours ago</div>
+                  <div class="fw-bold">Sara Johnson</div>
+                  Posted Chapter 4: Letters Never Sent
+                  <div class="text-muted small mt-1">19 hours ago</div>
                 </div>
               </div>
             </RouterLink>
           </li>
           <li class="list-group-item d-flex justify-content-between align-items-start pointer">
-            <RouterLink to="#" class="text-decoration-none text-dark w-100">
+            <RouterLink to="/readingmode" class="text-decoration-none text-dark w-100">
               <div class="d-flex">
                 <div class="book-image-container me-3">
                   <img :src="beforeTheRain" alt="Book cover" class="book-image" />
                 </div>
                 <div class="ms-2 me-auto">
-                  <div class="fw-bold">Subheading</div>
-                  Content for list item
-                  <div class="text-muted small mt-1">2 hours ago</div>
+                  <div class="fw-bold">Sara Johnson</div>
+                  Posted Chapter 3: First Sight
+                  <div class="text-muted small mt-1">20 hours ago</div>
                 </div>
               </div>
             </RouterLink>
           </li>
           <li class="list-group-item d-flex justify-content-between align-items-start pointer">
-            <RouterLink to="#" class="text-decoration-none text-dark w-100">
+            <RouterLink to="/readingmode" class="text-decoration-none text-dark w-100">
               <div class="d-flex">
                 <div class="book-image-container me-3">
                   <img :src="beforeTheRain" alt="Book cover" class="book-image" />
                 </div>
                 <div class="ms-2 me-auto">
-                  <div class="fw-bold">Subheading</div>
-                  Content for list item
-                  <div class="text-muted small mt-1">2 hours ago</div>
-                </div>
-              </div>
-            </RouterLink>
-          </li>
-          <li class="list-group-item d-flex justify-content-between align-items-start pointer">
-            <RouterLink to="#" class="text-decoration-none text-dark w-100">
-              <div class="d-flex">
-                <div class="book-image-container me-3">
-                  <img :src="beforeTheRain" alt="Book cover" class="book-image" />
-                </div>
-                <div class="ms-2 me-auto">
-                  <div class="fw-bold">Subheading</div>
-                  Content for list item
-                  <div class="text-muted small mt-1">2 hours ago</div>
+                  <div class="fw-bold">Sara Johnson</div>
+                  Posted Chapter 2: Echoes of Home
+                  <div class="text-muted small mt-1">21 hours ago</div>
                 </div>
               </div>
             </RouterLink>

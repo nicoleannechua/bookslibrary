@@ -501,8 +501,8 @@ function selectChapterAndClose(chapterId) {
 }
 
 .chapter-menu-list li.active {
-  background-color: #e0e0ff;
-  color: #000080;
+  background-color: #a2c3a4;
+  color: #4e6766;
   font-weight: bold;
 }
 
