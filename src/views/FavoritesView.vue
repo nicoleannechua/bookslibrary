@@ -1,6 +1,6 @@
 <script setup>
 import '@/assets/styles.css'
-import booksLibraryLogoOutlineBlue from '@/assets/image/booksLibraryLogoOutlineBlue.png'
+import navBarLogoOutline from '@/assets/image/navBarLogoOutline.png'
 import cherishedMoment from '@/assets/image/cherishedMoment.png'
 import findingMyselfAgain from '@/assets/image/findingMyselfAgain.png'
 import loveWithoutLimits from '@/assets/image/loveWithoutLimits.png'
@@ -79,8 +79,8 @@ const removeFromFavorites = (book) => {
     <div class="scrollable-content">
       <!--Navigation Bar: Brand-->
       <nav class="navbar bg-body-tertiary">
-        <div class="container-fluid px-3 py-2">
-          <img :src="booksLibraryLogoOutlineBlue" alt="Bootstrap" width="30" height="40" />
+        <div class="container-fluid px-2 py-2">
+          <img :src="navBarLogoOutline" alt="Bootstrap" width="80" height="30" />
         </div>
       </nav>
 

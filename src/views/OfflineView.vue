@@ -1,6 +1,6 @@
 <script setup>
 import '@/assets/styles.css'
-import booksLibraryLogoOutlineBlue from '@/assets/image/booksLibraryLogoOutlineBlue.png'
+import navBarLogoOutline from '@/assets/image/navBarLogoOutline.png'
 import beforeTheRain from '@/assets/image/beforeTheRain.png'
 import cherishedMoment from '@/assets/image/cherishedMoment.png'
 import dreams from '@/assets/image/dreams.png'
@@ -205,8 +205,8 @@ const removeFromOffline = (book) => {
     <div class="scrollable-content">
       <!--Navigation Bar: Brand-->
       <nav class="navbar bg-body-tertiary">
-        <div class="container-fluid px-3 py-2">
-          <img :src="booksLibraryLogoOutlineBlue" alt="Bootstrap" width="30" height="40" />
+        <div class="container-fluid px-2 py-2">
+          <img :src="navBarLogoOutline" alt="Bootstrap" width="80" height="30" />
         </div>
       </nav>
 
