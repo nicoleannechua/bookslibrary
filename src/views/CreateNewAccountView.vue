@@ -1,6 +1,6 @@
 <script setup>
 import '@/assets/styles.css'
-import booksLibraryLogoOutline from '@/assets/image/booksLibraryLogoOutline.png'
+import authLogo from '@/assets/image/authLogo.png'
 </script>
 
 <template>
@@ -9,7 +9,7 @@ import booksLibraryLogoOutline from '@/assets/image/booksLibraryLogoOutline.png'
       <div class="col-lg-5 col-md-8 col-sm-10 col-11 mb-4 mb-lg-0 mx-auto">
         <div class="text-center">
           <img
-            :src="booksLibraryLogoOutline"
+            :src="authLogo"
             alt="Books Library Logo"
             class="img-fluid logo-image"
           />

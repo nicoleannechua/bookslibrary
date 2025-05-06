@@ -2,6 +2,7 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+
 /*Search Button Adjustments*/
 .search-button {
   background-color: transparent;
@@ -59,7 +60,7 @@
 }
 
 .nav-item:hover {
-  color: #ffffff; /* Lighter color for hover state */
+  color: #a2c3a4; /* Lighter color for hover state */
 }
 
 .navbar.bg-body-tertiary {
