@@ -443,9 +443,9 @@ const isNavbarCollapsed = ref(true) // For responsive navbar collapse
             <div class="modal-actions">
               <div class="row g-2">
                 <div class="col-12 col-sm-6">
-                  <button class="btn btn-primary w-100">
-                    <RouterLink to="/chapter-view">Read Now</RouterLink>
-                  </button>
+                  <RouterLink to="/chapter-view">
+                    <button class="btn btn-primary w-100">Read Now</button>
+                  </RouterLink>
                 </div>
                 <div class="col-12 col-sm-6">
                   <button class="btn btn-primary w-100">
