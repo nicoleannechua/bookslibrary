@@ -8,6 +8,37 @@ const isFavoriteActive = ref(false)
 const isBookmarkActive = ref(false)
 const isDownloaded = ref(false)
 
+// font style
+const fontStyle = ref('serif')
+const fontClass = computed(() => {
+  return {
+    'font-serif': fontStyle.value === 'serif',
+    'font-sans': fontStyle.value === 'sans-serif',
+    'font-mono': fontStyle.value === 'monospace',
+    'font-cursive': fontStyle.value === 'cursive',
+  }
+})
+// Dark mode/ light mode
+
+const backgroundClass = computed(() => {
+  return isDarkMode.value ? 'bg-dark' : 'bg-light'
+})
+const isDarkMode = ref(false)
+const toggleMode = () => {
+  isDarkMode.value = !isDarkMode.value
+}
+const textColorStyle = computed(() => ({
+  color: isDarkMode.value ? '#ffffff' : '#000000',
+}))
+
+// FONT SIZE
+
+const fontSize = ref('16px')
+
+const setFontSize = (size) => {
+  fontSize.value = size
+}
+
 // --- Chapter Data ---
 const chapters = ref([
   {
@@ -268,40 +299,48 @@ async function selectChapterAndClose(chapterId, shouldScroll = true) {
 </script>
 
 <template>
-  <div class="container-fluid root-container">
+  <div class="container-fluid root-container" :class="backgroundClass">
     <div class="chapter-reader-container">
-      <div class="top-nav-actions">
+      <div class="top-nav-actions" :class="backgroundClass">
         <RouterLink to="/" class="nav-action-item">
-          <i class="bi bi-arrow-left"></i>
+          <i :style="textColorStyle" class="bi bi-arrow-left"></i>
         </RouterLink>
         <button type="button" class="nav-action-item menu-toggle-btn" @click="toggleDrawer">
-          <i class="bi bi-text-right"></i>
+          <i :style="textColorStyle" class="bi bi-text-right"></i>
         </button>
       </div>
 
-      <div class="chapter-drawer" :class="{ open: isDrawerOpen }">
+      <!-- chapter drawer -->
+      <div class="chapter-drawer" :class="[backgroundClass, { open: isDrawerOpen }]">
         <div class="container d-flex justify-content-end mt-3">
           <button type="button" class="nav-action-item menu-toggle-btn" @click="toggleDrawer">
-            <i class="bi bi-text-right"></i>
+            <i :style="textColorStyle" class="bi bi-text-right"></i>
           </button>
         </div>
         <div class="drawer-header mt-3 align-items-center d-flex flex-column">
           <img class="img-story mb-2" src="/src/assets/image/beforeTheRain.png" width="80px" />
           <div class="text-center">
-            <h5 class="name-story fw-bold">Before the Rain</h5>
-            <p class="mb-2 name-story">by Sarah Johnson</p>
+            <h5 class="name-story fw-bold" :style="textColorStyle">Before the Rain</h5>
+            <p class="mb-2 name-story" :style="textColorStyle">by Sarah Johnson</p>
           </div>
           <div class="d-flex flex-row justify-content-around gap-2 button-chaps mt-2 w-100 px-2">
             <button @click="toggleFavorite" title="Favorite">
-              <i :class="isFavoriteActive ? 'bi bi-heart-fill text-danger' : 'bi bi-heart'"></i>
+              <i
+                :style="textColorStyle"
+                :class="isFavoriteActive ? 'bi bi-heart-fill text-danger' : 'bi bi-heart'"
+              ></i>
             </button>
             <button @click="toggleBookmark" title="Bookmark">
               <i
+                :style="textColorStyle"
                 :class="isBookmarkActive ? 'bi bi-bookmark-fill text-primary' : 'bi bi-bookmark'"
               ></i>
             </button>
             <button @click="handleDownload" :disabled="isDownloaded" title="Download">
-              <i :class="isDownloaded ? 'bi bi-check-circle-fill' : 'bi bi-download'"></i>
+              <i
+                :style="textColorStyle"
+                :class="isDownloaded ? 'bi bi-check-circle-fill' : 'bi bi-download'"
+              ></i>
             </button>
             <div>
               <button
@@ -309,8 +348,9 @@ async function selectChapterAndClose(chapterId, shouldScroll = true) {
                 data-bs-toggle="modal"
                 data-bs-target="#exampleModal"
                 title="Settings"
+                @click="closeDrawer"
               >
-                <i class="bi bi-gear"></i>
+                <i :style="textColorStyle" class="bi bi-gear"></i>
               </button>
             </div>
           </div>
@@ -321,13 +361,14 @@ async function selectChapterAndClose(chapterId, shouldScroll = true) {
             :key="chapter.id"
             :class="{ active: chapter.id === selectedChapterId }"
             @click="selectChapterAndClose(chapter.id)"
+            :style="textColorStyle"
           >
             {{ chapter.title }}
           </li>
         </ul>
       </div>
 
-      <div class="chapter-content-main">
+      <div class="chapter-content-main" :class="backgroundClass">
         <section
           v-for="chapter in chapters"
           :key="chapter.id"
@@ -336,15 +377,23 @@ async function selectChapterAndClose(chapterId, shouldScroll = true) {
           :data-chapter-id="chapter.id"
           class="chapter-section"
         >
-          <h2 class="story-title justify-content-center text-center">
+          <h2
+            class="story-title justify-content-center text-center"
+            :style="[
+              textColorStyle,
+              { fontSize },
+              { fontFamily: fontStyle + ', sans-serif !important' },
+            ]"
+          >
             {{ chapter.title }}
           </h2>
-          <div class="story-text mt-3">
+          <div class="story-text mt-3" :style="[textColorStyle, { fontSize }]">
             <p
               v-for="(paragraph, index) in (chapter.mainText || '')
                 .split('\n')
                 .filter((p) => p.trim() !== '')"
               :key="`${chapter.id}-p-${index}`"
+              :style="[textAlignStyle, { fontFamily: fontStyle + ', sans-serif !important' }]"
             >
               {{ paragraph }}
             </p>
@@ -354,27 +403,107 @@ async function selectChapterAndClose(chapterId, shouldScroll = true) {
 
       <!-- SETTINGS MODAL -->
       <div
-        class="modal fade"
+        class="modal fade modal-bottom-sheet"
         id="exampleModal"
         tabindex="-1"
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
         <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
+          <div class="modal-content" :class="backgroundClass" :style="textColorStyle">
+            <div class="modal-header border-0">
               <h1 class="modal-title fs-5" id="exampleModalLabel">Settings</h1>
               <button
                 type="button"
                 class="btn-close"
+                :class="{ 'btn-close-white': isDarkMode }"
                 data-bs-dismiss="modal"
-                aria-label="Close"
               ></button>
             </div>
-            <div class="modal-body"></div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
+            <div class="modal-body">
+              <div class="container text-center">
+                <div class="row">
+                  <div class="col-6 col-md-6 mx-auto">
+                    <h6 class="fw-bold">Font</h6>
+
+                    <!-- Font Selection Dropdown -->
+                    <div>
+                      <select v-model="fontStyle" class="option-fonts custom-select">
+                        <option value="serif">Serif</option>
+                        <option value="sans-serif">Sans-Serif</option>
+                        <option value="monospace">Monospace</option>
+                        <option value="cursive">Cursive</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <br />
+                <div class="row">
+                  <div class="col-6">
+                    <h6 class="fw-bold">Text size</h6>
+                    <div class="btn-group mb-3" role="group" aria-label="Text Size">
+                      <button
+                        class="btn"
+                        :class="{ 'btn-fontsizer': fontSize === '14px' }"
+                        @click="setFontSize('14px')"
+                        :style="textColorStyle"
+                      >
+                        ᴬ
+                      </button>
+                      <button
+                        class="btn"
+                        :class="{ 'btn-fontsizer': fontSize === '16px' }"
+                        @click="setFontSize('16px')"
+                        :style="textColorStyle"
+                      >
+                        𝖠
+                      </button>
+                      <button
+                        class="btn"
+                        :class="{ 'btn-fontsizer': fontSize === '20px' }"
+                        @click="setFontSize('20px')"
+                        :style="textColorStyle"
+                      >
+                        A
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- <div class="btn-group">
+                      <button
+                        :style="textColorStyle"
+                        class="btn-alignment btn btn-outline-none bi bi-justify"
+                        :class="{ active: alignment === 'justify' }"
+                        @click="alignment = 'justify'"
+                      ></button>
+                      <button
+                        :style="textColorStyle"
+                        class="btn-alignment btn btn-outline-none bi bi-justify-left"
+                        :class="{ active: alignment === 'left' }"
+                        @click="alignment = 'left'"
+                      ></button>
+                      <button
+                        :style="textColorStyle"
+                        class="btn-alignment btn btn-outline-none bi bi-justify-right"
+                        :class="{ active: alignment === 'right' }"
+                        @click="alignment = 'right'"
+                      ></button>
+                      <button
+                        :style="textColorStyle"
+                        class="btn-alignment btn btn-outline-none bi bi-text-center"
+                        :class="{ active: alignment === 'center' }"
+                        @click="alignment = 'center'"
+                      ></button>
+                    </div> -->
+                  <div class="col-6 text-center" @click="toggleMode" style="cursor: pointer">
+                    <h6 class="fw-bold">{{ isDarkMode ? 'Dark Mode' : 'Light Mode' }}</h6>
+                    <i
+                      :class="isDarkMode ? 'bi bi-moon-fill' : 'bi bi-brightness-high-fill'"
+                      style="font-size: 1.5rem"
+                    ></i>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -431,7 +560,7 @@ async function selectChapterAndClose(chapterId, shouldScroll = true) {
   display: block;
 }
 .nav-action-item:hover i {
-  color: #007bff;
+  color: #4e6766;
 }
 
 .chapter-drawer {
@@ -581,5 +710,100 @@ h2.story-title {
 }
 .story-text p:first-child {
   text-indent: 0; /* No indent for the first paragraph of a section */
+}
+
+/* settings modal */
+.modal-bottom-sheet .modal-dialog {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  width: 100%;
+  max-width: 480px; /* adjust as needed */
+  pointer-events: none;
+}
+
+.modal-bottom-sheet .modal-content {
+  border-radius: 30px 30px 0 0;
+  padding: 1rem;
+  pointer-events: auto;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  width: 100%;
+}
+
+.modal-backdrop.show {
+  opacity: 0.3;
+}
+
+/* FONT SIZER DESIGN */
+.btn-fontsize {
+  background-color: transparent;
+  color: #333;
+  border: 1px solid #ccc;
+}
+
+/* Active state */
+.btn-fontsizer:hover {
+  background-color: #4e6766;
+  border-color: #4e6766;
+  color: white;
+  font-weight: bold;
+}
+
+/* select style */
+.custom-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  background-color: #f8f9fa;
+  border: 1px solid #ced4da;
+  border-radius: 0.375rem;
+  padding: 0.5rem 2.5rem 0.5rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057;
+  width: 100%;
+  cursor: pointer;
+}
+
+/* --- Styling for options (limited cross-browser support) --- */
+.custom-select option {
+  /* Basic styling for options can be applied, but complex styling is often inconsistent */
+  padding: 0.5rem;
+  background-color: #fff;
+  color: #495057;
+}
+.custom-select option:hover {
+  /* Basic styling for options can be applied, but complex styling is often inconsistent */
+  padding: 0.5rem;
+  background-color: #4e6766;
+  color: #495057;
+}
+/* --- Focus State --- */
+.custom-select:focus {
+  border-color: #a9b18f; /* Example focus color (Bootstrap-like) */
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgba(206, 218, 170, 0.863); /* Example focus shadow */
+}
+
+/* alignment */
+.btn-alignment {
+  background-color: transparent;
+  color: #333;
+  border: none; /* Add this to remove the border */
+  outline: none; /* Add this if you also want to remove the focus outline */
+  padding: 0.375rem 0.75rem; /* Add some padding if removing border makes it too small */
+  box-shadow: none;
+}
+
+/* Active state */
+.btn-alignment:hover {
+  background-color: #4e6766;
+
+  color: white;
+  font-weight: bold;
 }
 </style>
