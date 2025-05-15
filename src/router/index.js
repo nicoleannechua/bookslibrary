@@ -11,6 +11,8 @@ import BookmarksView from '@/views/BookmarksView.vue'
 import NotificationView from '@/views/NotificationView.vue'
 import ChapterView from '@/views/ChapterView.vue'
 
+import ReadingModeView from '@/views/ReadingModeView.vue'
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -63,6 +65,11 @@ const router = createRouter({
       path: '/chapter-view',
       name: 'Chapter',
       component: ChapterView,
+    },
+    {
+      path: '/readingmode',
+      name: 'readingmode',
+      component: ReadingModeView,
     },
   ],
 })
