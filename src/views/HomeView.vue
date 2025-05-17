@@ -1,6 +1,6 @@
 <script setup>
 import '@/assets/styles.css'
-import navBarLogoOutline from '@/assets/image/navBarLogoOutline.png'
+import logo2 from '@/assets/image/logo2.png'
 import profileIcon from '@/assets/image/profileIcon.png'
 import beforeTheRain from '@/assets/image/beforeTheRain.png'
 import cherishedMoment from '@/assets/image/cherishedMoment.png'
@@ -219,16 +219,16 @@ const recentlyReadBooks = computed(() => books.filter((book) => book.progress > 
 
 const newBooks = computed(() => books.filter((book) => book.isNew))
 const isDropdownOpen = ref(false)
+const isNavbarCollapsed = ref(true) // For responsive navbar collapse
 </script>
 
 <template>
   <div class="app-container">
     <div class="scrollable-content">
-      <!--Navigation Bar: Brand-->
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
           <RouterLink class="navbar-brand" to="/">
-            <img :src="navBarLogoOutline" alt="Bootstrap" width="80" height="30" />
+            <img :src="logo2" alt="Bootstrap" width="50" height="30" />
           </RouterLink>
 
           <div class="d-flex">
@@ -248,12 +248,6 @@ const isDropdownOpen = ref(false)
                 aria-labelledby="profileDropdown"
                 :class="{ show: isDropdownOpen }"
               >
-                <li>
-                  <a class="dropdown-item drop-title" href="#"
-                    ><i class="bi bi-gear pe-2"></i>Settings</a
-                  >
-                </li>
-                <li><hr class="dropdown-divider" /></li>
                 <li>
                   <RouterLink class="dropdown-item drop-title" to="/login"
                     ><i class="bi bi-box-arrow-right pe-2"></i>Logout</RouterLink
@@ -417,9 +411,9 @@ const isDropdownOpen = ref(false)
             <div class="modal-actions">
               <div class="row g-2">
                 <div class="col-12 col-sm-6">
-                  <button class="btn btn-primary w-100">
-                    <RouterLink to="/chapter-view">Read Now</RouterLink>
-                  </button>
+                  <RouterLink to="/chapter-view">
+                    <button class="btn btn-primary w-100">Read Now</button>
+                  </RouterLink>
                 </div>
                 <div class="col-12 col-sm-6">
                   <button class="btn btn-primary w-100">
@@ -458,6 +452,23 @@ const isDropdownOpen = ref(false)
   height: 100%;
   overflow-y: auto;
   padding-bottom: 76px;
+}
+/* NAVBAR STYLES */
+/* Base styles for the button (Remove padding/border) */
+.dropdown .btn {
+  border: none !important;
+  padding: 0 !important;
+  background-color: transparent !important;
+  line-height: 0; /* Helps contain image */
+  /* Remove focus ring */
+  outline: none !important;
+  box-shadow: none !important;
+}
+.dropdown .btn:focus,
+.dropdown .btn:active {
+  outline: none !important;
+  box-shadow: none !important;
+  border: 2px solid #a2c3a4;
 }
 
 /* NAVBAR STYLES */
@@ -529,7 +540,6 @@ const isDropdownOpen = ref(false)
   right: 0;
   left: auto;
 }
-
 /* Card styles */
 .card {
   margin-bottom: 1rem;

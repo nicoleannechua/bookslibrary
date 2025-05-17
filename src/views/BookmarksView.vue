@@ -1,6 +1,6 @@
 <script setup>
 import '@/assets/styles.css'
-import navBarLogoOutline from '@/assets/image/navBarLogoOutline.png'
+import logo2 from '@/assets/image/logo2.png'
 import profileIcon from '@/assets/image/profileIcon.png'
 import beforeTheRain from '@/assets/image/beforeTheRain.png'
 import cherishedMoment from '@/assets/image/cherishedMoment.png'
@@ -20,43 +20,10 @@ const isDropdownOpen = ref(false)
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
           <RouterLink class="navbar-brand" to="/">
-            <img :src="navBarLogoOutline" alt="Bootstrap" width="80" height="30" />
+            <img :src="logo2" alt="Bootstrap" width="50" height="30" />
           </RouterLink>
-
-          <div class="d-flex">
-            <div class="dropdown">
-              <button
-                class="btn"
-                type="button"
-                id="profileDropdown"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-                @click="isDropdownOpen = !isDropdownOpen"
-              >
-                <img :src="profileIcon" class="profile-icon" style="width: 50px; height: 50px" />
-              </button>
-              <ul
-                class="dropdown-menu dropdown-menu-end"
-                aria-labelledby="profileDropdown"
-                :class="{ show: isDropdownOpen }"
-              >
-                <li>
-                  <a class="dropdown-item drop-title" href="#"
-                    ><i class="bi bi-gear pe-2"></i>Settings</a
-                  >
-                </li>
-                <li><hr class="dropdown-divider" /></li>
-                <li>
-                  <RouterLink class="dropdown-item drop-title" to="/login"
-                    ><i class="bi bi-box-arrow-right pe-2"></i>Logout</RouterLink
-                  >
-                </li>
-              </ul>
-            </div>
-          </div>
         </div>
       </nav>
-
 
       <!--Bookmarks Section-->
       <div class="container my-3 bookmarks-container">
@@ -92,7 +59,8 @@ const isDropdownOpen = ref(false)
           <div class="bookmark-details">
             <h5 class="bookmark-title">Dreams</h5>
             <p class="bookmark-synopsis">
-              A journey of self-discovery, where aspirations and reality collide, teaching the value of perseverance.
+              A journey of self-discovery, where aspirations and reality collide, teaching the value
+              of perseverance.
             </p>
           </div>
         </div>
@@ -103,7 +71,8 @@ const isDropdownOpen = ref(false)
           <div class="bookmark-details">
             <h5 class="bookmark-title">Finding Myself Again</h5>
             <p class="bookmark-synopsis">
-              A powerful story of resilience and rediscovering one's identity after life's unexpected challenges.
+              A powerful story of resilience and rediscovering one's identity after life's
+              unexpected challenges.
             </p>
           </div>
         </div>
@@ -270,6 +239,4 @@ const isDropdownOpen = ref(false)
   color: #555;
   margin-bottom: 1rem;
 }
-
-
 </style>
