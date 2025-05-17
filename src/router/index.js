@@ -9,6 +9,7 @@ import NewAddedView from '@/views/NewAddedView.vue'
 import FavoritesView from '@/views/FavoritesView.vue'
 import BookmarksView from '@/views/BookmarksView.vue'
 import NotificationView from '@/views/NotificationView.vue'
+import ReadingModeView from '@/views/ReadingModeView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -57,6 +58,11 @@ const router = createRouter({
       path: '/notification',
       name: 'notification',
       component: NotificationView,
+    },
+    {
+      path: '/readingmode',
+      name: 'readingmode',
+      component: ReadingModeView,
     },
   ],
 })
