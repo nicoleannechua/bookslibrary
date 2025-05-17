@@ -370,7 +370,7 @@ const isDropdownOpen = ref(false)
             <div class="modal-book-meta">
               <span class="badge bg-secondary me-2">{{ selectedBook.published }}</span>
               <span class="badge bg-secondary me-2">{{ selectedBook.pages }} pages</span>
-              <span v-for="cat in selectedBook.category" :key="cat" class="badge bg-primary me-2">{{
+              <span v-for="cat in selectedBook.category" :key="cat" class="badge bg-secondary me-2">{{
                 cat
               }}</span>
             </div>
