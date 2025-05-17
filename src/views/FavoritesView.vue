@@ -1,6 +1,6 @@
 <script setup>
 import '@/assets/styles.css'
-import navBarLogoOutline from '@/assets/image/navBarLogoOutline.png'
+import logo2 from '@/assets/image/logo2.png'
 import profileIcon from '@/assets/image/profileIcon.png'
 import cherishedMoment from '@/assets/image/cherishedMoment.png'
 import findingMyselfAgain from '@/assets/image/findingMyselfAgain.png'
@@ -48,7 +48,7 @@ const books = [
     synopsis:
       'When a renowned photographer with a terminal diagnosis meets a free-spirited artist who shows him how to truly see the world, both learn that the heart recognizes no boundaries of time or circumstance.',
     published: '2022',
-  }
+  },
 ]
 
 // Add modal functionality
@@ -84,40 +84,8 @@ const isDropdownOpen = ref(false)
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">
-            <img :src="navBarLogoOutline" alt="Bootstrap" width="80" height="30" />
+            <img :src="logo2" alt="Bootstrap" width="50" height="30" />
           </a>
-
-          <div class="d-flex">
-            <div class="dropdown">
-              <button
-                class="btn"
-                type="button"
-                id="profileDropdown"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-                @click="isDropdownOpen = !isDropdownOpen"
-              >
-                <img :src="profileIcon" class="profile-icon" style="width: 50px; height: 50px" />
-              </button>
-              <ul
-                class="dropdown-menu dropdown-menu-end"
-                aria-labelledby="profileDropdown"
-                :class="{ show: isDropdownOpen }"
-              >
-                <li>
-                  <a class="dropdown-item drop-title" href="#"
-                    ><i class="bi bi-gear pe-2"></i>Settings</a
-                  >
-                </li>
-                <li><hr class="dropdown-divider" /></li>
-                <li>
-                  <RouterLink class="dropdown-item drop-title" to="/login"
-                    ><i class="bi bi-box-arrow-right pe-2"></i>Logout</RouterLink
-                  >
-                </li>
-              </ul>
-            </div>
-          </div>
         </div>
       </nav>
 
@@ -272,7 +240,10 @@ const isDropdownOpen = ref(false)
                   </button>
                 </div>
                 <div class="col-12 mt-2">
-                  <button class="btn btn-outline-danger w-100" @click="removeFromFavorites(selectedBook)">
+                  <button
+                    class="btn btn-outline-danger w-100"
+                    @click="removeFromFavorites(selectedBook)"
+                  >
                     <i class="bi bi-heart-break"></i> Remove from Favorites
                   </button>
                 </div>
@@ -454,6 +425,7 @@ const isDropdownOpen = ref(false)
   line-height: 1.2;
   display: -webkit-box;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
   min-height: 2.4em;
 }
@@ -485,6 +457,4 @@ const isDropdownOpen = ref(false)
     font-size: 0.8rem; /* Slightly smaller font on mobile */
   }
 }
-
-
 </style>

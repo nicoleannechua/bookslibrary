@@ -1,6 +1,6 @@
 <script setup>
 import '@/assets/styles.css'
-import navBarLogoOutline from '@/assets/image/navBarLogoOutline.png'
+import logo2 from '@/assets/image/logo2.png'
 import profileIcon from '@/assets/image/profileIcon.png'
 import beforeTheRain from '@/assets/image/beforeTheRain.png'
 import cherishedMoment from '@/assets/image/cherishedMoment.png'
@@ -225,15 +225,10 @@ const isNavbarCollapsed = ref(true) // For responsive navbar collapse
 <template>
   <div class="app-container">
     <div class="scrollable-content">
-      <!--Navigation Bar: Brand-->
-      <!-- <nav class="navbar bg-body-tertiary">
-        <div class="container-fluid px-3 py-2">
-          <img :src="booksLibraryLogoOutlineBlue" alt="Bootstrap" width="30" height="40" />
-
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
           <RouterLink class="navbar-brand" to="/">
-            <img :src="navBarLogoOutline" alt="Bootstrap" width="80" height="30" />
+            <img :src="logo2" alt="Bootstrap" width="50" height="30" />
           </RouterLink>
 
           <div class="d-flex">
@@ -254,75 +249,8 @@ const isNavbarCollapsed = ref(true) // For responsive navbar collapse
                 :class="{ show: isDropdownOpen }"
               >
                 <li>
-                  <a class="dropdown-item drop-title" href="#"
-                    ><i class="bi bi-gear pe-2"></i>Settings</a
-                  >
-                </li>
-                <li><hr class="dropdown-divider" /></li>
-                <li>
                   <RouterLink class="dropdown-item drop-title" to="/login"
                     ><i class="bi bi-box-arrow-right pe-2"></i>Logout</RouterLink
-                  >
-                </li>
-              </ul>
-            </div>
-          </div>
->>>>>>> fc0d148bf05cac618ca27537b3a81d4fdfd8afdf
-        </div>
-      </nav> -->
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">
-            <img :src="booksLibraryLogoOutlineBlue" alt="Bootstrap" width="30" height="40" />
-          </a>
-          <!-- <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-            @click="isNavbarCollapsed = !isNavbarCollapsed"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button> -->
-
-          <div class="d-flex">
-            <div class="dropdown">
-              <button
-                class="btn"
-                type="button"
-                id="profileDropdown"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-                @click="isDropdownOpen = !isDropdownOpen"
-              >
-                <img
-                  src="/src/assets/image/ava.png"
-                  class="profile-icon"
-                  style="width: 50px; height: 50px"
-                />
-              </button>
-              <ul
-                class="dropdown-menu dropdown-menu-end"
-                aria-labelledby="profileDropdown"
-                :class="{ show: isDropdownOpen }"
-              >
-                <li>
-                  <a class="dropdown-item drop-title" href="#"
-                    ><i class="bi bi-person pe-2"></i>My Profile</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item drop-title" href="#"
-                    ><i class="bi bi-gear pe-2"></i>Settings</a
-                  >
-                </li>
-                <li><hr class="dropdown-divider" /></li>
-                <li>
-                  <a class="dropdown-item drop-title" href="#"
-                    ><i class="bi bi-box-arrow-right pe-2"></i>Logout</a
                   >
                 </li>
               </ul>
@@ -486,9 +414,6 @@ const isNavbarCollapsed = ref(true) // For responsive navbar collapse
                   <RouterLink to="/chapter-view">
                     <button class="btn btn-primary w-100">Read Now</button>
                   </RouterLink>
-                  <button class="btn btn-primary w-100">
-                    <RouterLink to="/chapter-view">Read Now</RouterLink>
-                  </button>
                 </div>
                 <div class="col-12 col-sm-6">
                   <button class="btn btn-primary w-100">

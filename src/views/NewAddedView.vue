@@ -1,6 +1,6 @@
 <script setup>
 import '@/assets/styles.css'
-import navBarLogoOutline from '@/assets/image/navBarLogoOutline.png'
+import logo2 from '@/assets/image/logo2.png'
 import profileIcon from '@/assets/image/profileIcon.png'
 import meMyselfAndI from '@/assets/image/meMyselfAndI.png'
 import midnightWorld from '@/assets/image/midnightWorld.png'
@@ -119,7 +119,7 @@ const isDropdownOpen = ref(false)
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
           <RouterLink class="navbar-brand" to="/">
-            <img :src="navBarLogoOutline" alt="Bootstrap" width="80" height="30" />
+            <img :src="logo2" alt="Bootstrap" width="50" height="30" />
           </RouterLink>
 
           <div class="d-flex">
@@ -430,7 +430,6 @@ const isDropdownOpen = ref(false)
   left: auto;
 }
 
-
 /* Card styles */
 .card {
   margin-bottom: 1rem;
@@ -514,6 +513,7 @@ const isDropdownOpen = ref(false)
   line-height: 1.2;
   display: -webkit-box;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
   min-height: 2.4em;
 }

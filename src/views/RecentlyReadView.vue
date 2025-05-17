@@ -1,6 +1,6 @@
 <script setup>
 import '@/assets/styles.css'
-import navBarLogoOutline from '@/assets/image/navBarLogoOutline.png'
+import logo2 from '@/assets/image/logo2.png'
 import profileIcon from '@/assets/image/profileIcon.png'
 import beforeTheRain from '@/assets/image/beforeTheRain.png'
 import cherishedMoment from '@/assets/image/cherishedMoment.png'
@@ -126,7 +126,7 @@ const isDropdownOpen = ref(false)
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
           <RouterLink class="navbar-brand" to="/">
-            <img :src="navBarLogoOutline" alt="Bootstrap" width="80" height="30" />
+            <img :src="logo2" alt="Bootstrap" width="50" height="30" />
           </RouterLink>
 
           <div class="d-flex">
@@ -146,12 +146,6 @@ const isDropdownOpen = ref(false)
                 aria-labelledby="profileDropdown"
                 :class="{ show: isDropdownOpen }"
               >
-                <li>
-                  <a class="dropdown-item drop-title" href="#"
-                    ><i class="bi bi-gear pe-2"></i>Settings</a
-                  >
-                </li>
-                <li><hr class="dropdown-divider" /></li>
                 <li>
                   <RouterLink class="dropdown-item drop-title" to="/login"
                     ><i class="bi bi-box-arrow-right pe-2"></i>Logout</RouterLink
@@ -499,7 +493,6 @@ const isDropdownOpen = ref(false)
   right: 0;
   left: auto;
 }
-
 
 /* Card styles */
 .card {
