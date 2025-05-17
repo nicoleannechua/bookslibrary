@@ -236,18 +236,18 @@ const isDropdownOpen = ref(false)
                 </div>
                 <div class="col-6">
                   <button class="btn btn-custom-outline w-100">
-                    <i class="bi bi-bookmark"></i> Bookmark
+                    <i class="bi bi-bookmark"></i> <span class="button-label">Bookmark</span>
                   </button>
                 </div>
-                <div class="col-12 col-sm-6">
-                  <button class="btn btn-custom w-100">
-                    <i class="bi bi-download"></i> Add to Offline
+                <div class="col-6">
+                  <button class="btn btn-custom-outline w-100">
+                    <i class="bi bi-download"></i> <span class="button-label">Offline</span>
                   </button>
                 </div>
                 <div class="col-12 mt-2">
                   <button
                     class="btn btn-outline-danger w-100"
-                    @click="removeFromFavorites(selectedBook)"
+                    @click="removeFromOffline(selectedBook)"
                   >
                     <i class="bi bi-trash"></i> Remove from Favorites
                   </button>
