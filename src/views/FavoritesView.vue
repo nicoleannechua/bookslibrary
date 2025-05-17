@@ -47,7 +47,7 @@ const books = [
     synopsis:
       'When a renowned photographer with a terminal diagnosis meets a free-spirited artist who shows him how to truly see the world, both learn that the heart recognizes no boundaries of time or circumstance.',
     published: '2022',
-  }
+  },
 ]
 
 // Add modal functionality
@@ -235,7 +235,10 @@ const removeFromFavorites = (book) => {
                   </button>
                 </div>
                 <div class="col-12 mt-2">
-                  <button class="btn btn-outline-danger w-100" @click="removeFromFavorites(selectedBook)">
+                  <button
+                    class="btn btn-outline-danger w-100"
+                    @click="removeFromFavorites(selectedBook)"
+                  >
                     <i class="bi bi-heart-break"></i> Remove from Favorites
                   </button>
                 </div>
@@ -346,6 +349,7 @@ const removeFromFavorites = (book) => {
   line-height: 1.2;
   display: -webkit-box;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
   min-height: 2.4em;
 }
@@ -377,6 +381,4 @@ const removeFromFavorites = (book) => {
     font-size: 0.8rem; /* Slightly smaller font on mobile */
   }
 }
-
-
 </style>
