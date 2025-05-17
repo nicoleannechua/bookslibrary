@@ -218,25 +218,30 @@ const isDropdownOpen = ref(false)
             <div class="modal-book-meta">
               <span class="badge bg-secondary me-2">{{ selectedBook.published }}</span>
               <span class="badge bg-secondary me-2">{{ selectedBook.pages }} pages</span>
-              <span v-for="cat in selectedBook.category" :key="cat" class="badge bg-secondary me-2">{{
-                cat
-              }}</span>
+              <span
+                v-for="cat in selectedBook.category"
+                :key="cat"
+                class="badge bg-secondary me-2"
+                >{{ cat }}</span
+              >
             </div>
             <h4 class="modal-section-title">Synopsis</h4>
             <p class="modal-book-synopsis">{{ selectedBook.synopsis }}</p>
             <div class="modal-actions">
               <div class="row g-2">
-                <div class="col-12">
-                  <button class="btn btn-primary w-100">Read Now</button>
+                <div class="col-12 col-sm-12">
+                  <RouterLink to="/chapter-view">
+                    <button class="btn btn-custom w-100">Read Now</button>
+                  </RouterLink>
                 </div>
                 <div class="col-6">
-                  <button class="btn btn-primary w-100">
+                  <button class="btn btn-custom-outline w-100">
                     <i class="bi bi-bookmark"></i> Bookmark
                   </button>
                 </div>
-                <div class="col-6">
-                  <button class="btn btn-primary w-100">
-                    <i class="bi bi-cloud-download"></i> Download
+                <div class="col-12 col-sm-6">
+                  <button class="btn btn-custom w-100">
+                    <i class="bi bi-download"></i> Add to Offline
                   </button>
                 </div>
                 <div class="col-12 mt-2">
@@ -244,7 +249,7 @@ const isDropdownOpen = ref(false)
                     class="btn btn-outline-danger w-100"
                     @click="removeFromFavorites(selectedBook)"
                   >
-                    <i class="bi bi-heart-break"></i> Remove from Favorites
+                    <i class="bi bi-trash"></i> Remove from Favorites
                   </button>
                 </div>
               </div>

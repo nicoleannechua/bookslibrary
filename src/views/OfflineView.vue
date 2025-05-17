@@ -493,16 +493,18 @@ const isDropdownOpen = ref(false)
             <p class="modal-book-synopsis">{{ selectedBook.synopsis }}</p>
             <div class="modal-actions">
               <div class="row g-2">
-                <div class="col-12">
-                  <button class="btn btn-primary w-100">Read Now</button>
+                <div class="col-12 col-sm-12">
+                  <RouterLink to="/chapter-view">
+                    <button class="btn btn-custom w-100">Read Now</button>
+                  </RouterLink>
                 </div>
                 <div class="col-6">
-                  <button class="btn btn-primary w-100">
+                  <button class="btn btn-custom-outline w-100">
                     <i class="bi bi-bookmark"></i> Bookmark
                   </button>
                 </div>
                 <div class="col-6">
-                  <button class="btn btn-primary w-100">
+                  <button class="btn btn-custom-outline w-100">
                     <i class="bi bi-heart"></i> Favorite
                   </button>
                 </div>

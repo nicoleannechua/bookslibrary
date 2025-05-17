@@ -412,21 +412,21 @@ const isNavbarCollapsed = ref(true) // For responsive navbar collapse
               <div class="row g-2">
                 <div class="col-12 col-sm-6">
                   <RouterLink to="/chapter-view">
-                    <button class="btn btn-primary w-100">Read Now</button>
+                    <button class="btn btn-custom w-100">Read Now</button>
                   </RouterLink>
                 </div>
                 <div class="col-12 col-sm-6">
-                  <button class="btn btn-primary w-100">
+                  <button class="btn btn-custom w-100">
                     <i class="bi bi-download"></i> Add to Offline
                   </button>
                 </div>
                 <div class="col-6">
-                  <button class="btn btn-primary w-100">
+                  <button class="btn btn-custom-outline w-100">
                     <i class="bi bi-bookmark"></i> Bookmark
                   </button>
                 </div>
                 <div class="col-6">
-                  <button class="btn btn-primary w-100">
+                  <button class="btn btn-custom-outline w-100">
                     <i class="bi bi-heart"></i> Favorite
                   </button>
                 </div>
@@ -663,4 +663,6 @@ const isNavbarCollapsed = ref(true) // For responsive navbar collapse
   align-items: center;
   margin-bottom: 1rem;
 }
+
+
 </style>
