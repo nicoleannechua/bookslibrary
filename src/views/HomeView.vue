@@ -265,7 +265,7 @@ const recentlyReadBooks = computed(() => books.filter((book) => book.progress > 
 
 const newBooks = computed(() => books.filter((book) => book.isNew))
 const isDropdownOpen = ref(false)
-const isNavbarCollapsed = ref(true) // For responsive navbar collapse
+
 </script>
 
 <template>

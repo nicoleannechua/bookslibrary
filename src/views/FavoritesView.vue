@@ -2,7 +2,6 @@
 import '@/assets/styles.css'
 import logo2 from '@/assets/image/logo2.png'
 import logo12 from '@/assets/image/logo12.png'
-import profileIcon from '@/assets/image/profileIcon.png'
 import cherishedMoment from '@/assets/image/cherishedMoment.png'
 import findingMyselfAgain from '@/assets/image/findingMyselfAgain.png'
 import loveWithoutLimits from '@/assets/image/loveWithoutLimits.png'
@@ -103,7 +102,6 @@ const removeFromFavorites = (book) => {
 const logoChangeStyle = computed(() => {
   return themeStore.isDarkMode ? logo12 : logo2
 })
-const isDropdownOpen = ref(false)
 </script>
 
 <template>

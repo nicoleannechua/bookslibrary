@@ -2,7 +2,7 @@
 import '@/assets/styles.css'
 import logo2 from '@/assets/image/logo2.png'
 import logo12 from '@/assets/image/logo12.png'
-import profileIcon from '@/assets/image/profileIcon.png'
+
 import meMyselfAndI from '@/assets/image/meMyselfAndI.png'
 import midnightWorld from '@/assets/image/midnightWorld.png'
 import oneStepToTheHeart from '@/assets/image/oneStepToTheHeart.png'
@@ -142,7 +142,6 @@ const addToLibrary = (book) => {
   showModal.value = false
 }
 
-const isDropdownOpen = ref(false)
 </script>
 
 <template>
