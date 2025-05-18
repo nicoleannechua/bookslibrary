@@ -1,22 +1,38 @@
 <script setup>
 import '@/assets/styles.css'
 import logo2 from '@/assets/image/logo2.png'
+import logo12 from '@/assets/image/logo12.png'
 import profileIcon from '@/assets/image/profileIcon.png'
 import beforeTheRain from '@/assets/image/beforeTheRain.png'
 
 import { RouterLink } from 'vue-router'
 import { ref } from 'vue'
+
+import { useThemeStore } from '@/stores/theme'
+import { computed } from 'vue'
+
+const themeStore = useThemeStore() // Use the store
+
+const elementClass = computed(() => {
+  return themeStore.isDarkMode ? 'my-element-dark' : 'my-element-light'
+})
+const changeColor = computed(() => ({
+  color: themeStore.isDarkMode ? '#ffffff' : '#000000',
+}))
+const logoChangeStyle = computed(() => {
+  return themeStore.isDarkMode ? logo12 : logo2
+})
 const isDropdownOpen = ref(false)
 </script>
 
 <template>
   <div class="app-container">
-    <div class="scrollable-content">
+    <div class="scrollable-content" :class="elementClass">
       <!--Navigation Bar: Brand-->
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <nav class="navbar navbar-expand-lg" :class="elementClass">
         <div class="container-fluid">
           <RouterLink class="navbar-brand" to="/">
-            <img :src="logo2" alt="Bootstrap" width="50" height="30" />
+            <img :src="logoChangeStyle" alt="Bootstrap" width="50" height="30" />
           </RouterLink>
         </div>
       </nav>
@@ -27,115 +43,139 @@ const isDropdownOpen = ref(false)
           <h2 class="my-3 py-3"><b>Notification</b></h2>
         </div>
 
-        <ul class="list-group">
-          <li class="list-group-item d-flex justify-content-between align-items-start pointer">
+        <ul class="list-group" :class="{ 'dark-mode': themeStore.isDarkMode }">
+          <li
+            class="list-group-item d-flex justify-content-between align-items-start pointer"
+            :class="elementClass"
+          >
             <RouterLink to="#" class="text-decoration-none text-dark w-100">
               <div class="d-flex">
                 <div class="book-image-container me-3">
                   <img :src="beforeTheRain" alt="Book cover" class="book-image" />
                 </div>
-                <div class="ms-2 me-auto">
+                <div class="ms-2 me-auto" :style="changeColor">
                   <div class="fw-bold">Sara Johnson</div>
                   Posted Chapter 9: Storm Warning
-                  <div class="text-muted small mt-1">15 hours ago</div>
+                  <div class="small mt-1">15 hours ago</div>
                 </div>
               </div>
             </RouterLink>
           </li>
-          <li class="list-group-item d-flex justify-content-between align-items-start pointer">
-            <RouterLink to="#" class="text-decoration-none text-dark w-100">
+          <li
+            class="list-group-item d-flex justify-content-between align-items-start pointer"
+            :class="elementClass"
+          >
+            <RouterLink to="#" class="text-decoration-none text-dark w-100" :style="changeColor">
               <div class="d-flex">
                 <div class="book-image-container me-3">
                   <img :src="beforeTheRain" alt="Book cover" class="book-image" />
                 </div>
-                <div class="ms-2 me-auto">
+                <div class="ms-2 me-auto" :style="changeColor">
                   <div class="fw-bold">Sara Johnson</div>
                   Posted Chapter 8: When the Rain Falls
-                  <div class="text-muted small mt-1">16 hours ago</div>
+                  <div class="small mt-1" :style="changeColor">16 hours ago</div>
                 </div>
               </div>
             </RouterLink>
           </li>
-          <li class="list-group-item d-flex justify-content-between align-items-start pointer">
+          <li
+            class="list-group-item d-flex justify-content-between align-items-start pointer"
+            :class="elementClass"
+          >
             <RouterLink to="#" class="text-decoration-none text-dark w-100">
-              <div class="d-flex">
+              <div class="d-flex" :style="changeColor">
                 <div class="book-image-container me-3">
                   <img :src="beforeTheRain" alt="Book cover" class="book-image" />
                 </div>
                 <div class="ms-2 me-auto">
                   <div class="fw-bold">Sara Johnson</div>
                   Posted Chapter 7: The Calm Before
-                  <div class="text-muted small mt-1">17 hours ago</div>
+                  <div class="small mt-1">17 hours ago</div>
                 </div>
               </div>
             </RouterLink>
           </li>
-          <li class="list-group-item d-flex justify-content-between align-items-start pointer">
+          <li
+            class="list-group-item d-flex justify-content-between align-items-start pointer"
+            :class="elementClass"
+          >
             <RouterLink to="/readingmode" class="text-decoration-none text-dark w-100">
-              <div class="d-flex">
+              <div class="d-flex" :style="changeColor">
                 <div class="book-image-container me-3">
                   <img :src="beforeTheRain" alt="Book cover" class="book-image" />
                 </div>
                 <div class="ms-2 me-auto">
                   <div class="fw-bold">Sara Johnson</div>
                   Posted Chapter 6: Sparks and Silence
-                  <div class="text-muted small mt-1">2 hours ago</div>
+                  <div class="small mt-1">2 hours ago</div>
                 </div>
               </div>
             </RouterLink>
           </li>
-          <li class="list-group-item d-flex justify-content-between align-items-start pointer">
+          <li
+            class="list-group-item d-flex justify-content-between align-items-start pointer"
+            :class="elementClass"
+          >
             <RouterLink to="/readingmode" class="text-decoration-none text-dark w-100">
-              <div class="d-flex">
+              <div class="d-flex" :style="changeColor">
                 <div class="book-image-container me-3">
                   <img :src="beforeTheRain" alt="Book cover" class="book-image" />
                 </div>
                 <div class="ms-2 me-auto">
                   <div class="fw-bold">Sara Johnson</div>
                   Posted Chapter 5: Storm Warning
-                  <div class="text-muted small mt-1">18 hours ago</div>
+                  <div class="small mt-1" :style="changeColor">18 hours ago</div>
                 </div>
               </div>
             </RouterLink>
           </li>
-          <li class="list-group-item d-flex justify-content-between align-items-start pointer">
+          <li
+            class="list-group-item d-flex justify-content-between align-items-start pointer"
+            :class="elementClass"
+          >
             <RouterLink to="/readingmode" class="text-decoration-none text-dark w-100">
-              <div class="d-flex">
+              <div class="d-flex" :style="changeColor">
                 <div class="book-image-container me-3">
                   <img :src="beforeTheRain" alt="Book cover" class="book-image" />
                 </div>
                 <div class="ms-2 me-auto">
                   <div class="fw-bold">Sara Johnson</div>
                   Posted Chapter 4: Letters Never Sent
-                  <div class="text-muted small mt-1">19 hours ago</div>
+                  <div class="small mt-1">19 hours ago</div>
                 </div>
               </div>
             </RouterLink>
           </li>
-          <li class="list-group-item d-flex justify-content-between align-items-start pointer">
+          <li
+            class="list-group-item d-flex justify-content-between align-items-start pointer"
+            :class="elementClass"
+          >
             <RouterLink to="/readingmode" class="text-decoration-none text-dark w-100">
-              <div class="d-flex">
+              <div class="d-flex" :style="changeColor">
                 <div class="book-image-container me-3">
                   <img :src="beforeTheRain" alt="Book cover" class="book-image" />
                 </div>
                 <div class="ms-2 me-auto">
                   <div class="fw-bold">Sara Johnson</div>
                   Posted Chapter 3: First Sight
-                  <div class="text-muted small mt-1">20 hours ago</div>
+                  <div class="small mt-1">20 hours ago</div>
                 </div>
               </div>
             </RouterLink>
           </li>
-          <li class="list-group-item d-flex justify-content-between align-items-start pointer">
-            <RouterLink to="/readingmode" class="text-decoration-none text-dark w-100">
-              <div class="d-flex">
+          <li
+            class="list-group-item d-flex justify-content-between align-items-start pointer"
+            :class="elementClass"
+          >
+            <RouterLink to="/chapter-view" class="text-decoration-none text-dark w-100">
+              <div class="d-flex" :style="changeColor">
                 <div class="book-image-container me-3">
                   <img :src="beforeTheRain" alt="Book cover" class="book-image" />
                 </div>
                 <div class="ms-2 me-auto">
                   <div class="fw-bold">Sara Johnson</div>
                   Posted Chapter 2: Echoes of Home
-                  <div class="text-muted small mt-1">21 hours ago</div>
+                  <div class="small mt-1">21 hours ago</div>
                 </div>
               </div>
             </RouterLink>
@@ -268,8 +308,19 @@ const isDropdownOpen = ref(false)
   cursor: pointer;
 }
 
+/* Default hover style (used when .dark-mode class is NOT active - typically light mode) */
 .pointer:hover {
-  background-color: #f8f9fa;
+  background-color: #bdd5bf;
+}
+
+/* Hover style when dark mode is active */
+.dark-mode .pointer:hover {
+  background-color: #4e6766;
+  color: #e0e0e0;
+}
+.dark-mode .pointer {
+  color: #cccccc;
+  background-color: #121212;
 }
 
 .small {

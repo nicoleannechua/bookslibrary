@@ -1,6 +1,7 @@
 <script setup>
 import '@/assets/styles.css'
 import logo2 from '@/assets/image/logo2.png'
+import logo12 from '@/assets/image/logo12.png'
 import profileIcon from '@/assets/image/profileIcon.png'
 import beforeTheRain from '@/assets/image/beforeTheRain.png'
 import cherishedMoment from '@/assets/image/cherishedMoment.png'
@@ -9,18 +10,32 @@ import findingMyselfAgain from '@/assets/image/findingMyselfAgain.png'
 import { RouterLink } from 'vue-router'
 
 import { ref } from 'vue'
+import { useThemeStore } from '@/stores/theme'
+import { computed } from 'vue'
 
+const themeStore = useThemeStore() // Use the store
+
+const elementClass = computed(() => {
+  return themeStore.isDarkMode ? 'my-element-dark' : 'my-element-light'
+})
+
+const changeColor = computed(() => ({
+  color: themeStore.isDarkMode ? '#ffffff' : '#000000',
+}))
+const logoChangeStyle = computed(() => {
+  return themeStore.isDarkMode ? logo12 : logo2
+})
 const isDropdownOpen = ref(false)
 </script>
 
 <template>
   <div class="app-container">
-    <div class="scrollable-content">
+    <div class="scrollable-content" :class="elementClass">
       <!--Navigation Bar: Brand-->
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
           <RouterLink class="navbar-brand" to="/">
-            <img :src="logo2" alt="Bootstrap" width="50" height="30" />
+            <img :src="logoChangeStyle" alt="Bootstrap" width="50" height="30" />
           </RouterLink>
         </div>
       </nav>
@@ -36,7 +51,7 @@ const isDropdownOpen = ref(false)
           </div>
           <div class="bookmark-details">
             <h5 class="bookmark-title">Before the Rain</h5>
-            <p class="bookmark-synopsis">
+            <p class="bookmark-synopsis" :style="changeColor">
               A heartwarming story about love, loss, and finding hope in the rain.
             </p>
           </div>
@@ -47,7 +62,7 @@ const isDropdownOpen = ref(false)
           </div>
           <div class="bookmark-details">
             <h5 class="bookmark-title">Cherished Moment</h5>
-            <p class="bookmark-synopsis">
+            <p class="bookmark-synopsis" :style="changeColor">
               A tale of unforgettable memories and the moments that define us.
             </p>
           </div>
@@ -58,7 +73,7 @@ const isDropdownOpen = ref(false)
           </div>
           <div class="bookmark-details">
             <h5 class="bookmark-title">Dreams</h5>
-            <p class="bookmark-synopsis">
+            <p class="bookmark-synopsis" :style="changeColor">
               A journey of self-discovery, where aspirations and reality collide, teaching the value
               of perseverance.
             </p>
@@ -70,7 +85,7 @@ const isDropdownOpen = ref(false)
           </div>
           <div class="bookmark-details">
             <h5 class="bookmark-title">Finding Myself Again</h5>
-            <p class="bookmark-synopsis">
+            <p class="bookmark-synopsis" :style="changeColor">
               A powerful story of resilience and rediscovering one's identity after life's
               unexpected challenges.
             </p>
@@ -159,10 +174,8 @@ const isDropdownOpen = ref(false)
 }
 .dropdown-item.drop-title:hover,
 .dropdown-item.drop-title:focus {
-  /* Also style the focus state for accessibility */
-  color: black !important; /* Change text color to black */
-  background-color: #f8f9fa; /* Optional: Add a light background on hover, common for dropdowns */
-  /* Remove this background-color line if you don't want it */
+  color: black !important;
+  background-color: #a2c3a4 !important;
 }
 .dropdown .btn:focus,
 .dropdown .btn:active {
@@ -238,5 +251,16 @@ const isDropdownOpen = ref(false)
   font-size: 1rem;
   color: #555;
   margin-bottom: 1rem;
+}
+
+/* darkmode */
+.my-element-dark {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.my-element-light {
+  background-color: #eeeeee;
+  color: #000000;
 }
 </style>

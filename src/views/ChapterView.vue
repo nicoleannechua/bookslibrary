@@ -18,18 +18,6 @@ const fontClass = computed(() => {
     'font-cursive': fontStyle.value === 'cursive',
   }
 })
-// Dark mode/ light mode
-
-const backgroundClass = computed(() => {
-  return isDarkMode.value ? 'bg-dark' : 'bg-light'
-})
-const isDarkMode = ref(false)
-const toggleMode = () => {
-  isDarkMode.value = !isDarkMode.value
-}
-const textColorStyle = computed(() => ({
-  color: isDarkMode.value ? '#ffffff' : '#000000',
-}))
 
 // FONT SIZE
 
@@ -172,8 +160,6 @@ She reached for his hand. This time, he didn’t let go.`,
 
 const selectedChapterId = ref(chapters.value.length > 0 ? chapters.value[0].id : null)
 
-// --- Computed Property ---
-// currentChapter is still useful if you want to access the currently "active" chapter's data for other purposes
 const currentChapter = computed(() => {
   return chapters.value.find((chapter) => chapter.id === selectedChapterId.value) || null
 })
@@ -205,11 +191,9 @@ function handleDownload() {
   }, 1000)
 }
 
-// --- Intersection Observer for Scrollspy ---
 let observer = null
-const chapterElements = ref({}) // Stores DOM element references: { 1: <div#chap1>, 2: <div#chap2> }
+const chapterElements = ref({})
 
-// Function to be used in :ref to collect chapter elements
 const setChapterElementRef = (el, chapterId) => {
   if (el) {
     chapterElements.value[chapterId] = el
@@ -218,7 +202,6 @@ const setChapterElementRef = (el, chapterId) => {
 
 onMounted(() => {
   nextTick(() => {
-    // Ensure DOM elements are available
     const scrollRoot = document.querySelector('.chapter-content-main')
     if (!scrollRoot) {
       console.error('Scroll container .chapter-content-main not found.')
@@ -226,26 +209,19 @@ onMounted(() => {
     }
 
     const options = {
-      root: scrollRoot, // The element that is used as the viewport for checking visibility.
-      rootMargin: '0px 0px -50% 0px', // Adjust margins: top, right, bottom, left
-      // Negative bottom margin means it triggers when element is higher up in view
-      threshold: 0.1, // Trigger when 10% of the element is visible. Adjust as needed.
-      // Or an array e.g. [0, 0.25, 0.5, 0.75, 1] for more granular callbacks
+      root: scrollRoot,
+      rootMargin: '0px 0px -50% 0px',
+      threshold: 0.1,
     }
 
     observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         const chapterId = parseInt(entry.target.dataset.chapterId)
         if (entry.isIntersecting) {
-          // When a chapter becomes visible (based on threshold and rootMargin)
-          // To avoid rapid changes if multiple chapters are in the "trigger zone",
-          // we can prioritize the one that's higher up in the viewport.
-          // A simple approach for now: update if the current entry's top is less than or near 0.
           if (
             entry.boundingClientRect.top < scrollRoot.clientHeight * 0.5 &&
             entry.intersectionRatio > 0.1
           ) {
-            // Chapter is in upper half
             if (selectedChapterId.value !== chapterId) {
               selectedChapterId.value = chapterId
             }
@@ -254,7 +230,6 @@ onMounted(() => {
       })
     }, options)
 
-    // Observe each chapter content section
     chapters.value.forEach((chapter) => {
       const el = chapterElements.value[chapter.id]
       if (el) {
@@ -264,9 +239,8 @@ onMounted(() => {
       }
     })
 
-    // Set initial chapter based on what's visible (or default to first)
     if (chapters.value.length > 0 && !currentChapter.value) {
-      selectChapterAndClose(chapters.value[0].id, false) // Select first chapter, no scroll
+      selectChapterAndClose(chapters.value[0].id, false)
     }
   })
 })
@@ -283,7 +257,6 @@ onBeforeUnmount(() => {
   }
 })
 
-// Updated to scroll to the chapter smoothly
 async function selectChapterAndClose(chapterId, shouldScroll = true) {
   selectedChapterId.value = chapterId
   closeDrawer()
@@ -296,12 +269,25 @@ async function selectChapterAndClose(chapterId, shouldScroll = true) {
     }
   }
 }
+// Dark mode/ light mode
+import { useThemeStore } from '@/stores/theme'
+
+const themeStore = useThemeStore() // Use the store
+
+const textColorStyle = computed(() => ({
+  color: themeStore.isDarkMode ? '#ffffff' : '#000000',
+}))
+const isDarkMode = themeStore.isDarkMode
+const toggleMode = themeStore.toggleMode
+const elementClass = computed(() => {
+  return themeStore.isDarkMode ? 'my-element-dark' : 'my-element-light'
+})
 </script>
 
 <template>
-  <div class="container-fluid root-container" :class="backgroundClass">
+  <div class="container-fluid root-container" :class="elementClass">
     <div class="chapter-reader-container">
-      <div class="top-nav-actions" :class="backgroundClass">
+      <div class="top-nav-actions" :class="elementClass">
         <RouterLink to="/" class="nav-action-item">
           <i :style="textColorStyle" class="bi bi-arrow-left"></i>
         </RouterLink>
@@ -311,7 +297,7 @@ async function selectChapterAndClose(chapterId, shouldScroll = true) {
       </div>
 
       <!-- chapter drawer -->
-      <div class="chapter-drawer" :class="[backgroundClass, { open: isDrawerOpen }]">
+      <div class="chapter-drawer" :class="[elementClass, { open: isDrawerOpen }]">
         <div class="container d-flex justify-content-end mt-3">
           <button type="button" class="nav-action-item menu-toggle-btn" @click="toggleDrawer">
             <i :style="textColorStyle" class="bi bi-text-right"></i>
@@ -410,7 +396,7 @@ async function selectChapterAndClose(chapterId, shouldScroll = true) {
         aria-hidden="true"
       >
         <div class="modal-dialog">
-          <div class="modal-content" :class="backgroundClass" :style="textColorStyle">
+          <div class="modal-content" :class="elementClass" :style="textColorStyle">
             <div class="modal-header border-0">
               <h1 class="modal-title fs-5" id="exampleModalLabel">Settings</h1>
               <button
@@ -422,21 +408,7 @@ async function selectChapterAndClose(chapterId, shouldScroll = true) {
             </div>
             <div class="modal-body">
               <div class="container text-center">
-                <div class="row">
-                  <div class="col-6 col-md-6 mx-auto">
-                    <h6 class="fw-bold">Font</h6>
-
-                    <!-- Font Selection Dropdown -->
-                    <div>
-                      <select v-model="fontStyle" class="option-fonts custom-select">
-                        <option value="serif">Serif</option>
-                        <option value="sans-serif">Sans-Serif</option>
-                        <option value="monospace">Monospace</option>
-                        <option value="cursive">Cursive</option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
+                <div class="row"></div>
                 <br />
                 <div class="row">
                   <div class="col-6">
@@ -468,39 +440,18 @@ async function selectChapterAndClose(chapterId, shouldScroll = true) {
                       </button>
                     </div>
                   </div>
+                  <div class="col-6 col-md-6 mx-auto">
+                    <h6 class="fw-bold">Font Style</h6>
 
-                  <!-- <div class="btn-group">
-                      <button
-                        :style="textColorStyle"
-                        class="btn-alignment btn btn-outline-none bi bi-justify"
-                        :class="{ active: alignment === 'justify' }"
-                        @click="alignment = 'justify'"
-                      ></button>
-                      <button
-                        :style="textColorStyle"
-                        class="btn-alignment btn btn-outline-none bi bi-justify-left"
-                        :class="{ active: alignment === 'left' }"
-                        @click="alignment = 'left'"
-                      ></button>
-                      <button
-                        :style="textColorStyle"
-                        class="btn-alignment btn btn-outline-none bi bi-justify-right"
-                        :class="{ active: alignment === 'right' }"
-                        @click="alignment = 'right'"
-                      ></button>
-                      <button
-                        :style="textColorStyle"
-                        class="btn-alignment btn btn-outline-none bi bi-text-center"
-                        :class="{ active: alignment === 'center' }"
-                        @click="alignment = 'center'"
-                      ></button>
-                    </div> -->
-                  <div class="col-6 text-center" @click="toggleMode" style="cursor: pointer">
-                    <h6 class="fw-bold">{{ isDarkMode ? 'Dark Mode' : 'Light Mode' }}</h6>
-                    <i
-                      :class="isDarkMode ? 'bi bi-moon-fill' : 'bi bi-brightness-high-fill'"
-                      style="font-size: 1.5rem"
-                    ></i>
+                    <!-- Font Selection Dropdown -->
+                    <div>
+                      <select v-model="fontStyle" class="option-fonts custom-select">
+                        <option value="serif">Serif</option>
+                        <option value="sans-serif">Sans-Serif</option>
+                        <option value="monospace">Monospace</option>
+                        <option value="cursive">Cursive</option>
+                      </select>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -663,11 +614,11 @@ async function selectChapterAndClose(chapterId, shouldScroll = true) {
 }
 
 .chapter-section {
-  padding-top: 20px; /* Space for title if rendered */
-  margin-bottom: 5vh; /* Visual separation, can be adjusted */
-  min-height: 80vh; /* Ensure chapter takes up significant space for observer */
-  opacity: 0; /* Start hidden for animation */
-  transform: translateY(20px); /* Start slightly down for animation */
+  padding-top: 20px;
+  margin-bottom: 5vh;
+  min-height: 80vh;
+  opacity: 0;
+  transform: translateY(20px);
   animation: fadeInSlideUp 0.5s ease-out forwards;
 }
 
@@ -729,7 +680,7 @@ h2.story-title {
   padding: 1rem;
   pointer-events: auto;
   box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
-  background-color: #ffffff;
+  /* background-color: #ffffff; */
   width: 100%;
 }
 
@@ -759,7 +710,7 @@ h2.story-title {
   -moz-appearance: none;
 
   background-color: #f8f9fa;
-  border: 1px solid #ced4da;
+  border: 1px solid #4e6766;
   border-radius: 0.375rem;
   padding: 0.5rem 2.5rem 0.5rem 0.75rem;
   font-size: 1rem;
@@ -773,8 +724,8 @@ h2.story-title {
 .custom-select option {
   /* Basic styling for options can be applied, but complex styling is often inconsistent */
   padding: 0.5rem;
-  background-color: #fff;
-  color: #495057;
+  background-color: #a9b18f;
+  color: #202720;
 }
 .custom-select option:hover {
   /* Basic styling for options can be applied, but complex styling is often inconsistent */
@@ -784,7 +735,7 @@ h2.story-title {
 }
 /* --- Focus State --- */
 .custom-select:focus {
-  border-color: #a9b18f; /* Example focus color (Bootstrap-like) */
+  border-color: #4e6766; /* Example focus color (Bootstrap-like) */
   outline: 0;
   box-shadow: 0 0 0 0.25rem rgba(206, 218, 170, 0.863); /* Example focus shadow */
 }
@@ -805,5 +756,16 @@ h2.story-title {
 
   color: white;
   font-weight: bold;
+}
+
+/* darkmode */
+.my-element-dark {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.my-element-light {
+  background-color: #eeeeee;
+  color: #000000;
 }
 </style>
