@@ -650,9 +650,9 @@ h2.story-title {
 
 .story-text {
   line-height: 1.7;
-  font-size: 1.1rem; /* Slightly larger for readability */
+  font-size: 1.1rem;
   color: #333;
-  font-family: 'Georgia', serif; /* Consistent serif font for story */
+  font-family: 'Georgia', serif;
 }
 
 .story-text p {
