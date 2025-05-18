@@ -1,6 +1,7 @@
 <script setup>
 import '@/assets/styles.css'
 import logo2 from '@/assets/image/logo2.png'
+import logo12 from '@/assets/image/logo12.png'
 import profileIcon from '@/assets/image/profileIcon.png'
 import beforeTheRain from '@/assets/image/beforeTheRain.png'
 import cherishedMoment from '@/assets/image/cherishedMoment.png'
@@ -115,45 +116,53 @@ const removeFromOffline = (book) => {
   alert(`"${book.title}" has been removed from your recently read library`)
   showModal.value = false
 }
+// DARK MODE AND LIGHT MODE
+import { useThemeStore } from '@/stores/theme'
+import { computed } from 'vue'
 
+const logoChangeStyle = computed(() => {
+  return themeStore.isDarkMode ? logo12 : logo2
+})
+const themeStore = useThemeStore() // Use the store
+
+const elementClass = computed(() => {
+  return themeStore.isDarkMode ? 'my-element-dark' : 'my-element-light'
+})
+const changeColor = computed(() => ({
+  color: themeStore.isDarkMode ? '#a2c3a4' : '#4e6766',
+}))
+const colorPagesBook = computed(() => ({
+  'background-color': themeStore.isDarkMode ? '#a2c3a4' : '#4e6766',
+  'border-color': themeStore.isDarkMode ? '#a9b18f' : '#a2c3a4',
+  color: themeStore.isDarkMode ? '#404e41' : '#ecf3ec',
+}))
+const datePublishedYear = computed(() => ({
+  color: themeStore.isDarkMode ? '#ecf3ec' : '#404e41',
+}))
+const colorCateGories = computed(() => ({
+  'background-color': themeStore.isDarkMode ? '#a2c3a4' : '#4e6766',
+  'border-color': themeStore.isDarkMode ? '#a9b18f' : '#a2c3a4',
+  color: themeStore.isDarkMode ? '#404e41' : '#ecf3ec',
+}))
+const colorProgRess = computed(() => ({
+  color: themeStore.isDarkMode ? '#ffffff' : '#666',
+}))
+const categoryButtonStyles = computed(() => ({
+  color: themeStore.isDarkMode ? '#a2c3a4' : '#4e6766',
+  borderColor: themeStore.isDarkMode ? '#a2c3a4' : '#4e6766',
+}))
 const isDropdownOpen = ref(false)
 </script>
 
 <template>
-  <div class="app-container">
+  <div class="app-container" :class="elementClass">
     <div class="scrollable-content">
       <!--Navigation Bar: Brand-->
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <nav class="navbar navbar-expand-lg" :class="elementClass">
         <div class="container-fluid">
           <RouterLink class="navbar-brand" to="/">
-            <img :src="logo2" alt="Bootstrap" width="50" height="30" />
+            <img :src="logoChangeStyle" alt="Bootstrap" width="50" height="30" />
           </RouterLink>
-
-          <div class="d-flex">
-            <div class="dropdown">
-              <button
-                class="btn"
-                type="button"
-                id="profileDropdown"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-                @click="isDropdownOpen = !isDropdownOpen"
-              >
-                <img :src="profileIcon" class="profile-icon" style="width: 50px; height: 50px" />
-              </button>
-              <ul
-                class="dropdown-menu dropdown-menu-end"
-                aria-labelledby="profileDropdown"
-                :class="{ show: isDropdownOpen }"
-              >
-                <li>
-                  <RouterLink class="dropdown-item drop-title" to="/login"
-                    ><i class="bi bi-box-arrow-right pe-2"></i>Logout</RouterLink
-                  >
-                </li>
-              </ul>
-            </div>
-          </div>
         </div>
       </nav>
 
@@ -161,7 +170,9 @@ const isDropdownOpen = ref(false)
       <div class="container my-3">
         <div class="search-container d-flex align-items-center">
           <button class="arrow-btn me-2">
-            <RouterLink to="/"><i class="bi bi-arrow-left-circle"></i></RouterLink>
+            <RouterLink to="/"
+              ><i class="bi bi-arrow-left-circle" :style="categoryButtonStyles"></i
+            ></RouterLink>
           </button>
           <form class="d-flex flex-grow-1" role="search">
             <input
@@ -170,7 +181,13 @@ const isDropdownOpen = ref(false)
               placeholder="Search"
               aria-label="Search"
             />
-            <button class="btn search-button rounded-pill" type="submit">Search</button>
+            <button
+              class="btn search-button rounded-pill"
+              :style="categoryButtonStyles"
+              type="submit"
+            >
+              Search
+            </button>
           </form>
         </div>
       </div>
@@ -350,7 +367,7 @@ const isDropdownOpen = ref(false)
 
     <!-- Book Details Modal -->
     <div v-if="showModal" class="modal-overlay" @click="closeModal">
-      <div class="modal-content" @click.stop>
+      <div class="modal-content" @click.stop :class="elementClass">
         <button class="close-button" @click="closeModal">
           <i class="bi bi-x-lg"></i>
         </button>
@@ -361,33 +378,46 @@ const isDropdownOpen = ref(false)
               <div class="progress">
                 <div class="progress-bar" :style="{ width: selectedBook.progress + '%' }"></div>
               </div>
-              <div class="progress-text">{{ selectedBook.progress }}% completed</div>
+              <div class="progress-text" :style="colorProgRess">
+                {{ selectedBook.progress }}% completed
+              </div>
             </div>
           </div>
           <div class="modal-book-info">
-            <h2 class="modal-book-title">{{ selectedBook.title }}</h2>
-            <div class="modal-book-author">by {{ selectedBook.author }}</div>
+            <h2 class="modal-book-title" :style="changeColor">{{ selectedBook.title }}</h2>
+            <div class="modal-book-author" :style="changeColor">by {{ selectedBook.author }}</div>
             <div class="modal-book-meta">
               <span class="badge bg-secondary me-2">{{ selectedBook.published }}</span>
               <span class="badge bg-secondary me-2">{{ selectedBook.pages }} pages</span>
-              <span v-for="cat in selectedBook.category" :key="cat" class="badge bg-secondary me-2">{{
-                cat
+              <span v-for="cat in selectedBook.category" :key="cat" class="badge bg-secondary me-2"
+                >{{ cat }}
+              </span>
+              <span class="badge me-2" :style="datePublishedYear">{{
+                selectedBook.published
               }}</span>
+              <span class="badge me-2" :style="colorPagesBook">{{ selectedBook.pages }} pages</span>
+              <span
+                v-for="cat in selectedBook.category"
+                :style="colorCateGories"
+                :key="cat"
+                class="badge me-2"
+                >{{ cat }}</span
+              >
             </div>
-            <h4 class="modal-section-title">Synopsis</h4>
-            <p class="modal-book-synopsis">{{ selectedBook.synopsis }}</p>
+            <h4 class="modal-section-title" :style="changeColor">Synopsis</h4>
+            <p class="modal-book-synopsis" :style="changeColor">{{ selectedBook.synopsis }}</p>
             <div class="modal-actions">
               <div class="row g-2">
                 <div class="col-12">
-                  <button class="btn btn-primary w-100">Continue Reading</button>
+                  <button class="btn btn-buttonChapter w-100">Continue Reading</button>
                 </div>
                 <div class="col-6">
-                  <button class="btn btn-primary w-100">
+                  <button class="btn btn-buttonChapter w-100">
                     <i class="bi bi-bookmark"></i> Bookmark
                   </button>
                 </div>
                 <div class="col-6">
-                  <button class="btn btn-primary w-100">
+                  <button class="btn btn-buttonChapter w-100">
                     <i class="bi bi-heart"></i> Favorite
                   </button>
                 </div>
@@ -614,5 +644,15 @@ const isDropdownOpen = ref(false)
 .search-container {
   width: 100%;
   gap: 0.5rem;
+}
+/* dark moder */
+.my-element-dark {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.my-element-light {
+  background-color: #eeeeee;
+  color: #000000;
 }
 </style>

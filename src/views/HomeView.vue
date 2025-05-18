@@ -1,6 +1,7 @@
 <script setup>
 import '@/assets/styles.css'
 import logo2 from '@/assets/image/logo2.png'
+import logo12 from '@/assets/image/logo12.png'
 import profileIcon from '@/assets/image/profileIcon.png'
 import beforeTheRain from '@/assets/image/beforeTheRain.png'
 import cherishedMoment from '@/assets/image/cherishedMoment.png'
@@ -16,8 +17,53 @@ import ourStory from '@/assets/image/ourStory.png'
 import paperHeart from '@/assets/image/paperHeart.png'
 
 import { ref, computed } from 'vue'
+// const backgroundClass = computed(() => {
+//   return isDarkMode.value ? 'bg-dark' : 'bg-light'
+// })
+const elementClass = computed(() => {
+  return themeStore.isDarkMode ? 'my-element-dark' : 'my-element-light'
+})
+const changeColor = computed(() => ({
+  color: themeStore.isDarkMode ? '#ffffff' : '#000000',
+}))
+const titleBookStory = computed(() => ({
+  color: themeStore.isDarkMode ? '#a2c3a4' : '#4e6766',
+}))
+const categoryButtonStyles = computed(() => ({
+  color: themeStore.isDarkMode ? '#a2c3a4' : '#4e6766',
+  borderColor: themeStore.isDarkMode ? '#a2c3a4' : '#4e6766',
+}))
+const categoryStylesSlide = computed(() => ({
+  color: themeStore.isDarkMode ? '#a2c3a4' : '#ecf3ec',
+  // borderColor: themeStore.isDarkMode ? '#a2c3a4' : '#4e6766',
+}))
+const logoChangeStyle = computed(() => {
+  // Use the imported image variables directly
+  return themeStore.isDarkMode ? logo12 : logo2
+})
+const colorPagesBook = computed(() => ({
+  'background-color': themeStore.isDarkMode ? '#a2c3a4' : '#4e6766',
+  'border-color': themeStore.isDarkMode ? '#a9b18f' : '#a2c3a4',
+  color: themeStore.isDarkMode ? '#404e41' : '#ecf3ec',
+}))
+const datePublishedYear = computed(() => ({
+  color: themeStore.isDarkMode ? '#ecf3ec' : '#404e41',
+}))
+const colorCateGories = computed(() => ({
+  'background-color': themeStore.isDarkMode ? '#a2c3a4' : '#4e6766',
+  'border-color': themeStore.isDarkMode ? '#a9b18f' : '#a2c3a4',
+  color: themeStore.isDarkMode ? '#404e41' : '#ecf3ec',
+}))
+const colorProgRess = computed(() => ({
+  color: themeStore.isDarkMode ? '#ffffff' : '#666',
+}))
+import { useThemeStore } from '@/stores/theme'
 
-// Add book data with categories and additional details
+const themeStore = useThemeStore() // Use the store
+
+const isDarkMode = themeStore.isDarkMode
+const toggleMode = themeStore.toggleMode
+
 const books = [
   {
     id: 1,
@@ -224,11 +270,11 @@ const isNavbarCollapsed = ref(true) // For responsive navbar collapse
 
 <template>
   <div class="app-container">
-    <div class="scrollable-content">
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="scrollable-content" :class="elementClass">
+      <nav class="navbar" :class="elementClass">
         <div class="container-fluid">
           <RouterLink class="navbar-brand" to="/">
-            <img :src="logo2" alt="Bootstrap" width="50" height="30" />
+            <img :src="logoChangeStyle" alt="Bootstrap" width="50" height="30" />
           </RouterLink>
 
           <div class="d-flex">
@@ -246,13 +292,34 @@ const isNavbarCollapsed = ref(true) // For responsive navbar collapse
               <ul
                 class="dropdown-menu dropdown-menu-end"
                 aria-labelledby="profileDropdown"
-                :class="{ show: isDropdownOpen }"
+                :class="(elementClass, { show: isDropdownOpen })"
               >
+                <div class="container">
+                  <div class="text-center" @click="toggleMode" style="cursor: pointer">
+                    <div class="light-dark d-flex align-items-center justify-content-between">
+                      <i
+                        :class="isDarkMode ? 'bi bi-moon-fill' : 'bi bi-brightness-high-fill'"
+                        style="font-size: 1rem"
+                      ></i>
+                      <div class="form-check form-switch ms-2">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          role="switch"
+                          id="switchCheckChecked"
+                          checked
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <li><hr class="dropdown-divider" /></li>
                 <li>
                   <RouterLink class="dropdown-item drop-title" to="/login"
                     ><i class="bi bi-box-arrow-right pe-2"></i>Logout</RouterLink
                   >
                 </li>
+                <li></li>
               </ul>
             </div>
           </div>
@@ -268,16 +335,24 @@ const isNavbarCollapsed = ref(true) // For responsive navbar collapse
             placeholder="Search"
             aria-label="Search"
           />
-          <button class="btn search-button rounded-pill" type="submit">Search</button>
+          <button
+            class="btn search-button rounded-pill"
+            :style="categoryButtonStyles"
+            type="submit"
+          >
+            Search
+          </button>
         </form>
       </div>
 
       <!--Recently Read Menu-->
       <div class="container my-3">
         <div class="menu-header">
-          <h2 class="mb-0"><b>Recently Read</b></h2>
+          <h2 class="mb-0" :style="changeColor"><b>Recently Read</b></h2>
           <button class="arrow-btn">
-            <RouterLink to="/recentlyread"><i class="bi bi-arrow-right-circle"></i></RouterLink>
+            <RouterLink to="/recentlyread"
+              ><i class="bi bi-arrow-right-circle" :style="categoryButtonStyles"></i
+            ></RouterLink>
           </button>
         </div>
         <div class="scrolling-wrapper">
@@ -298,9 +373,11 @@ const isNavbarCollapsed = ref(true) // For responsive navbar collapse
       <!--New Added Menu-->
       <div class="container my-3">
         <div class="menu-header">
-          <h2 class="mb-0"><b>New Added</b></h2>
+          <h2 class="mb-0" :style="changeColor"><b>New Added</b></h2>
           <button class="arrow-btn">
-            <RouterLink to="/newadded"><i class="bi bi-arrow-right-circle"></i></RouterLink>
+            <RouterLink to="/newadded"
+              ><i class="bi bi-arrow-right-circle" :style="categoryButtonStyles"></i
+            ></RouterLink>
           </button>
         </div>
         <div class="scrolling-wrapper">
@@ -319,13 +396,14 @@ const isNavbarCollapsed = ref(true) // For responsive navbar collapse
       <div class="container my-3">
         <div class="row align-items-center mb-3">
           <div class="col">
-            <h2 class="mb-0"><b>Categories</b></h2>
+            <h2 class="mb-0" :style="changeColor"><b>Categories</b></h2>
           </div>
         </div>
         <div class="categories-wrapper mb-3">
           <button
             v-for="category in categories"
             :key="category"
+            :style="{ borderColor: categoryStylesSlide.borderColor }"
             class="btn category-btn me-2 mb-2"
             :class="{ active: selectedCategory === category }"
             @click="selectedCategory = category"
@@ -379,7 +457,7 @@ const isNavbarCollapsed = ref(true) // For responsive navbar collapse
 
     <!-- Book Details Modal -->
     <div v-if="showModal" class="modal-overlay" @click="closeModal">
-      <div class="modal-content" @click.stop>
+      <div class="modal-content" @click.stop :class="elementClass">
         <button class="close-button" @click="closeModal">
           <i class="bi bi-x-lg"></i>
         </button>
@@ -390,43 +468,50 @@ const isNavbarCollapsed = ref(true) // For responsive navbar collapse
               <div class="progress">
                 <div class="progress-bar" :style="{ width: selectedBook.progress + '%' }"></div>
               </div>
-              <div class="progress-text">{{ selectedBook.progress }}% completed</div>
+              <div class="progress-text" :style="colorProgRess">
+                {{ selectedBook.progress }}% completed
+              </div>
             </div>
           </div>
           <div class="modal-book-info">
-            <h2 class="modal-book-title">{{ selectedBook.title }}</h2>
-            <div class="modal-book-author">by {{ selectedBook.author }}</div>
+            <h2 class="modal-book-title" :style="titleBookStory">{{ selectedBook.title }}</h2>
+            <div class="modal-book-author" :style="titleBookStory">
+              by {{ selectedBook.author }}
+            </div>
             <div class="modal-book-meta">
-              <span class="badge bg-secondary me-2">{{ selectedBook.published }}</span>
-              <span class="badge bg-secondary me-2">{{ selectedBook.pages }} pages</span>
+              <span class="badge me-2" :style="datePublishedYear">{{
+                selectedBook.published
+              }}</span>
+              <span class="badge me-2" :style="colorPagesBook">{{ selectedBook.pages }} pages</span>
               <span
                 v-for="cat in selectedBook.category"
                 :key="cat"
+                :style="colorCateGories"
                 class="badge bg-name-title me-2"
                 >{{ cat }}</span
               >
             </div>
-            <h4 class="modal-section-title">Synopsis</h4>
-            <p class="modal-book-synopsis">{{ selectedBook.synopsis }}</p>
+            <h4 class="modal-section-title" :style="titleBookStory">Synopsis</h4>
+            <p class="modal-book-synopsis" :style="titleBookStory">{{ selectedBook.synopsis }}</p>
             <div class="modal-actions">
               <div class="row g-2">
                 <div class="col-12 col-sm-6">
                   <RouterLink to="/chapter-view">
-                    <button class="btn btn-primary w-100">Read Now</button>
+                    <button class="btn btn-buttonChapter w-100">Read Now</button>
                   </RouterLink>
                 </div>
                 <div class="col-12 col-sm-6">
-                  <button class="btn btn-primary w-100">
+                  <button class="btn btn-buttonChapter w-100">
                     <i class="bi bi-download"></i> Add to Offline
                   </button>
                 </div>
                 <div class="col-6">
-                  <button class="btn btn-primary w-100">
+                  <button class="btn btn-buttonChapter w-100">
                     <i class="bi bi-bookmark"></i> Bookmark
                   </button>
                 </div>
                 <div class="col-6">
-                  <button class="btn btn-primary w-100">
+                  <button class="btn btn-buttonChapter w-100">
                     <i class="bi bi-heart"></i> Favorite
                   </button>
                 </div>
@@ -505,7 +590,7 @@ const isNavbarCollapsed = ref(true) // For responsive navbar collapse
 .dropdown-item.drop-title:focus {
   /* Also style the focus state for accessibility */
   color: black !important; /* Change text color to black */
-  background-color: #f8f9fa; /* Optional: Add a light background on hover, common for dropdowns */
+  background-color: #e3ede3; /* Optional: Add a light background on hover, common for dropdowns */
   /* Remove this background-color line if you don't want it */
 }
 .dropdown .btn:focus,
@@ -662,5 +747,98 @@ const isNavbarCollapsed = ref(true) // For responsive navbar collapse
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1rem;
+}
+
+/* dark mode */
+.light-dark {
+  font-size: 15px;
+}
+
+/* dropdown */
+
+.app-container.bg-dark .dropdown-menu {
+  background-color: rgb(10, 10, 10) !important; /* Darker shade for dropdown */
+  border-color: #5a6268; /* Adjust border color */
+}
+
+/* Dark mode for Dropdown Items */
+.app-container.bg-dark .dropdown-item {
+  color: #a2c3a4 !important; /* Light text for dropdown items */
+}
+
+.app-container.bg-dark .dropdown-item:hover,
+.app-container.bg-dark .dropdown-item:focus {
+  background-color: #5a6268 !important; /* Slightly lighter background on hover/focus */
+  color: #ffffff !important;
+}
+
+/* Dark mode for Dropdown Divider */
+.app-container.bg-dark .dropdown-divider {
+  border-top-color: #5a6268; /* Darker divider color */
+}
+
+.app-container.bg-dark .light-dark i,
+.app-container.bg-dark .light-dark .form-check-label {
+  color: #e9ecef !important; /* Ensure icon and label are light */
+}
+.dark-mode {
+  background-color: #121212; /* Example dark background for the whole page */
+  color: white; /* Example light text color */
+}
+.dark-mode .light-dark i {
+  color: white !important;
+}
+
+.light-mode {
+  background-color: #ffffff; /* Example light background for the whole page */
+  color: #121212; /* Example dark text color */
+}
+
+.dark-mode .bottom-navbar {
+  background-color: #4e6766 !important; /* Dark navbar background */
+  color: #e0e0e0 !important; /* Light navbar text */
+}
+
+.dark-mode .card {
+  background-color: #1e1e1e; /* Dark card background */
+  color: #e0e0e0; /* Light card text */
+  border-color: #121212; /* Dark card border */
+}
+
+.dark-mode .dropdown-menu {
+  background-color: #1e1e1e !important; /* Dark dropdown background */
+  border-color: #121212;
+}
+
+.dark-mode .dropdown-item {
+  color: #e0e0e0 !important; /* Light dropdown item text */
+}
+
+/* --- Dark Mode Styles --- */
+
+.dark-mode .category-btn:not(.active) {
+  color: #cccccc;
+}
+/* Hover State (Dark Mode, NOT active, Hovered) */
+.dark-mode .category-btn:hover:not(.active) {
+  background-color: #5a7a5a;
+  color: #ffffff;
+}
+
+/* Active State (Dark Mode, regardless of hover) */
+.dark-mode .category-btn.active {
+  background-color: #a2c3a4;
+  color: #333333;
+}
+
+/* darkmode */
+.my-element-dark {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.my-element-light {
+  background-color: #eeeeee;
+  color: #000000;
 }
 </style>
