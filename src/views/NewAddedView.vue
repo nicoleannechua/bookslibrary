@@ -40,7 +40,7 @@ const colorCateGories = computed(() => ({
 }))
 
 const categoryButtonStyles = computed(() => ({
-  color: themeStore.isDarkMode ? '#a2c3a4' : '#4e6766',
+  color: themeStore.isDarkMode ? '#d0e1d1' : '#4e6766',
   borderColor: themeStore.isDarkMode ? '#a2c3a4' : '#4e6766',
 }))
 
@@ -314,11 +314,10 @@ const isDropdownOpen = ref(false)
             <h2 class="modal-book-title" :style="changeColor">{{ selectedBook.title }}</h2>
             <div class="modal-book-author" :style="changeColor">by {{ selectedBook.author }}</div>
             <div class="modal-book-meta">
-              <span class="badge bg-secondary me-2">{{ selectedBook.published }}</span>
-              <span class="badge bg-secondary me-2">{{ selectedBook.pages }} pages</span>
-              <span v-for="cat in selectedBook.category" :key="cat" class="badge bg-primary me-2">{{
-                cat
+              <span class="badge me-2" :style="datePublishedYear">{{
+                selectedBook.published
               }}</span>
+
               <span class="badge me-2" :style="colorPagesBook">{{ selectedBook.pages }} pages</span>
               <span
                 v-for="cat in selectedBook.category"

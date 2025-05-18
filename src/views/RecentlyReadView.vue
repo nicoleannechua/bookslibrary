@@ -148,7 +148,7 @@ const colorProgRess = computed(() => ({
   color: themeStore.isDarkMode ? '#ffffff' : '#666',
 }))
 const categoryButtonStyles = computed(() => ({
-  color: themeStore.isDarkMode ? '#a2c3a4' : '#4e6766',
+  color: themeStore.isDarkMode ? '#d0e1d1' : '#4e6766',
   borderColor: themeStore.isDarkMode ? '#a2c3a4' : '#4e6766',
 }))
 const isDropdownOpen = ref(false)
