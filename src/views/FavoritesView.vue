@@ -261,15 +261,15 @@ const isDropdownOpen = ref(false)
             <div class="modal-actions">
               <div class="row g-2">
                 <div class="col-12">
-                  <button class="btn btn-primary w-100">Read Now</button>
+                  <button class="btn btn-buttonChapters w-100">Read Now</button>
                 </div>
                 <div class="col-6">
-                  <button class="btn btn-primary w-100">
+                  <button class="btn btn-buttonChapters w-100">
                     <i class="bi bi-bookmark"></i> Bookmark
                   </button>
                 </div>
                 <div class="col-6">
-                  <button class="btn btn-primary w-100">
+                  <button class="btn btn-buttonChapters w-100">
                     <i class="bi bi-cloud-download"></i> Download
                   </button>
                 </div>

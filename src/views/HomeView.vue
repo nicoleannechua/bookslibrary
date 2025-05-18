@@ -497,21 +497,21 @@ const isNavbarCollapsed = ref(true) // For responsive navbar collapse
               <div class="row g-2">
                 <div class="col-12 col-sm-6">
                   <RouterLink to="/chapter-view">
-                    <button class="btn btn-primary w-100">Read Now</button>
+                    <button class="btn btn-buttonChapters w-100">Read Now</button>
                   </RouterLink>
                 </div>
                 <div class="col-12 col-sm-6">
-                  <button class="btn btn-primary w-100">
+                  <button class="btn btn-buttonChapters w-100">
                     <i class="bi bi-download"></i> Add to Offline
                   </button>
                 </div>
                 <div class="col-6">
-                  <button class="btn btn-primary w-100">
+                  <button class="btn btn-buttonChapters w-100">
                     <i class="bi bi-bookmark"></i> Bookmark
                   </button>
                 </div>
                 <div class="col-6">
-                  <button class="btn btn-primary w-100">
+                  <button class="btn btn-buttonChapters w-100">
                     <i class="bi bi-heart"></i> Favorite
                   </button>
                 </div>
@@ -747,5 +747,15 @@ const isNavbarCollapsed = ref(true) // For responsive navbar collapse
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1rem;
+}
+/* darkmode */
+.my-element-dark {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.my-element-light {
+  background-color: #eeeeee;
+  color: #000000;
 }
 </style>

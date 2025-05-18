@@ -170,12 +170,12 @@
 }
 
 /* Button styles */
-.btn-primary {
+.btn-buttonChapters {
   background-color: #a2c3a4;
   border-color: #a9b18f;
   color: #202720;
 }
-.btn-primary:hover {
+.btn-buttonChapters:hover {
   background-color: #8aab8c;
   border-color: #97a07e;
   color: #ffffff;

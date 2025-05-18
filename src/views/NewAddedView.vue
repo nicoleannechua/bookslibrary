@@ -332,17 +332,17 @@ const isDropdownOpen = ref(false)
             <div class="modal-actions">
               <div class="row g-2">
                 <div class="col-12">
-                  <button class="btn btn-primary w-100" @click="addToLibrary(selectedBook)">
+                  <button class="btn btn-buttonChapters w-100" @click="addToLibrary(selectedBook)">
                     <i class="bi bi-download"></i> Add to My Library
                   </button>
                 </div>
                 <div class="col-6">
-                  <button class="btn btn-primary w-100">
+                  <button class="btn btn-buttonChapters w-100">
                     <i class="bi bi-bookmark"></i> Bookmark
                   </button>
                 </div>
                 <div class="col-6">
-                  <button class="btn btn-primary w-100">
+                  <button class="btn btn-buttonChapters w-100">
                     <i class="bi bi-heart"></i> Favorite
                   </button>
                 </div>
