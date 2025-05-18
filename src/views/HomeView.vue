@@ -497,21 +497,21 @@ const isNavbarCollapsed = ref(true) // For responsive navbar collapse
               <div class="row g-2">
                 <div class="col-12 col-sm-6">
                   <RouterLink to="/chapter-view">
-                    <button class="btn btn-buttonChapter w-100">Read Now</button>
+                    <button class="btn btn-primary w-100">Read Now</button>
                   </RouterLink>
                 </div>
                 <div class="col-12 col-sm-6">
-                  <button class="btn btn-buttonChapter w-100">
+                  <button class="btn btn-primary w-100">
                     <i class="bi bi-download"></i> Add to Offline
                   </button>
                 </div>
                 <div class="col-6">
-                  <button class="btn btn-buttonChapter w-100">
+                  <button class="btn btn-primary w-100">
                     <i class="bi bi-bookmark"></i> Bookmark
                   </button>
                 </div>
                 <div class="col-6">
-                  <button class="btn btn-buttonChapter w-100">
+                  <button class="btn btn-primary w-100">
                     <i class="bi bi-heart"></i> Favorite
                   </button>
                 </div>
@@ -747,98 +747,5 @@ const isNavbarCollapsed = ref(true) // For responsive navbar collapse
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1rem;
-}
-
-/* dark mode */
-.light-dark {
-  font-size: 15px;
-}
-
-/* dropdown */
-
-.app-container.bg-dark .dropdown-menu {
-  background-color: rgb(10, 10, 10) !important; /* Darker shade for dropdown */
-  border-color: #5a6268; /* Adjust border color */
-}
-
-/* Dark mode for Dropdown Items */
-.app-container.bg-dark .dropdown-item {
-  color: #a2c3a4 !important; /* Light text for dropdown items */
-}
-
-.app-container.bg-dark .dropdown-item:hover,
-.app-container.bg-dark .dropdown-item:focus {
-  background-color: #5a6268 !important; /* Slightly lighter background on hover/focus */
-  color: #ffffff !important;
-}
-
-/* Dark mode for Dropdown Divider */
-.app-container.bg-dark .dropdown-divider {
-  border-top-color: #5a6268; /* Darker divider color */
-}
-
-.app-container.bg-dark .light-dark i,
-.app-container.bg-dark .light-dark .form-check-label {
-  color: #e9ecef !important; /* Ensure icon and label are light */
-}
-.dark-mode {
-  background-color: #121212; /* Example dark background for the whole page */
-  color: white; /* Example light text color */
-}
-.dark-mode .light-dark i {
-  color: white !important;
-}
-
-.light-mode {
-  background-color: #ffffff; /* Example light background for the whole page */
-  color: #121212; /* Example dark text color */
-}
-
-.dark-mode .bottom-navbar {
-  background-color: #4e6766 !important; /* Dark navbar background */
-  color: #e0e0e0 !important; /* Light navbar text */
-}
-
-.dark-mode .card {
-  background-color: #1e1e1e; /* Dark card background */
-  color: #e0e0e0; /* Light card text */
-  border-color: #121212; /* Dark card border */
-}
-
-.dark-mode .dropdown-menu {
-  background-color: #1e1e1e !important; /* Dark dropdown background */
-  border-color: #121212;
-}
-
-.dark-mode .dropdown-item {
-  color: #e0e0e0 !important; /* Light dropdown item text */
-}
-
-/* --- Dark Mode Styles --- */
-
-.dark-mode .category-btn:not(.active) {
-  color: #cccccc;
-}
-/* Hover State (Dark Mode, NOT active, Hovered) */
-.dark-mode .category-btn:hover:not(.active) {
-  background-color: #5a7a5a;
-  color: #ffffff;
-}
-
-/* Active State (Dark Mode, regardless of hover) */
-.dark-mode .category-btn.active {
-  background-color: #a2c3a4;
-  color: #333333;
-}
-
-/* darkmode */
-.my-element-dark {
-  background-color: #121212;
-  color: #ffffff;
-}
-
-.my-element-light {
-  background-color: #eeeeee;
-  color: #000000;
 }
 </style>

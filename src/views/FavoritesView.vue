@@ -247,19 +247,12 @@ const isDropdownOpen = ref(false)
             <h2 class="modal-book-title" :style="changeColor">{{ selectedBook.title }}</h2>
             <div class="modal-book-author" :style="changeColor">by {{ selectedBook.author }}</div>
             <div class="modal-book-meta">
-              <span class="badge me-2" :style="datePublishedYear">{{
-                selectedBook.published
-              }}</span>
-              <!-- <span class="badge bg-secondary me-2">{{ selectedBook.pages }} pages</span>
-              <span v-for="cat in selectedBook.category" :key="cat" class="badge bg-primary me-2">{{
-                cat
-              }}</span> -->
-              <span class="badge me-2" :style="colorPagesBook">{{ selectedBook.pages }} pages</span>
+              <span class="badge bg-secondary me-2">{{ selectedBook.published }}</span>
+              <span class="badge bg-secondary me-2">{{ selectedBook.pages }} pages</span>
               <span
                 v-for="cat in selectedBook.category"
-                :style="colorCateGories"
                 :key="cat"
-                class="badge me-2"
+                class="badge bg-secondary me-2"
                 >{{ cat }}</span
               >
             </div>
@@ -268,24 +261,24 @@ const isDropdownOpen = ref(false)
             <div class="modal-actions">
               <div class="row g-2">
                 <div class="col-12">
-                  <button class="btn btn-buttonChapter w-100">Read Now</button>
+                  <button class="btn btn-primary w-100">Read Now</button>
                 </div>
                 <div class="col-6">
-                  <button class="btn btn-buttonChapter w-100">
+                  <button class="btn btn-primary w-100">
                     <i class="bi bi-bookmark"></i> Bookmark
                   </button>
                 </div>
                 <div class="col-6">
-                  <button class="btn btn-buttonChapter w-100">
+                  <button class="btn btn-primary w-100">
                     <i class="bi bi-cloud-download"></i> Download
                   </button>
                 </div>
                 <div class="col-12 mt-2">
                   <button
                     class="btn btn-outline-danger w-100"
-                    @click="removeFromFavorites(selectedBook)"
+                    @click="removeFromOffline(selectedBook)"
                   >
-                    <i class="bi bi-heart-break"></i> Remove from Favorites
+                    <i class="bi bi-trash"></i> Remove from Favorites
                   </button>
                 </div>
               </div>
