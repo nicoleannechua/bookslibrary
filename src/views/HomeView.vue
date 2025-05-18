@@ -277,7 +277,7 @@ const isDropdownOpen = ref(false)
             <img :src="logoChangeStyle" alt="Bootstrap" width="50" height="30" />
           </RouterLink>
 
-          <div class="d-flex">
+           <div class="d-flex">
             <div class="dropdown">
               <button
                 class="btn"
@@ -292,7 +292,7 @@ const isDropdownOpen = ref(false)
               <ul
                 class="dropdown-menu dropdown-menu-end"
                 aria-labelledby="profileDropdown"
-                :class="(elementClass, { show: isDropdownOpen })"
+                :class="[elementClass, { show: isDropdownOpen }]"
               >
                 <div class="container">
                   <div class="text-center" @click="toggleMode" style="cursor: pointer">
@@ -403,7 +403,7 @@ const isDropdownOpen = ref(false)
           <button
             v-for="category in categories"
             :key="category"
-            :style="{ borderColor: categoryStylesSlide.borderColor }"
+             :style="{ borderColor: categoryStylesSlide.borderColor }"
             class="btn category-btn me-2 mb-2"
             :class="{ active: selectedCategory === category }"
             @click="selectedCategory = category"
@@ -497,21 +497,21 @@ const isDropdownOpen = ref(false)
               <div class="row g-2">
                 <div class="col-12 col-sm-6">
                   <RouterLink to="/chapter-view">
-                  <button class="btn btn-primary w-100">Read Now</button>
+                  <button class="btn w-100">Read Now</button>
                   </RouterLink>
                 </div>
                 <div class="col-12 col-sm-6">
-                <button class="btn btn-primary w-100">
+                <button class="btn w-100">
                     <i class="bi bi-download"></i> Add to Offline
                   </button>
                 </div>
                 <div class="col-6">
-                <button class="btn btn-primary w-100">
+                <button class="btn w-100">
                     <i class="bi bi-bookmark"></i> Bookmark
                   </button>
                 </div>
                 <div class="col-6">
-                <button class="btn btn-primary w-100">
+                <button class="btn w-100">
                     <i class="bi bi-heart"></i> Favorite
                   </button>
                 </div>
@@ -757,5 +757,22 @@ const isDropdownOpen = ref(false)
 .my-element-light {
   background-color: #eeeeee;
   color: #000000;
+}
+
+/* --- Dark Mode Styles --- */
+
+.dark-mode .category-btn:not(.active) {
+  color: #cccccc;
+}
+/* Hover State (Dark Mode, NOT active, Hovered) */
+.dark-mode .category-btn:hover:not(.active) {
+  background-color: #5a7a5a;
+  color: #ffffff;
+}
+
+/* Active State (Dark Mode, regardless of hover) */
+.dark-mode .category-btn.active {
+  background-color: #a2c3a4;
+  color: #333333;
 }
 </style>

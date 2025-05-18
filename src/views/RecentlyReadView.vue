@@ -382,11 +382,6 @@ const categoryButtonStyles = computed(() => ({
             <h2 class="modal-book-title" :style="changeColor">{{ selectedBook.title }}</h2>
             <div class="modal-book-author" :style="changeColor">by {{ selectedBook.author }}</div>
             <div class="modal-book-meta">
-              <span class="badge bg-secondary me-2">{{ selectedBook.published }}</span>
-              <span class="badge bg-secondary me-2">{{ selectedBook.pages }} pages</span>
-              <span v-for="cat in selectedBook.category" :key="cat" class="badge bg-secondary me-2"
-                >{{ cat }}
-              </span>
               <span class="badge me-2" :style="datePublishedYear">{{
                 selectedBook.published
               }}</span>
@@ -404,15 +399,15 @@ const categoryButtonStyles = computed(() => ({
             <div class="modal-actions">
               <div class="row g-2">
                 <div class="col-12">
-                  <button class="btn btn-primary w-100">Continue Reading</button>
+                  <button class="btn w-100">Continue Reading</button>
                 </div>
                 <div class="col-6">
-                  <button class="btn btn-primary w-100">
+                  <button class="btn w-100">
                     <i class="bi bi-bookmark"></i> Bookmark
                   </button>
                 </div>
                 <div class="col-6">
-                  <button class="btn btn-primary w-100">
+                  <button class="btn w-100">
                     <i class="bi bi-heart"></i> Favorite
                   </button>
                 </div>

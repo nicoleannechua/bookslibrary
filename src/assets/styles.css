@@ -290,6 +290,7 @@ a {
   color: white;
 }
 
+
 @media (max-width: 768px) {
   .category-btn {
     padding: 0.4rem 0.8rem;
