@@ -292,7 +292,7 @@ const isNavbarCollapsed = ref(true) // For responsive navbar collapse
               <ul
                 class="dropdown-menu dropdown-menu-end"
                 aria-labelledby="profileDropdown"
-                :class="(backgroundClass, { show: isDropdownOpen })"
+                :class="(elementClass, { show: isDropdownOpen })"
               >
                 <div class="container">
                   <div class="text-center" @click="toggleMode" style="cursor: pointer">

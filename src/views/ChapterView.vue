@@ -354,7 +354,7 @@ const elementClass = computed(() => {
         </ul>
       </div>
 
-      <div class="chapter-content-main" :class="backgroundClass">
+      <div class="chapter-content-main" :class="elementClass">
         <section
           v-for="chapter in chapters"
           :key="chapter.id"
