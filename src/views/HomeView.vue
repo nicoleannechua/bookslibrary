@@ -501,7 +501,9 @@ const isNavbarCollapsed = ref(true) // For responsive navbar collapse
                   </RouterLink>
                 </div>
                 <div class="col-12 col-sm-6">
-                  <button class="btn c w-100"><i class="bi bi-download"></i> Add to Offline</button>
+                  <button class="btn btn-buttonChapter w-100">
+                    <i class="bi bi-download"></i> Add to Offline
+                  </button>
                 </div>
                 <div class="col-6">
                   <button class="btn btn-buttonChapter w-100">

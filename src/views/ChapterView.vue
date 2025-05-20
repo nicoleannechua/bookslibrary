@@ -413,7 +413,7 @@ const elementClass = computed(() => {
                 <div class="row">
                   <div class="col-6">
                     <h6 class="fw-bold">Text size</h6>
-                    <div class="btn-group mb-3" role="group" aria-label="Text Size">
+                    <div class="btn-group mb-3" role="group">
                       <button
                         class="btn"
                         :class="{ 'btn-fontsizer': fontSize === '14px' }"
@@ -689,10 +689,9 @@ h2.story-title {
 }
 
 /* FONT SIZER DESIGN */
-.btn-fontsize {
+.btn-fontsizer {
   background-color: transparent;
   color: #333;
-  border: 1px solid #ccc;
 }
 
 /* Active state */
@@ -708,7 +707,6 @@ h2.story-title {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-
   background-color: #f8f9fa;
   border: 1px solid #4e6766;
   border-radius: 0.375rem;
@@ -722,9 +720,8 @@ h2.story-title {
 
 /* --- Styling for options (limited cross-browser support) --- */
 .custom-select option {
-  /* Basic styling for options can be applied, but complex styling is often inconsistent */
   padding: 0.5rem;
-  background-color: #a9b18f;
+  background-color: #d0e1d1;
   color: #202720;
 }
 .custom-select option:hover {
