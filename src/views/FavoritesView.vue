@@ -276,7 +276,9 @@ const isDropdownOpen = ref(false)
                 <div class="col-12 mt-2">
                   <button
                     class="btn btn-outline-danger w-100"
-                    @click="removeFromOffline(selectedBook)"
+                    @click="removeFromOffline(selectedBook)
+                    class="btn btn-buttonChapterOffline w-100"
+                    @click="removeFromFavorites(selectedBook)"
                   >
                     <i class="bi bi-trash"></i> Remove from Favorites
                   </button>

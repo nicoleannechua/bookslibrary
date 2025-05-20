@@ -181,6 +181,16 @@
   color: #ffffff;
 }
 
+.btn-buttonChapterOffline {
+  background-color: #a2c3a4;
+  border-color: #a9b18f;
+  color: #202720;
+}
+.btn-buttonChapterOffline:hover {
+  border-color: red;
+  background-color: red;
+  color: white;
+}
 .btn-outline-success {
   color: #4e6766;
   border-color: #a9b18f;
@@ -314,7 +324,7 @@ a {
 }
 
 .modal-content {
-  background-color: white;
+  /* background-color: white; */
   border-radius: 16px;
   width: 90%;
   max-width: 600px;
