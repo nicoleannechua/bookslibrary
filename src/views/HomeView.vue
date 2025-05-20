@@ -292,7 +292,7 @@ const isNavbarCollapsed = ref(true) // For responsive navbar collapse
               <ul
                 class="dropdown-menu dropdown-menu-end"
                 aria-labelledby="profileDropdown"
-                :class="(elementClass, { show: isDropdownOpen })"
+                :class="[elementClass, { show: isDropdownOpen }]"
               >
                 <div class="container">
                   <div class="text-center" @click="toggleMode" style="cursor: pointer">
@@ -501,9 +501,7 @@ const isNavbarCollapsed = ref(true) // For responsive navbar collapse
                   </RouterLink>
                 </div>
                 <div class="col-12 col-sm-6">
-                  <button class="btn btn-buttonChapter w-100">
-                    <i class="bi bi-download"></i> Add to Offline
-                  </button>
+                  <button class="btn c w-100"><i class="bi bi-download"></i> Add to Offline</button>
                 </div>
                 <div class="col-6">
                   <button class="btn btn-buttonChapter w-100">
