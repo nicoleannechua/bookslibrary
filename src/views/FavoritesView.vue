@@ -393,7 +393,11 @@ const isDropdownOpen = ref(false)
   box-shadow: 0 4px 8px rgba(175, 221, 255, 0.3);
   transform: translateY(-5px);
 }
-
+.dark-mode .card {
+  background-color: #1e1e1e; /* Dark card background */
+  color: #e0e0e0; /* Light card text */
+  border-color: #121212; /* Dark card border */
+}
 @media (max-width: 768px) {
   .card {
     max-width: 100%;

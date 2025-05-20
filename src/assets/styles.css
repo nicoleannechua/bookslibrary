@@ -174,9 +174,10 @@
   background-color: #a2c3a4;
   border-color: #a9b18f;
   color: #202720;
+  font-size: 15px;
 }
-
-.btn-buttonChapter:hover {
+.btn-buttonChapter:active,
+.btn-buttonChapter:focus {
   background-color: #8aab8c;
   border-color: #97a07e;
   color: #ffffff;
@@ -186,11 +187,11 @@
   background-color: #a2c3a4;
   border-color: #a9b18f;
   color: #202720;
+  font-size: 15px;
 }
-.btn-buttonChapterOffline:hover {
+.btn-buttonChapterOffline:active {
   border-color: red;
-  background-color: red;
-  color: white;
+  color: red;
 }
 .btn-outline-success {
   color: #4e6766;

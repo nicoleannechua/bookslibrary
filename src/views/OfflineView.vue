@@ -700,6 +700,11 @@ const isDropdownOpen = ref(false)
   padding-top: 150%;
   overflow: hidden;
 }
+.dark-mode .card {
+  background-color: #1e1e1e; /* Dark card background */
+  color: #e0e0e0; /* Light card text */
+  border-color: #121212; /* Dark card border */
+}
 
 .card-img-top {
   position: absolute;

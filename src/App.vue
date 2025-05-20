@@ -30,7 +30,7 @@ body {
 
 .light-mode {
   background-color: #ffffff;
-  color: #1212123;
+  color: #121212;
 }
 
 /* Example dark mode styles for common elements */
@@ -41,11 +41,11 @@ body {
 .dark-mode .card {
   background-color: #1e1e1e;
   color: #e0e0e0;
-  border-color: #1212123;
+  border-color: #121212;
 }
 .dark-mode .dropdown-menu {
   background-color: #1e1e1e !important;
-  border-color: #1212123;
+  border-color: #121212;
 }
 .dark-mode .dropdown-item {
   color: #e0e0e0 !important; /* Light dropdown item text */

@@ -418,7 +418,7 @@ const isDropdownOpen = ref(false)
                 </div>
                 <div class="col-12 mt-2">
                   <button
-                    class="btn btn-outline-danger w-100"
+                    class="btn btn-buttonChapterOffline w-100"
                     @click="removeFromOffline(selectedBook)"
                   >
                     <i class="bi bi-trash"></i> Remove from Recently Read
