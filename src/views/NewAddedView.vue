@@ -141,7 +141,6 @@ const addToLibrary = (book) => {
   alert(`"${book.title}" has been added to your library`)
   showModal.value = false
 }
-
 </script>
 
 <template>
@@ -171,11 +170,7 @@ const addToLibrary = (book) => {
               placeholder="Search"
               aria-label="Search"
             />
-            <button
-              class="search-button rounded-pill"
-              :style="categoryButtonStyles"
-              type="submit"
-            >
+            <button class="search-button rounded-pill" :style="categoryButtonStyles" type="submit">
               Search
             </button>
           </form>
@@ -331,18 +326,15 @@ const addToLibrary = (book) => {
             <div class="modal-actions">
               <div class="row g-2">
                 <div class="col-12">
-                <button class="btn w-100" @click="addToLibrary(selectedBook)">
+                  <button class="btn w-100" @click="addToLibrary(selectedBook)">
                     <i class="bi bi-download"></i> Add to My Library
                   </button>
                 </div>
-                <div class="col-6"><button class="btn w-100">
-                    <i class="bi bi-bookmark"></i> Bookmark
-                  </button>
+                <div class="col-6">
+                  <button class="btn w-100"><i class="bi bi-bookmark"></i> Bookmark</button>
                 </div>
                 <div class="col-6">
-                <button class="btn w-100">
-                    <i class="bi bi-heart"></i> Favorite
-                  </button>
+                  <button class="btn w-100"><i class="bi bi-heart"></i> Favorite</button>
                 </div>
                 <div class="col-12 mt-2">
                   <button class="btn btn-outline-info w-100">
@@ -437,7 +429,11 @@ const addToLibrary = (book) => {
   border-color: #a2c3a4;
   transform: scale(1.1);
 }
-
+.dark-mode .card {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+  border-color: #121212;
+}
 /* Adjust dropdown menu position if needed */
 .dropdown-menu-end {
   right: 0;

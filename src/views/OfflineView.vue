@@ -230,7 +230,6 @@ const removeFromOffline = (book) => {
   alert(`"${book.title}" has been removed from your offline library`)
   showModal.value = false
 }
-
 </script>
 
 <template>
@@ -533,17 +532,13 @@ const removeFromOffline = (book) => {
             <div class="modal-actions">
               <div class="row g-2">
                 <div class="col-12">
-                <button class="btn w-100">Read Now</button>
+                  <button class="btn w-100">Read Now</button>
                 </div>
                 <div class="col-6">
-                <button class="btn w-100">
-                    <i class="bi bi-bookmark"></i> Bookmark
-                  </button>
+                  <button class="btn w-100"><i class="bi bi-bookmark"></i> Bookmark</button>
                 </div>
                 <div class="col-6">
-                <button class="btn w-100">
-                    <i class="bi bi-heart"></i> Favorite
-                  </button>
+                  <button class="btn w-100"><i class="bi bi-heart"></i> Favorite</button>
                 </div>
                 <div class="col-12 mt-2">
                   <button
@@ -622,6 +617,11 @@ const removeFromOffline = (book) => {
   border-color: #a2c3a4;
 }
 
+.dark-mode .card {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+  border-color: #121212;
+}
 /* Style the profile icon */
 .profile-icon {
   display: block;

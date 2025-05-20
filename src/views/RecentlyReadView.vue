@@ -402,14 +402,10 @@ const categoryButtonStyles = computed(() => ({
                   <button class="btn w-100">Continue Reading</button>
                 </div>
                 <div class="col-6">
-                  <button class="btn w-100">
-                    <i class="bi bi-bookmark"></i> Bookmark
-                  </button>
+                  <button class="btn w-100"><i class="bi bi-bookmark"></i> Bookmark</button>
                 </div>
                 <div class="col-6">
-                  <button class="btn w-100">
-                    <i class="bi bi-heart"></i> Favorite
-                  </button>
+                  <button class="btn w-100"><i class="bi bi-heart"></i> Favorite</button>
                 </div>
                 <div class="col-12 mt-2">
                   <button
@@ -564,7 +560,11 @@ const categoryButtonStyles = computed(() => ({
   padding-top: 150%;
   overflow: hidden;
 }
-
+.dark-mode .card {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+  border-color: #121212;
+}
 .card-img-top {
   position: absolute;
   top: 0;

@@ -420,7 +420,11 @@ const logoChangeStyle = computed(() => {
   margin: 0 auto;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
 }
-
+.dark-mode .card {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+  border-color: #121212;
+}
 /* New book cover container to maintain aspect ratio */
 .book-cover-container {
   position: relative;
