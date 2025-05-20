@@ -763,13 +763,7 @@ const isNavbarCollapsed = ref(true) // For responsive navbar collapse
 
 /* Dark mode for Dropdown Items */
 .app-container.bg-dark .dropdown-item {
-  color: #a2c3a4 !important; /* Light text for dropdown items */
-}
-
-.app-container.bg-dark .dropdown-item:hover,
-.app-container.bg-dark .dropdown-item:focus {
-  background-color: #5a6268 !important; /* Slightly lighter background on hover/focus */
-  color: #ffffff !important;
+  color: #4e6766 !important; /* Light text for dropdown items */
 }
 
 /* Dark mode for Dropdown Divider */
