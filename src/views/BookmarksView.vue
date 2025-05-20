@@ -2,7 +2,6 @@
 import '@/assets/styles.css'
 import logo2 from '@/assets/image/logo2.png'
 import logo12 from '@/assets/image/logo12.png'
-import profileIcon from '@/assets/image/profileIcon.png'
 import beforeTheRain from '@/assets/image/beforeTheRain.png'
 import cherishedMoment from '@/assets/image/cherishedMoment.png'
 import dreams from '@/assets/image/dreams.png'
@@ -25,7 +24,6 @@ const changeColor = computed(() => ({
 const logoChangeStyle = computed(() => {
   return themeStore.isDarkMode ? logo12 : logo2
 })
-const isDropdownOpen = ref(false)
 </script>
 
 <template>

@@ -170,12 +170,12 @@
 }
 
 /* Button styles */
-.btn-buttonChapters {
+.btn {
   background-color: #a2c3a4;
   border-color: #a9b18f;
   color: #202720;
 }
-.btn-buttonChapters:hover {
+.btn:hover {
   background-color: #8aab8c;
   border-color: #97a07e;
   color: #ffffff;
@@ -324,7 +324,7 @@ a {
 }
 
 .modal-content {
-  /* background-color: white; */
+  background-color: white;
   border-radius: 16px;
   width: 90%;
   max-width: 600px;

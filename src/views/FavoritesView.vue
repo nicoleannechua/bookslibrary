@@ -2,7 +2,6 @@
 import '@/assets/styles.css'
 import logo2 from '@/assets/image/logo2.png'
 import logo12 from '@/assets/image/logo12.png'
-import profileIcon from '@/assets/image/profileIcon.png'
 import cherishedMoment from '@/assets/image/cherishedMoment.png'
 import findingMyselfAgain from '@/assets/image/findingMyselfAgain.png'
 import loveWithoutLimits from '@/assets/image/loveWithoutLimits.png'
@@ -103,7 +102,6 @@ const removeFromFavorites = (book) => {
 const logoChangeStyle = computed(() => {
   return themeStore.isDarkMode ? logo12 : logo2
 })
-const isDropdownOpen = ref(false)
 </script>
 
 <template>
@@ -250,6 +248,11 @@ const isDropdownOpen = ref(false)
               <span class="badge me-2" :style="datePublishedYear">{{
                 selectedBook.published
               }}</span>
+
+              <span class="badge me-2" :style="datePublishedYear">{{
+                selectedBook.published
+              }}</span>
+
               <span class="badge me-2" :style="colorPagesBook">{{ selectedBook.pages }} pages</span>
               <span
                 v-for="cat in selectedBook.category"
@@ -264,17 +267,13 @@ const isDropdownOpen = ref(false)
             <div class="modal-actions">
               <div class="row g-2">
                 <div class="col-12">
-                  <button class="btn btn-buttonChapters w-100">Read Now</button>
+                  <button class="btn w-100">Read Now</button>
                 </div>
                 <div class="col-6">
-                  <button class="btn btn-buttonChapters w-100">
-                    <i class="bi bi-bookmark"></i> Bookmark
-                  </button>
+                  <button class="btn w-100"><i class="bi bi-bookmark"></i> Bookmark</button>
                 </div>
                 <div class="col-6">
-                  <button class="btn btn-buttonChapters w-100">
-                    <i class="bi bi-cloud-download"></i> Download
-                  </button>
+                  <button class="btn w-100"><i class="bi bi-cloud-download"></i> Download</button>
                 </div>
                 <div class="col-12 mt-2">
                   <button

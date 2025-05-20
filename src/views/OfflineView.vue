@@ -2,7 +2,6 @@
 import '@/assets/styles.css'
 import logo2 from '@/assets/image/logo2.png'
 import logo12 from '@/assets/image/logo12.png'
-import profileIcon from '@/assets/image/profileIcon.png'
 import beforeTheRain from '@/assets/image/beforeTheRain.png'
 import cherishedMoment from '@/assets/image/cherishedMoment.png'
 import dreams from '@/assets/image/dreams.png'
@@ -232,7 +231,6 @@ const removeFromOffline = (book) => {
   showModal.value = false
 }
 
-const isDropdownOpen = ref(false)
 </script>
 
 <template>
@@ -535,15 +533,15 @@ const isDropdownOpen = ref(false)
             <div class="modal-actions">
               <div class="row g-2">
                 <div class="col-12">
-                  <button class="btn btn-buttonChapters w-100">Read Now</button>
+                <button class="btn w-100">Read Now</button>
                 </div>
                 <div class="col-6">
-                  <button class="btn btn-buttonChapters w-100">
+                <button class="btn w-100">
                     <i class="bi bi-bookmark"></i> Bookmark
                   </button>
                 </div>
                 <div class="col-6">
-                  <button class="btn btn-buttonChapters w-100">
+                <button class="btn w-100">
                     <i class="bi bi-heart"></i> Favorite
                   </button>
                 </div>

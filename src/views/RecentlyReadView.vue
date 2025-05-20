@@ -2,7 +2,7 @@
 import '@/assets/styles.css'
 import logo2 from '@/assets/image/logo2.png'
 import logo12 from '@/assets/image/logo12.png'
-import profileIcon from '@/assets/image/profileIcon.png'
+
 import beforeTheRain from '@/assets/image/beforeTheRain.png'
 import cherishedMoment from '@/assets/image/cherishedMoment.png'
 import dreams from '@/assets/image/dreams.png'
@@ -151,7 +151,6 @@ const categoryButtonStyles = computed(() => ({
   color: themeStore.isDarkMode ? '#d0e1d1' : '#4e6766',
   borderColor: themeStore.isDarkMode ? '#a2c3a4' : '#4e6766',
 }))
-const isDropdownOpen = ref(false)
 </script>
 
 <template>
@@ -181,11 +180,7 @@ const isDropdownOpen = ref(false)
               placeholder="Search"
               aria-label="Search"
             />
-            <button
-              class="btn search-button rounded-pill"
-              :style="categoryButtonStyles"
-              type="submit"
-            >
+            <button class="search-button rounded-pill" :style="categoryButtonStyles" type="submit">
               Search
             </button>
           </form>
@@ -387,11 +382,6 @@ const isDropdownOpen = ref(false)
             <h2 class="modal-book-title" :style="changeColor">{{ selectedBook.title }}</h2>
             <div class="modal-book-author" :style="changeColor">by {{ selectedBook.author }}</div>
             <div class="modal-book-meta">
-              <span class="badge bg-secondary me-2">{{ selectedBook.published }}</span>
-              <span class="badge bg-secondary me-2">{{ selectedBook.pages }} pages</span>
-              <span v-for="cat in selectedBook.category" :key="cat" class="badge bg-secondary me-2"
-                >{{ cat }}
-              </span>
               <span class="badge me-2" :style="datePublishedYear">{{
                 selectedBook.published
               }}</span>
@@ -409,15 +399,15 @@ const isDropdownOpen = ref(false)
             <div class="modal-actions">
               <div class="row g-2">
                 <div class="col-12">
-                  <button class="btn btn-buttonChapters w-100">Continue Reading</button>
+                  <button class="btn w-100">Continue Reading</button>
                 </div>
                 <div class="col-6">
-                  <button class="btn btn-buttonChapters w-100">
+                  <button class="btn w-100">
                     <i class="bi bi-bookmark"></i> Bookmark
                   </button>
                 </div>
                 <div class="col-6">
-                  <button class="btn btn-buttonChapters w-100">
+                  <button class="btn w-100">
                     <i class="bi bi-heart"></i> Favorite
                   </button>
                 </div>

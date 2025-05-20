@@ -2,7 +2,7 @@
 import '@/assets/styles.css'
 import logo2 from '@/assets/image/logo2.png'
 import logo12 from '@/assets/image/logo12.png'
-import profileIcon from '@/assets/image/profileIcon.png'
+
 import meMyselfAndI from '@/assets/image/meMyselfAndI.png'
 import midnightWorld from '@/assets/image/midnightWorld.png'
 import oneStepToTheHeart from '@/assets/image/oneStepToTheHeart.png'
@@ -142,7 +142,6 @@ const addToLibrary = (book) => {
   showModal.value = false
 }
 
-const isDropdownOpen = ref(false)
 </script>
 
 <template>
@@ -173,7 +172,7 @@ const isDropdownOpen = ref(false)
               aria-label="Search"
             />
             <button
-              class="btn search-button rounded-pill"
+              class="search-button rounded-pill"
               :style="categoryButtonStyles"
               type="submit"
             >
@@ -332,17 +331,16 @@ const isDropdownOpen = ref(false)
             <div class="modal-actions">
               <div class="row g-2">
                 <div class="col-12">
-                  <button class="btn btn-buttonChapters w-100" @click="addToLibrary(selectedBook)">
+                <button class="btn w-100" @click="addToLibrary(selectedBook)">
                     <i class="bi bi-download"></i> Add to My Library
                   </button>
                 </div>
-                <div class="col-6">
-                  <button class="btn btn-buttonChapters w-100">
+                <div class="col-6"><button class="btn w-100">
                     <i class="bi bi-bookmark"></i> Bookmark
                   </button>
                 </div>
                 <div class="col-6">
-                  <button class="btn btn-buttonChapters w-100">
+                <button class="btn w-100">
                     <i class="bi bi-heart"></i> Favorite
                   </button>
                 </div>
